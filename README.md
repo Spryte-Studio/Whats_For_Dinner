@@ -18,29 +18,29 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Summary ##
   This web-app is made for individuals who experience any of the following:
-  1. Exhausted from long days of work, yet still hungry at meal-time?
-  2. Your fridge/pantry has lots of ingredients, yet your brain is too tired to come up with a meal idea?
-  3. You're too tired to even peruse your ingredients, and just want a recipe given based on previously logged ingredients?
+  1. Exhausted from long days of work, yet still hungry at meal-time
+  2. Your fridge/pantry has lots of ingredients, yet your brain is too tired to come up with a meal idea
+  3. You're too tired to even peruse your ingredients, and just want a recipe given based on previously logged ingredients
 
-  If ANY of the above applies to you, ANY day of the week, ANY meal of the day - this app is the solution to all your problems!
+  If ANY of the above applies to you, ANY day of the week - this app is the solution to your decision making problems for dinner!
 
 ## Problem this App Solves ##
-  This app helps to solve the increased fatigue experienced by the ever-increasing number of consumers by taking the meal-making decisions off their 'plate'! :sleepy:
+  Mental fatigue experienced by consumers by taking the meal-making decisions off their 'plate'! :sleepy:
 
 ## Solution this App Provides ##
-  With just a few button clicks, our app allows the consumer to store (add, update & delete) the ingredients found in their fridge/pantry and automatically have recipe recommendations based on these stored ingredients. :fork_and_knife:
+  With just a few button clicks, our app allows the consumer to store (add, update & delete) the ingredients found in their fridge/pantry and automatically receive recipe recommendations based on these stored ingredients. :fork_and_knife:
 
 ## Quote from the Creators ##
-  "'What's for Dinner' - removing the tough decision making from your 'plate' of to-do's, to make the plating of tasty & nutritous food easy & possible!" - Brain Child: Finn Lucas | Developers: Mikka Tully, Meagan Provencher, David Harbin, James Moore, Phong Trinh :wave:
+  "'What's for Dinner' - removing the tough decision making from your 'plate' of to-do's, to make the plating of tasty & nutritious food easy & possible!" - Brain Child: Finn Lucas | Developers: Mikka Tully, Meagan Provencher, David Harbin, James Moore, Phong Trinh :wave:
 
 ## How to Get Started ##
-  1. Open the webapp
+  1. Navigate to the webapp
   2. Create/Login to your user account
   3. Navigate to the Fridge/Pantry page:
       * Ensure your fridge/pantry ingredients lists are accurate
   4. Navigate to the Recipes page:
       * See recipes laid out based on your fridge/pantry ingredients
-  5. Choose a recipe to make a delicous meal with the ingredients you already have!
+  5. Choose a recipe to make a delicious meal with the ingredients you already have!
   6. Make dinner, relax and pat yourself on the back for using such a helpful, wonderful, well thought-out app :smiley:
 
 ## Quote from a Satisfied Customer ##
