@@ -1,3 +1,4 @@
+
 # What's for Dinner? :yum: #
 A beautiful brainchild of our customer Finn Lucas, this app makes mealtime easier for the busy & overwhelmed consumers.
 <!--
@@ -48,3 +49,19 @@ Once the project moves into development, the press release can be used as a touc
 
 ## What Should You Do Next? ##
   What are you waiting for? Open the app and start enjoying meal prep again!
+=======
+# 🚀 Welcome to your new awesome project!
+
+This project has been created using **webpack-cli**, you can now run
+
+```
+npm run build
+```
+
+or
+
+```
+yarn build
+```
+
+to bundle your application
