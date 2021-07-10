@@ -1,10 +1,13 @@
 import React from 'react';
+import {
+  Button, Typography, Paper, Grid
+} from '@material-ui/core';
 
 var Home = () => {
   return (
-    <div id='Home'>
-
-    </div>
+    <Grid id='Home'>
+      test
+    </Grid>
   );
 };
 
