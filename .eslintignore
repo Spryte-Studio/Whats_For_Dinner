@@ -1,0 +1,8 @@
+**/node_modules
+**/bower_components
+**/lib
+**/vendor
+**/*.min.js
+**/webpack.config.js
+**/client/dist/bundle.js
+**/package.json
