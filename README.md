@@ -59,7 +59,7 @@ Welcome to What's for Dinner’s meal helper web-app! Thank you for taking an in
 ***
 
 ## Using this Repo
-You will find inside a breakdown of how we organized, created, and designed each feature on our meal helper web-app. Our folders are a good startingpoint to gain clarity into the organization and structure of our app. Within these folders is where you will find the code and styling related to the individual components and the features of these components.
+You will find inside a breakdown of how we organized, created, and designed each feature on our meal helper web-app. Our folders are a good starting point to gain clarity into the organization and structure of our app. Within these folders is where you will find the code and styling related to the individual components and the features of these components.
 
 ## Getting a Copy of this Repo
 If you haven’t already, please fork the repository on GitHub and clone your newly created repo down to your computer (then comes the fun part– exploring & learning)!
