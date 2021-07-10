@@ -6,7 +6,7 @@ import {
 var Home = () => {
   return (
     <Grid id='Home'>
-      test
+      DO YOU SEE ME
     </Grid>
   );
 };
