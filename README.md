@@ -18,9 +18,10 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Summary ##
   This web-app is made for any individuals who experience any of the following:
-  1. Exhausted from long days of work, yet still hungry at dinnertime?
+  1. Exhausted from long days of work, yet still hungry at meal-time?
   2. Your fridge/pantry has lots of ingredients, yet your brain is too tired to come up with a meal idea?
   3. You're too tired to even peruse your ingredients, and just want a recipe given based on previously logged ingredients?
+
   If ANY of the above applies to you, ANY day of the week, ANY meal of the day - this app is the solution to all your problems!
 
 
@@ -28,10 +29,10 @@ Once the project moves into development, the press release can be used as a touc
   This app helps to solve the the increased fatigue experienced by the ever-increasing number of consumers, by taking the meal-making decisions of their 'plate'!
 
 ## Solution this App Provides ##
-  With just a few button clicks, our app allows the consumer to store (add, update & delete) the ingredients found in their fridge/pantry and then get recipe recommendations based on their stored ingredients.
+  With just a few button clicks, our app allows the consumer to store (add, update & delete) the ingredients found in their fridge/pantry and automatically have recipe recommendations based on their stored ingredients.
 
 ## Quote from the Creators ##
-  "'What's for Dinner' - removing the tough decision making from your 'plate' of to-do's, making the plating of tasty & nutritous food easy & possible!" - Brain Child: Finn Lucas | Developers: Mikka Tully, Meagan Provencher, David Harbin, James Moore, Phong Trinh
+  "'What's for Dinner' - removing the tough decision making from your 'plate' of to-do's to make the plating of tasty & nutritous food easy & possible!" - Brain Child: Finn Lucas | Developers: Mikka Tully, Meagan Provencher, David Harbin, James Moore, Phong Trinh
 
 ## How to Get Started ##
   1. Open the webapp
@@ -47,4 +48,4 @@ Once the project moves into development, the press release can be used as a touc
   "I'm a busy person, juggling a million tasks throughout my day - mealtime has always felt like a hassle... until the creation of 'What's for dinner'! This has changed how I view mealtime - it's now easy, fun and ensures I don't skip meals out of exhaustion." - Ezma Gronk
 
 ## What Should You Do Next? ##
-  What are you waiting for? Download the app and start enjoying meal prep again!
+  What are you waiting for? Open the app and start enjoying meal prep again!
