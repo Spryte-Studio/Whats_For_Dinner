@@ -18,7 +18,7 @@ var App = () => {
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/fridge'>Fridge</Link>
+            <Link to='/storage'>Fridge</Link>
           </li>
           <li>
             <Link to='/recipes'>Recipes</Link>
