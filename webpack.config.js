@@ -10,7 +10,7 @@ const stylesHandler = "style-loader";
 const config = {
   entry: "./client/src/index.jsx",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, 'client', "dist"),
   },
   plugins: [
     new HtmlWebpackPlugin({
