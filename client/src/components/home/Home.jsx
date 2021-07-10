@@ -5,9 +5,18 @@ import {
 
 var Home = () => {
   return (
-    <Grid id='Home'>
-      DO YOU SEE ME
-    </Grid>
+    <>
+      <Paper>
+        <Grid container id='Home' >
+          <Grid>
+            LOGO
+          </Grid>
+          <Grid>
+            DO YOU SEE ME
+          </Grid>
+        </Grid>
+      </Paper>
+    </>
   );
 };
 
