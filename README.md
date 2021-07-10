@@ -31,7 +31,7 @@ Once the project moves into development, the press release can be used as a touc
   With just a few button clicks, our app allows the consumer to store (add, update & delete) the ingredients found in their fridge/pantry and automatically have recipe recommendations based on these stored ingredients. :fork_and_knife:
 
 ## Quote from the Creators ##
-  "'What's for Dinner' - removing the tough decision making from your 'plate' of to-do's, to make the plating of tasty & nutritous food easy & possible!" - Brain Child: Finn Lucas | Developers: Mikka Tully, Meagan Provencher, David Harbin, James Moore, Phong Trinh
+  "'What's for Dinner' - removing the tough decision making from your 'plate' of to-do's, to make the plating of tasty & nutritous food easy & possible!" - Brain Child: Finn Lucas | Developers: Mikka Tully, Meagan Provencher, David Harbin, James Moore, Phong Trinh :wave:
 
 ## How to Get Started ##
   1. Open the webapp
@@ -41,7 +41,7 @@ Once the project moves into development, the press release can be used as a touc
   4. Navigate to the Recipes page:
       * See recipes laid out based on your fridge/pantry ingredients
   5. Choose a recipe to make a delicous meal with the ingredients you already have!
-  6. :smiley: Make dinner, relax and pat yourself on the back for using such a helpful, wonderful, well thought-out app
+  6. Make dinner, relax and pat yourself on the back for using such a helpful, wonderful, well thought-out app :smiley:
 
 ## Quote from a Satisfied Customer ##
   "I'm a busy person, juggling a million tasks throughout my day - mealtime has always felt like a hassle... until the creation of 'What's for dinner'! This has changed how I view mealtime - it's now easy, fun and ensures I don't skip meals out of exhaustion." - Ezma Gronk
