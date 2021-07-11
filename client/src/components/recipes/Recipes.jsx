@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Typography, Paper, Grid,
+  Button, Typography, Paper, Grid
 } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 import useStyles from './RecipesMaterialUi.jsx';
