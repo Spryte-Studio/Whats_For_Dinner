@@ -3,7 +3,7 @@ import {
   Button, Typography, Paper, Grid, TextField,
   Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle
 } from '@material-ui/core';
-import useStyles from './MaterialUi.jsx';
+import useStyles from './HomeMaterialUi.jsx';
 
 const Home = () => {
   const classes = useStyles();

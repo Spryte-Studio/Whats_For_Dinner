@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   Button, Typography, Paper, Grid
 } from '@material-ui/core';
-import useStyles from '../MaterialUi.jsx';
+import useStyles from '../StorageMaterialUi.jsx';
 import AddItemForm from './AddItemForm.jsx';
 
 const Pantry = () => {

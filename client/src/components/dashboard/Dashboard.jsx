@@ -3,7 +3,7 @@ import {
   Button, Typography, Paper, Grid
 } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
-import useStyles from './MaterialUi.jsx';
+import useStyles from './DashboardMaterialUi.jsx';
 import globalUseStyles from '../../GlobalMaterialUi.jsx';
 
 const Dashboard = () => {

@@ -3,7 +3,7 @@ import {
   Button, Typography, Paper, Grid
 } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
-import useStyles from './MaterialUi.jsx';
+import useStyles from './StorageMaterialUi.jsx';
 import globalUseStyles from '../../GlobalMaterialUi.jsx';
 import Fridge from './fridgePantry/Fridge.jsx';
 import Pantry from './fridgePantry/Pantry.jsx';
@@ -38,7 +38,6 @@ const Storage = () => {
         <Pantry />
         <Fridge />
       </Grid>
-
     </Grid >
   );
 };
