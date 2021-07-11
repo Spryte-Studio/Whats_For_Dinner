@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Button, Typography, Paper, Grid
 } from '@material-ui/core';
 import useStyles from '../MaterialUi.jsx';
+import AddItemForm from './AddItemForm.jsx';
 
 const Fridge = () => {
   const classes = useStyles();
+  const [openForm, setOpenForm] = useState(false);
+
+  const handleFormOpen = () => {
+    setOpenForm(true)
+  }
+
+  const handleFormClose = () => {
+    setOpenForm(false)
+  }
+
   return (
     <Grid container xs={12} md={4} className={classes.pantryAndFridgeContainer}>
       <Grid item xs={12} className={classes.fridgeHeader}>
@@ -17,9 +28,15 @@ const Fridge = () => {
         Items (Map here)
       </Grid>
       <Grid item xs={12} style={{ height: '10%' }}>
-        <Button className={classes.addItemButton}>
+        <Button className={classes.addItemButton} onClick={() => {
+          handleFormOpen();
+        }}>
           Add Item
         </Button>
+        <AddItemForm
+          openForm={openForm}
+          handleFormClose={handleFormClose}
+        />
       </Grid>
     </Grid>
   );
