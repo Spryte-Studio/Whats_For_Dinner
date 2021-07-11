@@ -17,7 +17,7 @@ var App = () => {
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/fridge'>Fridge</Link>
+            <Link to='/inventory'>Inventory</Link>
           </li>
           <li>
             <Link to='/recipes'>Recipes</Link>
@@ -30,7 +30,7 @@ var App = () => {
           <Route path='/' exact>
             <Home />
           </Route>
-          <Route path='/storage' exact>
+          <Route path='/inventory' exact>
             <Storage />
           </Route>
           <Route path='/recipes' exact>
