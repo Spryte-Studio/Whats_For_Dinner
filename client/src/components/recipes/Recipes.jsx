@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Typography, Paper, Grid
+  Button, Typography, Paper, Grid,
 } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 import useStyles from './RecipesMaterialUi.jsx';
@@ -9,6 +9,7 @@ import globalUseStyles from '../../GlobalMaterialUi.jsx';
 var Recipes = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
+
   return (
     <Grid container xs={12} id='Recipes'>
       <Grid container className={classes.header} xs={12} >
