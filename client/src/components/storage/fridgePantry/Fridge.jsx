@@ -18,7 +18,7 @@ const Fridge = () => {
   }
 
   return (
-    <Grid container xs={12} md={4} className={classes.pantryAndFridgeContainer}>
+    <Grid item xs={12} md={4} className={classes.pantryAndFridgeContainer}>
       <Grid item xs={12} className={classes.fridgeHeader}>
         <Typography variant='h4' align='center' style={{ borderBottom: '2px solid black', height: '100%' }}>
           Fridge

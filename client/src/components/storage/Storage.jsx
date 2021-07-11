@@ -12,8 +12,8 @@ const Storage = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
   return (
-    <Grid container xs={12} id='Storage'>
-      <Grid container className={classes.header} xs={12} >
+    <Grid container id='Storage'>
+      <Grid container className={classes.header} >
         <Grid item xs={2} style={{ borderRight: '2px solid black' }}>
           <Grid item xs={12} className={classes.tab} style={{ borderBottom: '2px solid black' }}>
             <Link to='/dashboard'>
@@ -34,7 +34,7 @@ const Storage = () => {
           Logo
         </Grid>
       </Grid>
-      <Grid container className={classes.inventoryContainer} xs={12} >
+      <Grid container className={classes.inventoryContainer}>
         <Pantry />
         <Fridge />
       </Grid>
