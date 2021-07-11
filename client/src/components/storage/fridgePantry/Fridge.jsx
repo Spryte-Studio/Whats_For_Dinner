@@ -3,7 +3,7 @@ import {
   Button, Typography, Paper, Grid
 } from '@material-ui/core';
 import useStyles from '../StorageMaterialUi.jsx';
-import AddItemForm from './AddItemForm.jsx';
+import AddItemForm from '../addIngredient/AddItemForm.jsx';
 
 const Fridge = () => {
   const classes = useStyles();
@@ -25,7 +25,7 @@ const Fridge = () => {
         </Typography>
       </Grid>
       <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
-        Items (Map here)
+        Ingredients (Map here)
       </Grid>
       <Grid item xs={12} style={{ height: '10%' }}>
         <Button className={classes.addItemButton} onClick={() => {

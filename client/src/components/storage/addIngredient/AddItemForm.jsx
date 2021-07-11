@@ -10,24 +10,24 @@ const AddItemForm = ({ openForm, handleFormClose }) => {
       <DialogTitle id="form-dialog-title">Please Fill In The Item Details</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          Item Name
+          Ingredient Name
         </DialogContentText>
         <TextField
           autoFocus
           margin="dense"
           id="name"
-          label="Item Name"
+          label="Ingredient Name"
           type="text"
           fullWidth
         />
         <DialogContentText>
-          Picture of Item
+          Picture of Ingredient
         </DialogContentText>
         <Input
           autoFocus
           margin="dense"
           id="image"
-          placeholder="Item Image"
+          placeholder="Ingredient Image"
           type="file"
           fullWidth
         />
@@ -37,7 +37,7 @@ const AddItemForm = ({ openForm, handleFormClose }) => {
           Cancel
         </Button>
         <Button onClick={handleFormClose} color="primary">
-          Sumbit Item
+          Sumbit Ingredient
         </Button>
       </DialogActions>
     </Dialog>)
