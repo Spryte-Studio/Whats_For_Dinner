@@ -2,10 +2,13 @@ import React from 'react';
 import {
   Button, Typography, Paper, Grid
 } from '@material-ui/core';
-import useStyles from './MaterialUi.jsx';
+import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
+import useStyles from './DashboardMaterialUi.jsx';
+import globalUseStyles from '../../GlobalMaterialUi.jsx';
 
 const Dashboard = () => {
   const classes = useStyles();
+  const globalClasses = globalUseStyles();
   return (
     <Grid id='dashboard' className={classes.background}>
       <Grid container item xs={12}>
@@ -18,9 +21,13 @@ const Dashboard = () => {
         </Grid>
         <Grid container item xs={12} className={classes.pantryContainer}>
           <Grid item xs={12} md={9} className={classes.pantry}>
-            <Typography variant='h4' align='left'>
-              Pantry
-            </Typography>
+            <Link to='/inventory'>
+              <Button className={globalClasses.tabButton}>
+                <Typography variant='h4' align='left'>
+                  Inventory
+                </Typography>
+              </Button>
+            </Link>
           </Grid>
           <Grid item xs={12} md={3} className={classes.pantryImg}>
             <Typography variant='h4' align='left'>
@@ -30,9 +37,13 @@ const Dashboard = () => {
         </Grid>
         <Grid container item xs={12} className={classes.recipeContainer}>
           <Grid item xs={12} md={9} className={classes.recipes}>
-            <Typography variant='h4' align='left'>
-              Recipes
-            </Typography>
+            <Link to='/recipes'>
+              <Button className={globalClasses.tabButton}>
+                <Typography variant='h4' align='left'>
+                  Recipes
+                </Typography>
+              </Button>
+            </Link>
           </Grid>
           <Grid item xs={12} md={3} className={classes.recipeImg}>
             <Typography variant='h4' align='left'>
