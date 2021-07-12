@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const axios = require('axios');
 const cors = require('cors');
+const passport = require('passport');
 
 const controllers = require('./controllers')
 
