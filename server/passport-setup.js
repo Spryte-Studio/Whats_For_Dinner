@@ -1,5 +1,6 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+require('dotenv').config();
 
 const { client_secret } = process.env;
 
@@ -21,14 +22,14 @@ passport.deserializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
     clientID: '212805700707-muf5v7daa20sumpsafnojrlanps22eh4.apps.googleusercontent.com',
     clientSecret: client_secret,
-    callbackURL: "http://localhost:3000/home/auth/google/callback"
+    callbackURL: "http://localhost:3000"
   },
   function(accessToken, refreshToken, profile, done) {
     // Use the profile info (maily profile id) to check if the use is registered in your db
       //  User.findOrCreate({ googleId: profile.id }, function (err, user) {
       //    return done(err, user);
       //  });
-
+      console.log(profile)
       return done(null, profile);
   }
 ));
