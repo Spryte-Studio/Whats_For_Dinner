@@ -1,9 +1,10 @@
 database/config.js
 node_modules
-bundle.js
+main.js
 
 config
 
 Wireframe.ai
 
 imgs
+client/dist/main
