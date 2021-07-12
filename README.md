@@ -68,7 +68,7 @@ If you haven’t already, please fork the repository on GitHub and clone your ne
 Use the package manager npm to install all necessary dev dependencies for our repo – run the following terminal command: `npm install`
 To make development easier we’ve:
   * Added nodemon as an npm start script. To automatically restart the node application when file changes in the directory are detected, run the following terminal command:`npm start`.
-  * Add webpack development mode as an npm start script. To automatically have webpack watch for and bundle changes, run the following terminal command: `npm run build:dev`.
+  * Add webpack development mode as an npm start script. To automatically have webpack watch for and bundle changes, run the following terminal command: `npm run watch`.
 
 ## API Configuration
 Inside the 'database' folder, update `config.example.js` to be `config.js` and add your Postgres information to `module.exports`.
