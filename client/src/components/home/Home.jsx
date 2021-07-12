@@ -58,7 +58,7 @@ const Home = () => {
             Cancel
           </Button>
           <Button onClick={handleLoginClose} color="primary">
-            Login
+            <a href="/home/auth/google">Sign In with Google</a>
           </Button>
         </DialogActions>
       </Dialog>
