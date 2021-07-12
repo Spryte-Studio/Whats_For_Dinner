@@ -1,7 +1,7 @@
 database/config.js
 node_modules
 main.js
-
+.env
 config
 
 Wireframe.ai
