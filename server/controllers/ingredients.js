@@ -8,6 +8,10 @@ const models = require('../models');
 
 const autoCompleteURL = 'https://api.edamam.com/auto-complete';
 
+require('dotenv').config();
+
+const {edamam_ingredientSearch_app_id, edamam_ingredientSearch_app_key} = process.env;
+
 // router.get('/', (req, res) => {})
 
 router.get('/:ingredientName', (req, res) => {

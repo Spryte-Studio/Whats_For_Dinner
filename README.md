@@ -73,6 +73,12 @@ To make development easier we’ve:
 ## API Configuration
 Inside the 'database' folder, update `config.example.js` to be `config.js` and add your Postgres information to `module.exports`.
 
+Go to [Edamam](https://developer.edamam.com/) and sign up for 2 of their services' API keys:
+  * Food Database Lookup API key
+  * Recipe Search API key
+
+Update the `env.example` to be `env` and add the above 4 id's and keys to the appropriate definition.
+
 
 ## Testing
 To run the testing files, run the following terminal command:`npm run test`
