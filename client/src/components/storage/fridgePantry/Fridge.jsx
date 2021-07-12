@@ -5,13 +5,6 @@ import {
 import useStyles from '../StorageMaterialUi.jsx';
 import AddItemForm from '../addIngredient/AddItemForm.jsx';
 
-<<<<<<< HEAD
-var Fridge = () => {
-  return (
-    <div id='Fridge'>
-      <h1>hello fridge</h1>
-    </div>
-=======
 const Fridge = () => {
   const classes = useStyles();
   const [openForm, setOpenForm] = useState(false);
@@ -46,7 +39,6 @@ const Fridge = () => {
         />
       </Grid>
     </Grid>
->>>>>>> c0ccf313cd8e22f63226976e641a730475c86274
   );
 };
 

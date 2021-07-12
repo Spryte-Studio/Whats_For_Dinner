@@ -17,11 +17,7 @@ var App = () => {
             <Link to='/'>Home</Link>
           </li>
           <li>
-<<<<<<< HEAD
-            <Link to='/storage'>Fridge</Link>
-=======
             <Link to='/inventory'>Inventory</Link>
->>>>>>> c0ccf313cd8e22f63226976e641a730475c86274
           </li>
           <li>
             <Link to='/recipes'>Recipes</Link>
