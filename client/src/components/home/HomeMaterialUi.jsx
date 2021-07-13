@@ -6,7 +6,7 @@ const useStyles = makeStyles(() => ({
     border: '2px solid black'
   },
   logo: {
-    height: '100px'
+    height: '200px'
   },
   mainGrid: {
     textAlign: 'center',
