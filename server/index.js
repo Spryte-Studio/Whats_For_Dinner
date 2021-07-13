@@ -4,7 +4,6 @@ const axios = require('axios');
 const cors = require('cors');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
-const bodyParser = require('body-parser');
 
 require('./passport-setup');
 require('dotenv').config();
@@ -25,8 +24,7 @@ app.get('/recipes', (req, res) => {
     if (err) {
       res.status(400).send(err)
     }
-  }
-  )
+  })
 });
 
 app.use(passport.initialize());
