@@ -13,10 +13,26 @@ const Dashboard = () => {
     <Grid id='dashboard' className={classes.background}>
       <Grid container item xs={12}>
         <Grid item xs={12}>
-          <Grid item className={classes.header}>
-            <Typography variant='h4' align='center'>
-              Header
-            </Typography>
+          <Grid container className={classes.mainGrid} id='Home'>
+            <Grid item xs={12} s={12} md={2}>
+              <Paper className={classes.logo} elevation={0}>
+                <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%', justifyContent: 'center' }} />
+              </Paper>
+            </Grid>
+            <Grid item xs={12} s={12} md={8}>
+              <Paper className={classes.logo} elevation={0}>
+                <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
+                  Your Cook Book Digitalized
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={12} md={2} className={classes.logo} >
+              <Button className={classes.logoutButton} onClick={() => {
+                handleLoginOpen();
+              }}>
+                LogOut
+              </Button>
+            </Grid>
           </Grid>
         </Grid>
         <Grid container item xs={12} className={classes.pantryContainer}>
@@ -30,25 +46,25 @@ const Dashboard = () => {
             </Link>
           </Grid>
           <Grid item xs={12} md={3} className={classes.pantryImg}>
-            <Typography variant='h4' align='left'>
-              Pantry Snapshot
-            </Typography>
+            <Paper>
+              <img src='Logos/WFDIngredientLogo-02-09.png' alt='Pantry Logo' className={classes.Img} />
+            </Paper>
           </Grid>
         </Grid>
         <Grid container item xs={12} className={classes.recipeContainer}>
           <Grid item xs={12} md={9} className={classes.recipes}>
             <Link to='/recipes'>
               <Button className={globalClasses.tabButton}>
-                <Typography variant='h4' align='left'>
+                <Typography variant='h4' align='left' >
                   Recipes
                 </Typography>
               </Button>
             </Link>
           </Grid>
           <Grid item xs={12} md={3} className={classes.recipeImg}>
-            <Typography variant='h4' align='left'>
-              Recipe Snapshot
-            </Typography>
+            <Paper className={classes.Img}>
+              <img src='Logos/WFDRecipeLogo-NB-08.png' alt='Recipe Logo' className={classes.Img} />
+            </Paper>
           </Grid>
         </Grid>
       </Grid>

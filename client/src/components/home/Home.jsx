@@ -27,13 +27,13 @@ const Home = () => {
           <Grid container className={classes.mainGrid} id='Home'>
             <Grid item xs={12} s={12} md={2}>
               <Paper className={classes.logo} elevation={0}>
-                <img src="https://media.discordapp.net/attachments/863169328869277717/864205075186581534/Logo-palette-07.png" style={{ height: '100%' }} />
+                <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%' }} />
               </Paper>
             </Grid>
             <Grid item xs={12} s={12} md={8}>
               <Paper className={classes.logo} elevation={0}>
                 <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald' }}>
-                  Your Cooking Book Digitalized
+                  Your Cook Book Digitalized
                 </Typography>
               </Paper>
             </Grid>

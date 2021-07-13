@@ -38,6 +38,7 @@
     "eslint-config-airbnb": "^18.2.1",
     "express": "^4.17.1",
     "jest": "^27.0.6",
+    "material-ui-image": "^3.3.2",
     "node": "^16.4.0",
     "nodemon": "^2.0.12",
     "passport": "^0.4.1",

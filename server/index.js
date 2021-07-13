@@ -15,10 +15,7 @@ const controllers = require('./controllers');
 const PORT = 3000;
 const app = express();
 
-<<<<<<< HEAD
 
-=======
->>>>>>> d57e321d9ef4a59291860ba071b94f3d1bdf115c
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
