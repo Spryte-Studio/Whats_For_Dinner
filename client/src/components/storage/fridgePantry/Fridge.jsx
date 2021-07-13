@@ -3,7 +3,7 @@ import {
   Button, Typography, Paper, Grid
 } from '@material-ui/core';
 import useStyles from '../StorageMaterialUi.jsx';
-import AddItemForm from '../addIngredient/AddItemForm.jsx';
+import AddFridgeForm from '../addIngredient/AddFridgeForm.jsx';
 
 const Fridge = () => {
   const classes = useStyles();
@@ -33,7 +33,7 @@ const Fridge = () => {
         }}>
           Add Item
         </Button>
-        <AddItemForm
+        <AddFridgeForm
           openForm={openForm}
           handleFormClose={handleFormClose}
         />

@@ -71,13 +71,16 @@ To make development easier we’ve:
   * Add webpack development mode as an npm start script. To automatically have webpack watch for and bundle changes, run the following terminal command: `npm run watch`.
 
 ## API Configuration
-Inside the 'database' folder, update `config.example.js` to be `config.js` and add your Postgres information to `module.exports`.
-
 Go to [Edamam](https://developer.edamam.com/) and sign up for 2 of their services' API keys:
   * Food Database Lookup API key
   * Recipe Search API key
 
-Update the `env.example` to be `env` and add the above 4 id's and keys to the appropriate definition.
+Go to your [Google Developer console] (https://console.developers.google.com/) and create an oAuth2 key to access the client secret id.
+
+Update the `env.example` to be `env` and add the:
+  * Above 4 Edamam id's and keys to the appropriate Edamam labels
+  * Google Auth client secret id to the `client_secret` label
+  * Add your Postgres information to the `db_config` object
 
 
 ## Testing
