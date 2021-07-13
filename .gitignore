@@ -8,4 +8,6 @@ Wireframe.ai
 package-lock.json
 
 imgs
+client/dist/main
 server/controllers/config.js
+package-lock.json
