@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Button, Typography, Paper, Grid, TextField,
   Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle
 } from '@material-ui/core';
 import useStyles from './HomeMaterialUi.jsx';
 import Dashboard from '../dashboard/Dashboard.jsx';
+import { ProductContext } from '../../context';
 
 const Home = () => {
   const classes = useStyles();
   const [openLogin, setOpenLogin] = useState(false);
+  const { authCode } = useContext(ProductContext);
 
   const handleLoginOpen = () => {
     setOpenLogin(true);
@@ -18,24 +20,24 @@ const Home = () => {
     setOpenLogin(false);
   }
 
-  const code = new URLSearchParams(window.location.search).get('code');
-
-  // useEffect(() => {
-
-  // }, [hash]);
-
-  console.log(code)
   return (
-    code ? (<Dashboard />) : (
+    authCode ? (<Dashboard />) : (
       <>
         <Paper className={classes.background}>
           <Grid container className={classes.mainGrid} id='Home'>
-            <Grid item xs={12} s={12} md={11}>
+            <Grid item xs={12} s={12} md={2}>
               <Paper className={classes.logo} elevation={0}>
                 <img src="https://media.discordapp.net/attachments/863169328869277717/864205075186581534/Logo-palette-07.png" style={{ height: '100%' }} />
               </Paper>
             </Grid>
-            <Grid item xs={12} sm={12} md={1}>
+            <Grid item xs={12} s={12} md={8}>
+              <Paper className={classes.logo} elevation={0}>
+                <Typography align='center' variant='h2' style={{ top: '500px' }}>
+                  Your Cooking Book Digitalized
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={12} md={2}>
               <Button className={classes.loginHomeButton} onClick={() => {
                 handleLoginOpen();
               }}>
