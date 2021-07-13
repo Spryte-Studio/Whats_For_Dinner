@@ -42,7 +42,7 @@ export default function RecipeReviewCard({recipe, label, image, ingredientLines,
       />
       <CardContent>
         <Typography variant="body2" component="p">
-          Example text for a description of the recipe.
+
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
