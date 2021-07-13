@@ -2,12 +2,23 @@ const express = require('express');
 const path = require('path');
 const axios = require('axios');
 const cors = require('cors');
+const passport = require('passport');
+const cookieSession = require('cookie-session');
+const bodyParser = require('body-parser');
+
+require('./passport-setup');
+require('dotenv').config();
+
+const { client_secret } = process.env;
 
 const controllers = require('./controllers')
 
 const PORT = 3000;
+const app = express();
 
-var app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +30,34 @@ app.get('/recipes', (req, res) => {
     }
   }
   )});
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(cookieSession({
+  name: 'Whats for dinner?',
+  keys: ['key1', 'key2']
+}));
+
+const isLoggedIn = (req, res, next) => {
+  req.user ? next() : res.statusCode(401);
+}
+
+// Route for logout of app (Future Feature)
+app.get('/logout', (req, res) => {
+  req.session = null;
+  req.logout();
+  res.redirect('/');
+})
+
+// GET /auth/google
+//   Use passport.authenticate() as route middleware to authenticate the
+//   request.  The first step in Google authentication will involve
+//   redirecting the user to google.com.  After authorization, Google
+//   will redirect the user back to this application at /auth/google/callback
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
 
 app.use('/fridge', controllers.fridgePantry);
 app.use('/home', controllers.home);
