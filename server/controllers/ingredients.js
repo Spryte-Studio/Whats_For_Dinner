@@ -4,7 +4,7 @@ const express = require('express');
 const axios = require('axios');
 
 const router = express.Router();
-const models = require('../models');
+const ingredientModel = require('../models/ingredients');
 
 const autoCompleteURL = 'https://api.edamam.com/auto-complete';
 
@@ -31,6 +31,21 @@ router.get('/:ingredientName', (req, res) => {
       console.log('S: ingredients get/:ingredientName err: ', err);
       res.status(500).send(err);
     });
+});
+
+router.post('/:perishable', (req, res) => {
+  let perishable = req.params.perishable;
+  // console.log('req body inside post route', req.body);
+  // console.log('perishable?', perishable);
+
+  ingredientModel.postIngredient(req.body, perishable, function(err, results) {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send({product_id: productID, results: results.rows});
+    }
+  })
+
 });
 
 

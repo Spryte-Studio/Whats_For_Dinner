@@ -37,7 +37,7 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
   function handleSubmit(event) {
     handleFormClose();
     console.log('inside submit!!!!');
-    axios.post(`/pantry`, addMultIngs)
+    axios.post(`/ingredients/false`, addMultIngs)
       .then((response) => {
         console.log('response from post pantry ingredients', response);
       })
