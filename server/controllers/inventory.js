@@ -1,3 +1,6 @@
+// import connection to psql db
+const postgres = require('../database');
+
 const path = require('path');
 const express = require('express');
 const axios = require('axios');
