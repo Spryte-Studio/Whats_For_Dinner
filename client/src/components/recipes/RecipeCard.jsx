@@ -14,13 +14,16 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard({recipe, label, image, ingredientLines, cuisineType}) {
+  console.log(recipe)
+  // console.log('image',recipe)
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const mappedIngredients = ingredientLines.join("\n");
 
   return (
     <Card className={classes.cardBody} raised={true} >
@@ -30,17 +33,17 @@ export default function RecipeReviewCard() {
             Img
           </Avatar>
         }
-        title="Title of Recipe Here"
-        subheader="Style Of Food Here"
+        title={label}
+        subheader={cuisineType}
       />
       <CardMedia
         className={classes.cardMedia}
-        image="/static/images/cards/paella.jpg"
+        image={image}
         title="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" component="p">
-          Example text for a description of the recipe.
+          {/* Example text for a description of the recipe. */}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -61,16 +64,16 @@ export default function RecipeReviewCard() {
         <CardContent>
           <Typography paragraph>Instructions:</Typography>
           <Typography paragraph>
-            Example step one:
+          {mappedIngredients}
           </Typography>
           <Typography paragraph>
-            Example step two:
+            {/* Example step two: */}
           </Typography>
           <Typography paragraph>
-            Example step three:
+            {/* Example step three: */}
           </Typography>
           <Typography>
-            Example step four:
+            {/* Example step four: */}
           </Typography>
         </CardContent>
       </Collapse>
