@@ -69,7 +69,7 @@ var Recipes = () => {
       </Grid>
       <Grid container className={classes.recipeContainer}>
         <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-          {recipes.map(recipe => {
+          {/* {recipes.map(recipe => {
             return (
               <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
                 <RecipeCard
@@ -81,15 +81,14 @@ var Recipes = () => {
                   recipe={recipe} />
               </Grid>
             )
-          })}
-          {/* <RecipeCard />
-        </Grid>
-        <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-
+          })} */}
           <RecipeCard />
         </Grid>
         <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-          <RecipeCard /> */}
+          <RecipeCard />
+        </Grid>
+        <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+          <RecipeCard />
         </Grid>
       </Grid>
     </Grid >

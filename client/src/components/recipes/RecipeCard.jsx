@@ -14,7 +14,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-export default function RecipeReviewCard({recipe, label, image, ingredientLines, cuisineType}) {
+export default function RecipeReviewCard({ recipe, label, image, ingredientLines, cuisineType }) {
   console.log(recipe)
   // console.log('image',recipe)
   const classes = useStyles();
@@ -23,15 +23,15 @@ export default function RecipeReviewCard({recipe, label, image, ingredientLines,
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const mappedIngredients = ingredientLines.join("\n");
+  // const mappedIngredients = ingredientLines.join("\n");
 
   return (
     <Card className={classes.cardBody} raised={true} >
       <CardHeader
         avatar={
-          <Avatar className={classes.avatar}>
-            Img
-          </Avatar>
+          <Avatar src="https://cdn.discordapp.com/attachments/863169328869277717/864608072709439518/WFDRecipeLogo-NB-08.png"
+            className={classes.avatar}
+          />
         }
         title={label}
         subheader={cuisineType}
@@ -64,9 +64,9 @@ export default function RecipeReviewCard({recipe, label, image, ingredientLines,
         <CardContent>
           <Typography paragraph>Instructions:</Typography>
           <Typography paragraph>
-          {mappedIngredients}
+            {/* {mappedIngredients} */}
           </Typography>
-          {/* <Typography paragraph>
+          <Typography paragraph>
             Example step two:
           </Typography>
           <Typography paragraph>
@@ -74,7 +74,7 @@ export default function RecipeReviewCard({recipe, label, image, ingredientLines,
           </Typography>
           <Typography>
             Example step four:
-          </Typography> */}
+          </Typography>
         </CardContent>
       </Collapse>
     </Card>

@@ -16,21 +16,18 @@ const controllers = require('./controllers');
 const PORT = 3000;
 const app = express();
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8650d9424fabd6391e4d27641e4dca83b09e3d3d
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 app.get('/recipes', (req, res) => {
-  res.sendFile('index.html',{root: __dirname + '/../client/dist'},(err) => {
-    if(err) {
+  res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
+    if (err) {
       res.status(400).send(err)
     }
   }
-  )});
+  )
+});
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -60,9 +57,9 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-app.use('/inventory', controllers.inventory);
+// app.use('/inventory', controllers.inventory);
 app.use('/ingredients', controllers.ingredients);
-app.use('/users', controllers.users);
+// app.use('/users', controllers.users);
 app.use('/spryte', controllers.recipes);
 
 app.listen(PORT, () => {
