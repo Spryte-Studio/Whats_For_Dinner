@@ -1,5 +1,5 @@
-exports.fridgePantry = require('./fridgePantry');
+// exports.inventory = require('./inventory');
 exports.ingredients = require('./ingredients');
 exports.recipes = require('./recipes');
-exports.home = require('./home');
-exports.users = require('./users');
+// exports.users = require('./users');
+

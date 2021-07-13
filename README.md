@@ -68,16 +68,19 @@ If you haven’t already, please fork the repository on GitHub and clone your ne
 Use the package manager npm to install all necessary dev dependencies for our repo – run the following terminal command: `npm install`
 To make development easier we’ve:
   * Added nodemon as an npm start script. To automatically restart the node application when file changes in the directory are detected, run the following terminal command:`npm start`.
-  * Add webpack development mode as an npm start script. To automatically have webpack watch for and bundle changes, run the following terminal command: `npm run watch`.
+  * Add webpack development mode as an npm start script. To automatically have webpack watch for and bundle changes, run the following terminal command: `npm run build:dev`.
 
 ## API Configuration
-Inside the 'database' folder, update `config.example.js` to be `config.js` and add your Postgres information to `module.exports`.
-
 Go to [Edamam](https://developer.edamam.com/) and sign up for 2 of their services' API keys:
   * Food Database Lookup API key
   * Recipe Search API key
 
-Update the `env.example` to be `env` and add the above 4 id's and keys to the appropriate definition.
+Go to your [Google Developer console] (https://console.developers.google.com/) and create an oAuth2 key to access the client secret id.
+
+Update the `env.example` to be `env` and add the:
+  * Above 4 Edamam id's and keys to the appropriate Edamam labels
+  * Google Auth client secret id to the `client_secret` label
+  * Add your Postgres information
 
 
 ## Testing

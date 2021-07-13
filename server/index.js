@@ -4,20 +4,16 @@ const axios = require('axios');
 const cors = require('cors');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
-const bodyParser = require('body-parser');
 
 require('./passport-setup');
 require('dotenv').config();
 
 const { client_secret } = process.env;
 
-const controllers = require('./controllers')
+const controllers = require('./controllers');
 
 const PORT = 3000;
 const app = express();
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 app.use(cors());
 app.use(express.json());
@@ -60,10 +56,9 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-app.use('/fridge', controllers.fridgePantry);
-app.use('/home', controllers.home);
+// app.use('/inventory', controllers.inventory);
 app.use('/ingredients', controllers.ingredients);
-app.use('/users', controllers.users);
+// app.use('/users', controllers.users);
 app.use('/spryte', controllers.recipes);
 
 app.listen(PORT, () => {

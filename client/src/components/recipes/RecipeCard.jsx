@@ -29,8 +29,8 @@ export default function RecipeReviewCard({recipe, label, image, ingredientLines,
     <Card className={classes.cardBody} raised={true} >
       <CardHeader
         avatar={
-          <Avatar className={classes.avatar}>
-            {'..../logos/WFDRecipeLogo-NB-08.png'}
+          <Avatar  className={classes.avatar}>
+           img
           </Avatar>
         }
         title={label}
@@ -43,7 +43,7 @@ export default function RecipeReviewCard({recipe, label, image, ingredientLines,
       />
       <CardContent>
         <Typography variant="body2" component="p">
-          {/* Example text for a description of the recipe. */}
+          Example text for a description of the recipe.
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -66,15 +66,15 @@ export default function RecipeReviewCard({recipe, label, image, ingredientLines,
           <Typography paragraph>
           {mappedIngredients}
           </Typography>
-          <Typography paragraph>
-            {/* Example step two: */}
+          {/* <Typography paragraph>
+            Example step two:
           </Typography>
           <Typography paragraph>
-            {/* Example step three: */}
+            Example step three:
           </Typography>
           <Typography>
-            {/* Example step four: */}
-          </Typography>
+            Example step four:
+          </Typography> */}
         </CardContent>
       </Collapse>
     </Card>

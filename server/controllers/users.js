@@ -1,11 +1,10 @@
-const path = require('path');
+// const path = require('path');
 // const cors = require('cors');
-const express = require('express');
-const axios = require('axios');
+// const express = require('express');
+// const axios = require('axios');
 
-const router = express.Router();
 
-const models = require('../models');
+// const models = require('../models');
 
 //router.get('/', (req, res) => {})
 // router.get('/:productId', (req, res) => {
@@ -23,4 +22,3 @@ const models = require('../models');
 //       res.status(500).send(err);
 //     });
 // });
-module.exports = router;

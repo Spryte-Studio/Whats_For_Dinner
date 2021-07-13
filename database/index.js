@@ -1,14 +1,19 @@
-const { Client } = require('pg');
-const psqlConfig = require('./config.js');
+const { Pool } = require('pg')
 
-const client = new Client(psqlConfig);
+require('dotenv').config();
 
-client.connect((err) => {
+const { user, host, database, password, port} = process.env;
+const dbConfig = { user, host, database, password, port};
+
+const pool = new Pool(dbConfig);
+
+
+pool.connect((err) => {
   if (err) {
-    console.log('Connection failed to psql server');
+    console.log(err,'error connecting to database', err)
   } else {
-    console.log('Connected to psql server');
+    console.log('connected to postgres')
   }
-});
+})
 
-module.exports = client;
+module.exports = pool;
