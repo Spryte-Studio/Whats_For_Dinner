@@ -11,7 +11,7 @@ require('dotenv').config();
 
 const { client_secret } = process.env;
 
-const controllers = require('./controllers')
+const controllers = require('./controllers');
 
 const PORT = 3000;
 const app = express();
