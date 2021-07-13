@@ -4,15 +4,29 @@ import Home from './home/Home.jsx';
 import Storage from './storage/Storage.jsx';
 import Dashboard from './dashboard/Dashboard.jsx';
 import Recipes from './recipes/Recipes.jsx';
+import { ProductContext } from '../context.js';
 
 
 
 
 var App = () => {
+  const code = new URLSearchParams(window.location.search).get('code');
+
+  const [authCode, setAuthCode] = useState('');
+
+  useEffect(() => {
+    if (code !== null) {
+      setAuthCode(code);
+    }
+  }, [code])
+
   return (
-    <Router>
-      <div>
-        <ul>
+    <ProductContext.Provider value={{
+      authCode: authCode
+    }}>
+      <Router>
+        <div>
+          {/* <ul>
           <li>
             <Link to='/'>Home</Link>
           </li>
@@ -25,23 +39,24 @@ var App = () => {
           <li>
             <Link to='/dashboard'>Dashboard</Link>
           </li>
-        </ul>
-        <Switch>
-          <Route path='/' exact>
-            <Home />
-          </Route>
-          <Route path='/inventory' exact>
-            <Storage />
-          </Route>
-          <Route path='/recipes' exact>
-            <Recipes />
-          </Route>
-          <Route path='/dashboard' exact>
-            <Dashboard />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+        </ul> */}
+          <Switch>
+            <Route path='/' exact>
+              <Home />
+            </Route>
+            <Route path='/inventory' exact>
+              <Storage />
+            </Route>
+            <Route path='/recipes' exact>
+              <Recipes />
+            </Route>
+            <Route path='/dashboard' exact>
+              <Dashboard />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </ProductContext.Provider>
   )
 };
 

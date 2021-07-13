@@ -23,6 +23,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+app.get('/recipes', (req, res) => {
+  res.sendFile('index.html',{root: __dirname + '/../client/dist'},(err) => {
+    if(err) {
+      res.status(400).send(err)
+    }
+  }
+  )});
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -56,7 +63,7 @@ app.use('/fridge', controllers.fridgePantry);
 app.use('/home', controllers.home);
 app.use('/ingredients', controllers.ingredients);
 app.use('/users', controllers.users);
-app.use('/recipes', controllers.recipes);
+app.use('/spryte', controllers.recipes);
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
