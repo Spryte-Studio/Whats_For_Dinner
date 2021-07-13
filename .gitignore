@@ -3,13 +3,12 @@ node_modules
 main.js
 .env
 config
+/img
+package-lock.json
+Wireframe.ai
 package-lock.json
 
-Wireframe.ai
-
 imgs
-<<<<<<< HEAD
-client/dist/main
-=======
 server/controllers/config.js
->>>>>>> 9e49af3aa35403aac2129a0f7f99f523cb738263
+client/dist/main
+package-lock.json

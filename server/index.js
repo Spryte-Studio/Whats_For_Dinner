@@ -16,6 +16,10 @@ const controllers = require('./controllers')
 const PORT = 3000;
 const app = express();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8650d9424fabd6391e4d27641e4dca83b09e3d3d
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -56,8 +60,7 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-app.use('/fridge', controllers.fridgePantry);
-app.use('/home', controllers.home);
+app.use('/inventory', controllers.inventory);
 app.use('/ingredients', controllers.ingredients);
 app.use('/users', controllers.users);
 app.use('/spryte', controllers.recipes);

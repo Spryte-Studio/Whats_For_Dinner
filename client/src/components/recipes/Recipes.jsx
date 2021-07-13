@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import regeneratorRuntime from "regenerator-runtime";
 import {
@@ -15,32 +15,34 @@ var Recipes = () => {
   const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
   const [query, setQuery] = useState("zucchini", "broccoli", "carrots");
 
- useEffect(() => {
+  useEffect(() => {
 
-   const getRecipes = async () => {
-     try {
-       const response = await axios.get('/spryte/allRecipes', {params: {q: query}})
-       console.log(response.data.hits);
-       setRecipes(response.data.hits);
-       window.localStorage.setItem("recipes", JSON.stringify(recipes));
-     } catch(e) {
-       console.log(e);
-     }
-   }
-   getRecipes();
- }, [query])
-console.log(recipes);
-// useEffect(() => {
+    const getRecipes = async () => {
+      try {
+        const response = await axios.get('/spryte/allRecipes', { params: { q: query } })
+        console.log(response.data.hits);
+        setRecipes(response.data.hits, () => {
+          window.localStorage.setItem("recipes", JSON.stringify(recipes));
+        });
 
-//   const getRecipes = async () => {
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    getRecipes();
+  }, [query])
+  console.log(recipes);
+  // useEffect(() => {
 
-//       const response = await axios.get('/spryte/allRecipes', {params: {q: query}})
-//       console.log(response.data.hits);
-//       setRecipes(response.data.hits);
-//       console.log(recipes)
+  //   const getRecipes = async () => {
 
-//   getRecipes();
-// }, [query])
+  //       const response = await axios.get('/spryte/allRecipes', {params: {q: query}})
+  //       console.log(response.data.hits);
+  //       setRecipes(response.data.hits);
+  //       console.log(recipes)
+
+  //   getRecipes();
+  // }, [query])
 
   return (
     <Grid container id='Recipes'>
@@ -69,23 +71,26 @@ console.log(recipes);
         <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
           {recipes.map(recipe => {
             return (
-
-              <RecipeCard
-              key={recipe.recipe.uri}
-              label={recipe.recipe.label}
-              image={recipe.recipe.image}
-              cuisineType={recipe.recipe.cuisineType}
-              ingredientLines={recipe.recipe.ingredientLines}
-              recipe={recipe}/>
+              <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+                <RecipeCard
+                  key={recipe.recipe.uri}
+                  label={recipe.recipe.label}
+                  image={recipe.recipe.image}
+                  cuisineType={recipe.recipe.cuisineType}
+                  ingredientLines={recipe.recipe.ingredientLines}
+                  recipe={recipe} />
+              </Grid>
             )
           })}
+          {/* <RecipeCard />
         </Grid>
-        {/* <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+        <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+
           <RecipeCard />
         </Grid>
         <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-          <RecipeCard />
-        </Grid> */}
+          <RecipeCard /> */}
+        </Grid>
       </Grid>
     </Grid >
   );
