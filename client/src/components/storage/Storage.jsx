@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
   Button, Typography, Paper, Grid
 } from '@material-ui/core';
@@ -7,10 +7,13 @@ import useStyles from './StorageMaterialUi.jsx';
 import globalUseStyles from '../../GlobalMaterialUi.jsx';
 import Fridge from './fridgePantry/Fridge.jsx';
 import Pantry from './fridgePantry/Pantry.jsx';
+import { ProductContext } from '../../context';
 
 const Storage = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
+  const { authCode } = useContext(ProductContext);
+
   return (
     <Grid container id='Storage'>
       <Grid container className={classes.header} >
