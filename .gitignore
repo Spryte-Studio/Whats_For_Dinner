@@ -3,6 +3,7 @@ node_modules
 main.js
 .env
 config
+package-lock.json
 
 Wireframe.ai
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Grid, Button, Paper, Typography, TextField, Input,
   Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, MenuItem
@@ -6,6 +6,7 @@ import {
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { ProductContext } from '../../../context';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +22,7 @@ const AddFridgeForm = ({ openForm, handleFormClose }) => {
   const [addMultIngs, updateMultIngs] = useState([]);
   const [addIngredientName, updateAddIngredientName] = useState('');
   const [ingredientAutoComplete, updateAutoCompleteList] = useState([]);
+  const { authCode } = useContext(ProductContext);
 
   function handleChange(event, values) {
     updateAddIngredientName(event.target.value);
@@ -37,7 +39,7 @@ const AddFridgeForm = ({ openForm, handleFormClose }) => {
   function handleSubmit(event) {
     handleFormClose();
     console.log('inside submit!!!!');
-    axios.post(`/ingredients/true`, addMultIngs)
+    axios.post(`/ingredients/true`, {addMultIngs, authCode})
       .then((response) => {
         console.log('response from post fridge ingredients', response);
       })

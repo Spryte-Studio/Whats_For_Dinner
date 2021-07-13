@@ -35,8 +35,9 @@ router.get('/:ingredientName', (req, res) => {
 
 router.post('/:perishable', (req, res) => {
   let perishable = req.params.perishable;
-  // console.log('req body inside post route', req.body);
-  // console.log('perishable?', perishable);
+  console.log('req body inside post route', req.body.addMultIngs);
+  console.log('perishable?', perishable);
+  console.log('auth code?', req.body.authCode)
 
   ingredientModel.postIngredient(req.body, perishable, function(err, results) {
     if (err) {
