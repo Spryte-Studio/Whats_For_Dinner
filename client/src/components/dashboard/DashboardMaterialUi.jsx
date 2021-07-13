@@ -4,7 +4,6 @@ const useStyles = makeStyles(() => ({
   background: {
     height: '100%',
     backgroundColor: '#666782'
-
   },
   logo: {
     height: '200px',

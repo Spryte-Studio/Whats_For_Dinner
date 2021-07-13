@@ -13,7 +13,7 @@ const Dashboard = () => {
     <Grid id='dashboard' className={classes.background}>
       <Grid container item xs={12}>
         <Grid item xs={12}>
-          <Grid container className={classes.mainGrid} id='Home'>
+          <Grid container className={classes.mainGrid} id='Dashboard'>
             <Grid item xs={12} s={12} md={2}>
               <Paper className={classes.logo} elevation={0}>
                 <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%', justifyContent: 'center' }} />
