@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button, Typography, Paper, Grid, TextField,
   Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle
 } from '@material-ui/core';
 import useStyles from './HomeMaterialUi.jsx';
 import Dashboard from '../dashboard/Dashboard.jsx';
-import { getAuth } from './AuthHelpers';
 
 const Home = () => {
   const classes = useStyles();
@@ -21,7 +20,20 @@ const Home = () => {
 
   const code = new URLSearchParams(window.location.search).get('code');
 
-  console.log(code);
+  useEffect(() => {
+    if (code !== null) {
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log(profile)
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
+    }
+  }, [code]);
+
+  console.log(code)
   return (
     code ? (<Dashboard />) : (
       <>
@@ -29,7 +41,7 @@ const Home = () => {
           <Grid container className={classes.mainGrid} id='Home'>
             <Grid item xs={12} s={12} md={11}>
               <Paper className={classes.logo} elevation={0}>
-                <img src="https://print-stock.co.uk/img/library/l/Logo_SQ.jpg" style={{ height: '100%' }} />
+                <img src="https://media.discordapp.net/attachments/863169328869277717/864205075186581534/Logo-palette-07.png" style={{ height: '100%' }} />
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={1}>

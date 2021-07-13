@@ -40,7 +40,7 @@ const isLoggedIn = (req, res, next) => {
   }
 }
 
-// Route for logout of app
+// Route for logout of app (Future Feature)
 app.get('/logout', (req, res) => {
   req.session = null;
   req.logout();
@@ -53,7 +53,6 @@ app.get('/logout', (req, res) => {
 //   redirecting the user to google.com.  After authorization, Google
 //   will redirect the user back to this application at /auth/google/callback
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
-
 
 app.use('/fridge', controllers.fridgePantry);
 app.use('/home', controllers.home);
