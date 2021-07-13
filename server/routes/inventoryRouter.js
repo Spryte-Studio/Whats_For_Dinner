@@ -3,10 +3,10 @@ const express = require('express');
 const inventoryRouter= express.Router();
 
 // Connect controller methods to their corresponding routes
-inventoryRouter.get('/:product_id', inventory.getAll);
+inventoryRouter.get('/inventory', inventory.getAll);
 
-inventoryRouter.get('/meta/:product_id', inventory.getMeta);
+inventoryRouter.get('/meta/inventory_id', inventory.getMeta);
 
-inventoryRouter.post('/', inventory.postItem);
+inventoryRouter.post('/inventory', inventory.postItem);
 
 module.exports = inventoryRouter;
