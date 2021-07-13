@@ -21,8 +21,8 @@ router.get('/allRecipes', async (req, res) => {
     const response = await axios.get(url, {
     params: {
       q: req.query.q,
-      app_id: edamam_recipeSearch_app_id,
-      app_key: edamam_recipeSearch_app_key
+      app_id: app_id,
+      app_key: app_key
 
     }});
     const recipes = response.data;
