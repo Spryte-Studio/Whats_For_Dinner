@@ -17,20 +17,6 @@ const apiURL = 'https://api.edamam.com/search';
 
 router.get('/allRecipes', async (req, res) => {
   try {
-    // await console.log(req.params);
-
-    // const ingredients = [...ingredients];
-    // const mappedIngredients = ingredients
-    // .map((ingredient, idx) => {
-    //   if (idx < ingredients.length - 1) {
-    //     return ingredient + "+";
-    //   } else {
-    //     return ingredient;
-    //   }
-    // })
-    // .join("");
-
-  //  console.log(req.params)
     const url = `${apiURL}`;
     const response = await axios.get(url, {
     params: {
@@ -46,5 +32,17 @@ router.get('/allRecipes', async (req, res) => {
   }
 
 })
-
 module.exports = router;
+
+// await console.log(req.params);
+
+    // const ingredients = [...ingredients];
+    // const mappedIngredients = ingredients
+    // .map((ingredient, idx) => {
+    //   if (idx < ingredients.length - 1) {
+    //     return ingredient + "+";
+    //   } else {
+    //     return ingredient;
+    //   }
+    // })
+    // .join("");

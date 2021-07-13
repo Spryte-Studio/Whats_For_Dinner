@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+
 app.get('/recipes', (req, res) => {
   res.sendFile('index.html',{root: __dirname + '/../client/dist'},(err) => {
     if(err) {
