@@ -21,8 +21,10 @@ var Recipes = () => {
      try {
        const response = await axios.get('/spryte/allRecipes', {params: {q: query}})
        console.log(response.data.hits);
-       setRecipes(response.data.hits);
-       window.localStorage.setItem("recipes", JSON.stringify(recipes));
+       setRecipes(response.data.hits, () => {
+        window.localStorage.setItem("recipes", JSON.stringify(recipes));
+       });
+
      } catch(e) {
        console.log(e);
      }
@@ -66,10 +68,10 @@ console.log(recipes);
         </Grid>
       </Grid>
       <Grid container className={classes.recipeContainer}>
-        <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+
           {recipes.map(recipe => {
             return (
-
+              <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
               <RecipeCard
               key={recipe.recipe.uri}
               label={recipe.recipe.label}
@@ -77,9 +79,9 @@ console.log(recipes);
               cuisineType={recipe.recipe.cuisineType}
               ingredientLines={recipe.recipe.ingredientLines}
               recipe={recipe}/>
+              </Grid>
             )
           })}
-        </Grid>
         {/* <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
           <RecipeCard />
         </Grid>
