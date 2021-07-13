@@ -4,7 +4,6 @@ const axios = require('axios');
 const cors = require('cors');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
-const bodyParser = require('body-parser');
 
 require('./passport-setup');
 require('dotenv').config();
@@ -16,7 +15,10 @@ const controllers = require('./controllers');
 const PORT = 3000;
 const app = express();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d57e321d9ef4a59291860ba071b94f3d1bdf115c
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -57,9 +59,9 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-app.use('/inventory', controllers.inventory);
+// app.use('/inventory', controllers.inventory);
 app.use('/ingredients', controllers.ingredients);
-app.use('/users', controllers.users);
+// app.use('/users', controllers.users);
 app.use('/spryte', controllers.recipes);
 
 app.listen(PORT, () => {

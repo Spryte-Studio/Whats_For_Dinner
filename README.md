@@ -68,7 +68,7 @@ If you haven’t already, please fork the repository on GitHub and clone your ne
 Use the package manager npm to install all necessary dev dependencies for our repo – run the following terminal command: `npm install`
 To make development easier we’ve:
   * Added nodemon as an npm start script. To automatically restart the node application when file changes in the directory are detected, run the following terminal command:`npm start`.
-  * Add webpack development mode as an npm start script. To automatically have webpack watch for and bundle changes, run the following terminal command: `npm run watch`.
+  * Add webpack development mode as an npm start script. To automatically have webpack watch for and bundle changes, run the following terminal command: `npm run build:dev`.
 
 ## API Configuration
 Go to [Edamam](https://developer.edamam.com/) and sign up for 2 of their services' API keys:
@@ -80,7 +80,7 @@ Go to your [Google Developer console] (https://console.developers.google.com/) a
 Update the `env.example` to be `env` and add the:
   * Above 4 Edamam id's and keys to the appropriate Edamam labels
   * Google Auth client secret id to the `client_secret` label
-  * Add your Postgres information to the `db_config` object
+  * Add your Postgres information
 
 
 ## Testing

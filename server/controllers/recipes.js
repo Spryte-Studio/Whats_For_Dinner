@@ -5,7 +5,14 @@ const axios = require('axios');
 
 const router = express.Router();
 const models = require('../models');
-const {app_key, app_id} = require('./config.js');
+
+require('dotenv').config();
+const {edamam_recipeSearch_app_id, edamam_recipeSearch_app_key} = process.env;
+
+const app_id = edamam_recipeSearch_app_id;
+const app_key = edamam_recipeSearch_app_key;
+
+
 const apiURL = 'https://api.edamam.com/search';
 
 router.get('/allRecipes', async (req, res) => {
