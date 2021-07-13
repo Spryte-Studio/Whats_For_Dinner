@@ -1,5 +1,9 @@
 const { Pool } = require('pg')
-const dbConfig = require('./config')
+
+require('dotenv').config();
+
+const {db_config} = process.env;
+const dbConfig = JSON.parse(db_config)
 
 const pool = new Pool(dbConfig);
 
