@@ -4,7 +4,6 @@ const express = require('express');
 const axios = require('axios');
 
 const router = express.Router();
-
 const models = require('../models');
 const {app_key, app_id} = require('./config.js');
 const apiURL = 'https://api.edamam.com/search';
@@ -40,4 +39,5 @@ router.get('/allRecipes', async (req, res) => {
   }
 
 })
+
 module.exports = router;
