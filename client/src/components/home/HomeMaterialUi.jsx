@@ -16,6 +16,8 @@ const useStyles = makeStyles(() => ({
     border: '2px solid #E6E6EA',
     backgroundColor: '#B3B3EA',
     width: '150px',
+    top: '10px',
+    left: '30px'
   },
   loginForm: {
     height: '50vh',
