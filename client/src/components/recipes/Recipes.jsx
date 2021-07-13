@@ -68,26 +68,29 @@ var Recipes = () => {
         </Grid>
       </Grid>
       <Grid container className={classes.recipeContainer}>
+        <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+          {recipes.map(recipe => {
+            return (
+              <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+                <RecipeCard
+                  key={recipe.recipe.uri}
+                  label={recipe.recipe.label}
+                  image={recipe.recipe.image}
+                  cuisineType={recipe.recipe.cuisineType}
+                  ingredientLines={recipe.recipe.ingredientLines}
+                  recipe={recipe} />
+              </Grid>
+            )
+          })}
+          {/* <RecipeCard />
+        </Grid>
+        <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
 
-        {recipes.map(recipe => {
-          return (
-            <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-              <RecipeCard
-                key={recipe.recipe.uri}
-                label={recipe.recipe.label}
-                image={recipe.recipe.image}
-                cuisineType={recipe.recipe.cuisineType}
-                ingredientLines={recipe.recipe.ingredientLines}
-                recipe={recipe} />
-            </Grid>
-          )
-        })}
-        {/* <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
           <RecipeCard />
         </Grid>
         <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-          <RecipeCard />
-        </Grid> */}
+          <RecipeCard /> */}
+        </Grid>
       </Grid>
     </Grid >
   );

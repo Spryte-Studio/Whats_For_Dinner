@@ -34,7 +34,6 @@ router.get('/allRecipes', async (req, res) => {
 
     }});
     const recipes = response.data;
-    console.log(recipes);
     res.status(200).send(recipes);
   } catch(e){
     console.log(e);
