@@ -20,6 +20,7 @@ const Home = () => {
     setOpenLogin(false);
   }
 
+  //test
   return (
     authCode ? (<Dashboard />) : (
       <>
@@ -60,7 +61,8 @@ const Home = () => {
             </Button>
           </DialogActions>
         </Dialog>
-      </>)
+      </>
+    )
   );
 };
 
