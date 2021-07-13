@@ -9,8 +9,12 @@ const models = require('../models');
 module.exports = {
   getAll: function(req, res) {},
 
-  getMeta: function(req, res) {},
+  getMeta: function(req, res) {
+    const id = req.params.inventory_id;
+  },
 
-  postItem: function(req, res) {}
+  postItem: function(req, res) {
+    const
+  }
 };
 
