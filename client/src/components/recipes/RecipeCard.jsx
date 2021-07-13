@@ -29,9 +29,14 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
     <Card className={classes.cardBody} raised={true} >
       <CardHeader
         avatar={
+<<<<<<< HEAD
           <Avatar src="https://cdn.discordapp.com/attachments/863169328869277717/864608072709439518/WFDRecipeLogo-NB-08.png"
             className={classes.avatar}
           />
+=======
+          <Avatar src="https://cdn.discordapp.com/attachments/863169328869277717/864608072709439518/WFDRecipeLogo-NB-08.png" className={classes.avatar}/>
+
+>>>>>>> a63888a0c831949d893f74629a4eb7b4cc85fbc1
         }
         title={label}
         subheader={cuisineType}

@@ -12,7 +12,8 @@ import globalUseStyles from '../../GlobalMaterialUi.jsx';
 var Recipes = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
-  const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
+  const [recipes, setRecipes] = useState([]);
+  // const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
   const [query, setQuery] = useState("zucchini", "broccoli", "carrots");
 
   useEffect(() => {
@@ -21,9 +22,10 @@ var Recipes = () => {
       try {
         const response = await axios.get('/spryte/allRecipes', { params: { q: query } })
         console.log(response.data.hits);
-        setRecipes(response.data.hits, () => {
-          window.localStorage.setItem("recipes", JSON.stringify(recipes));
-        });
+        setRecipes(response.data.hits)
+        // setRecipes(response.data.hits, () => {
+        //   window.localStorage.setItem("recipes", JSON.stringify(recipes));
+        // });
 
       } catch (e) {
         console.log(e);
@@ -80,6 +82,7 @@ var Recipes = () => {
         </Grid>
       </Grid>
       <Grid container className={classes.recipeContainer}>
+<<<<<<< HEAD
         <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
           {/* {recipes.map(recipe => {
             return (
@@ -102,6 +105,21 @@ var Recipes = () => {
         <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
           <RecipeCard />
         </Grid>
+=======
+        {recipes.map(recipe => {
+          return (
+            <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+              <RecipeCard
+                key={recipe.recipe.uri}
+                label={recipe.recipe.label}
+                image={recipe.recipe.image}
+                cuisineType={recipe.recipe.cuisineType}
+                ingredientLines={recipe.recipe.ingredientLines}
+                recipe={recipe} />
+            </Grid>
+          )
+        })}
+>>>>>>> a63888a0c831949d893f74629a4eb7b4cc85fbc1
       </Grid>
     </Grid >
   );
