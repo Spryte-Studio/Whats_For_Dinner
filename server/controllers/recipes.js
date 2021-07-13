@@ -4,8 +4,27 @@ const express = require('express');
 const axios = require('axios');
 
 const router = express.Router();
-
 const models = require('../models');
+
+const getRecipesURL = 'https://api.edamam.com/search';
+
+require('dotenv').config();
+
+router.get('/:ingredients', (req, res) => {
+	axios.get(`${getRecipesURL}`, {
+		params: {
+			'q': req.params.ingredients,
+			'app_id': edamam_recipeSearch_app_id,
+			'app_key': edamam_recipeSearch_app_key
+		}
+	})
+		.then((response) => {
+			res.status(200).send(response.data);
+		})
+		.catch((err) => {
+			res.status(400).send(err);
+		});
+});
 
 //router.get('/', (req, res) => {})
 // router.get('/:productId', (req, res) => {
