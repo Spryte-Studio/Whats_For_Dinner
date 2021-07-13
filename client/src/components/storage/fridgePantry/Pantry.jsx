@@ -3,7 +3,7 @@ import {
   Button, Typography, Paper, Grid
 } from '@material-ui/core';
 import useStyles from '../StorageMaterialUi.jsx';
-import AddItemForm from '../addIngredient/AddItemForm.jsx';
+import AddPantryForm from '../addIngredient/AddPantryForm.jsx';
 
 const Pantry = () => {
   const classes = useStyles();
@@ -33,7 +33,7 @@ const Pantry = () => {
         }}>
           Add Item
         </Button>
-        <AddItemForm
+        <AddPantryForm
           openForm={openForm}
           handleFormClose={handleFormClose}
         />
