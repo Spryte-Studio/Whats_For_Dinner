@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
-app.use('/fridge', controllers.fridgePantry);
+app.use('/inventory', controllers.inventory);
 app.use('/home', controllers.home);
 app.use('/ingredients', controllers.ingredients);
 app.use('/users', controllers.users);
