@@ -33,11 +33,7 @@ app.use(cookieSession({
 }));
 
 const isLoggedIn = (req, res, next) => {
-  if (req.user) {
-    next();
-  } else {
-    res.sendStatus(401);
-  }
+  req.user ? next() : res.statusCode(401);
 }
 
 // Route for logout of app (Future Feature)
@@ -52,7 +48,9 @@ app.get('/logout', (req, res) => {
 //   request.  The first step in Google authentication will involve
 //   redirecting the user to google.com.  After authorization, Google
 //   will redirect the user back to this application at /auth/google/callback
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
 
 app.use('/fridge', controllers.fridgePantry);
 app.use('/home', controllers.home);
