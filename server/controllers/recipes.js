@@ -40,4 +40,5 @@ router.get('/allRecipes', async (req, res) => {
   }
 
 })
+
 module.exports = router;

@@ -16,8 +16,6 @@ const controllers = require('./controllers')
 const PORT = 3000;
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 app.use(cors());
 app.use(express.json());
@@ -60,7 +58,6 @@ app.get('/auth/google',
 );
 
 app.use('/inventory', controllers.inventory);
-app.use('/home', controllers.home);
 app.use('/ingredients', controllers.ingredients);
 app.use('/users', controllers.users);
 app.use('/spryte', controllers.recipes);
