@@ -30,7 +30,7 @@ export default function RecipeReviewCard({recipe, label, image, ingredientLines,
       <CardHeader
         avatar={
           <Avatar className={classes.avatar}>
-            Img
+            {'..../logos/WFDRecipeLogo-NB-08.png'}
           </Avatar>
         }
         title={label}

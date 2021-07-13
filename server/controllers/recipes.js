@@ -8,29 +8,16 @@ const router = express.Router();
 const models = require('../models');
 const {app_key, app_id} = require('./config.js');
 const apiURL = 'https://api.edamam.com/search';
-
+require('dotenv').config();
+const {edamam_recipeSearch_app_id, edamam_recipeSearch_app_key} = process.env;
 router.get('/allRecipes', async (req, res) => {
   try {
-    // await console.log(req.params);
-
-    // const ingredients = [...ingredients];
-    // const mappedIngredients = ingredients
-    // .map((ingredient, idx) => {
-    //   if (idx < ingredients.length - 1) {
-    //     return ingredient + "+";
-    //   } else {
-    //     return ingredient;
-    //   }
-    // })
-    // .join("");
-
-  //  console.log(req.params)
     const url = `${apiURL}`;
     const response = await axios.get(url, {
     params: {
       q: req.query.q,
-      app_id: app_id,
-      app_key: app_key
+      app_id: edamam_recipeSearch_app_id,
+      app_key: edamam_recipeSearch_app_key
 
     }});
     const recipes = response.data;
@@ -42,3 +29,16 @@ router.get('/allRecipes', async (req, res) => {
 
 })
 module.exports = router;
+
+// await console.log(req.params);
+
+    // const ingredients = [...ingredients];
+    // const mappedIngredients = ingredients
+    // .map((ingredient, idx) => {
+    //   if (idx < ingredients.length - 1) {
+    //     return ingredient + "+";
+    //   } else {
+    //     return ingredient;
+    //   }
+    // })
+    // .join("");
