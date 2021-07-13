@@ -5,5 +5,7 @@ main.js
 config
 /img
 Wireframe.ai
+package-lock.json
 
 imgs
+server/controllers/config.js

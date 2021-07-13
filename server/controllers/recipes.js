@@ -5,41 +5,39 @@ const axios = require('axios');
 
 const router = express.Router();
 const models = require('../models');
+const {app_key, app_id} = require('./config.js');
+const apiURL = 'https://api.edamam.com/search';
 
-const getRecipesURL = 'https://api.edamam.com/search';
+router.get('/allRecipes', async (req, res) => {
+  try {
+    // await console.log(req.params);
 
-require('dotenv').config();
+    // const ingredients = [...ingredients];
+    // const mappedIngredients = ingredients
+    // .map((ingredient, idx) => {
+    //   if (idx < ingredients.length - 1) {
+    //     return ingredient + "+";
+    //   } else {
+    //     return ingredient;
+    //   }
+    // })
+    // .join("");
 
-router.get('/:ingredients', (req, res) => {
-	axios.get(`${getRecipesURL}`, {
-		params: {
-			'q': req.params.ingredients,
-			'app_id': edamam_recipeSearch_app_id,
-			'app_key': edamam_recipeSearch_app_key
-		}
-	})
-		.then((response) => {
-			res.status(200).send(response.data);
-		})
-		.catch((err) => {
-			res.status(400).send(err);
-		});
-});
+  //  console.log(req.params)
+    const url = `${apiURL}`;
+    const response = await axios.get(url, {
+    params: {
+      q: req.query.q,
+      app_id: app_id,
+      app_key: app_key
 
-//router.get('/', (req, res) => {})
-// router.get('/:productId', (req, res) => {
-//   // console.log('get//products/:product_id');
-//   axios.get(`${BaseUrl}/products/${req.params.productId}`, {
-//     headers: { 'Authorization': GITHUB_API_KEY },
-//   })
-//     .then((response) => {
-//       // console.log('this is response inside get request',response);
-//       // console.log('productMain get response.data: ', response.data);
-//       res.status(200).send(response.data);
-//     })
-//     .catch((err) => {
-//       console.log('S: productMain get/:productId err: ', err);
-//       res.status(500).send(err);
-//     });
-// });
+    }});
+    const recipes = response.data;
+    console.log(recipes);
+    res.status(200).send(recipes);
+  } catch(e){
+    console.log(e);
+  }
+
+})
 module.exports = router;
