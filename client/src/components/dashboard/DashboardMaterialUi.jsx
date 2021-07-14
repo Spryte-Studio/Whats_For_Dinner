@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
   },
   pantryImg: {
     backgroundColor: '#666782',
-    height: '400px',
+    height: '300px',
   },
   recipes: {
     backgroundColor: '#666782',

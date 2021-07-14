@@ -16,7 +16,7 @@ const Dashboard = () => {
           <Grid container className={classes.mainGrid} id='Dashboard'>
             <Grid item xs={12} s={12} md={2}>
               <Paper className={classes.logo} elevation={0}>
-                <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%', justifyContent: 'center' }} />
+                <img src="Logos/WFD.png" style={{ height: '100%', justifyContent: 'center' }} />
               </Paper>
             </Grid>
             <Grid item xs={12} s={12} md={8}>
@@ -35,35 +35,19 @@ const Dashboard = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid container item xs={12} className={classes.pantryContainer}>
-          <Grid item xs={12} md={9} className={classes.pantry}>
-            <Link to='/inventory'>
-              <Button className={globalClasses.tabButton}>
-                <Typography variant='h4' align='left'>
-                  Inventory
-                </Typography>
-              </Button>
-            </Link>
-          </Grid>
-          <Grid item xs={12} md={3} className={classes.pantryImg}>
+        <Grid container xs={12}>
+          <Grid item xs={12} md={6} className={classes.pantryImg}>
             <Paper>
-              <img src='Logos/WFDIngredientLogo-02-09.png' alt='Pantry Logo' className={classes.Img} />
+              <Link to='/inventory'>
+                <img src='Logos/WFDInventoryLogo-Final-10.png' alt='Pantry Logo' className={classes.Img} />
+              </Link>
             </Paper>
           </Grid>
-        </Grid>
-        <Grid container item xs={12} className={classes.recipeContainer}>
-          <Grid item xs={12} md={9} className={classes.recipes}>
-            <Link to='/recipes'>
-              <Button className={globalClasses.tabButton}>
-                <Typography variant='h4' align='left' >
-                  Recipes
-                </Typography>
-              </Button>
-            </Link>
-          </Grid>
-          <Grid item xs={12} md={3} className={classes.recipeImg}>
-            <Paper className={classes.Img}>
-              <img src='Logos/WFDRecipeLogo-NB-08.png' alt='Recipe Logo' className={classes.Img} />
+          <Grid item xs={12} md={6} className={classes.pantryImg}>
+            <Paper>
+              <Link to='/recipes'>
+                <img src='Logos/WFDRecipeLogo-FINAL-11.png' alt='Recipe Logo' className={classes.Img} />
+              </Link>
             </Paper>
           </Grid>
         </Grid>
