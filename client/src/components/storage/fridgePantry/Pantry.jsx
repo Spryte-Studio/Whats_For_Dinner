@@ -6,6 +6,8 @@ import useStyles from '../StorageMaterialUi.jsx';
 import AddPantryForm from '../addIngredient/AddPantryForm.jsx';
 import { ProductContext } from '../../../context';
 var _ = require('underscore');
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Pantry = () => {
   const classes = useStyles();
@@ -51,6 +53,9 @@ const Pantry = () => {
                 <ListItemText
                   primary={ingredient}
                 />
+                <IconButton aria-label="delete" className={classes.margin}>
+                  <DeleteIcon fontSize="small" />
+                </IconButton>
               </ListItem>
             </Paper>
           ))}
