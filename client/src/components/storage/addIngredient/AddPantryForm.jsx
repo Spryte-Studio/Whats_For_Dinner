@@ -21,11 +21,13 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
   };
 
   function handleAutoCompleteUpdate() {
-    axios.get(`/ingredients/${addIngredientName}`)
-      .then((response) => {
-        // console.log('response from autocomplete results', response.data);
-        updateAutoCompleteList(response.data);
-      });
+    if (addIngredientName.length !== 0) {
+      axios.get(`/ingredients/${addIngredientName}`)
+        .then((response) => {
+          // console.log('response from autocomplete results', response.data);
+          updateAutoCompleteList(response.data);
+        });
+    }
   }
 
   function handleSubmit(event) {

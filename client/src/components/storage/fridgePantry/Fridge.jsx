@@ -5,6 +5,7 @@ import {
 import useStyles from '../StorageMaterialUi.jsx';
 import AddFridgeForm from '../addIngredient/AddFridgeForm.jsx';
 import { ProductContext } from '../../../context';
+var _ = require('underscore');
 
 const Fridge = () => {
   const classes = useStyles();
@@ -22,9 +23,15 @@ const Fridge = () => {
 
   const handleIngredientSelect = (ingredientName) => {
     event.preventDefault();
-    console.log('ingredient name', ingredientName);
-    const ingredientsAlready = searchIngredients.concat([ingredientName]);
-    console.log('copy of ingredients array?', ingredientsAlready);
+    var ingredientsAlready;
+
+    if (_.contains(searchIngredients, ingredientName)) {
+      ingredientsAlready = _.filter(searchIngredients, function(ingredient) {return ingredient !== ingredientName})
+    } else {
+      ingredientsAlready = searchIngredients.concat([ingredientName]);
+    }
+
+    console.log('copy of ingredients array======', ingredientsAlready);
     setSearchIngredients(ingredientsAlready);
   }
 
@@ -37,7 +44,8 @@ const Fridge = () => {
       </Grid>
       <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
         {inventory.map((ingredient) => (
-          <ListItem key={ingredient} alignItems="flex-start" onClick={() => {handleIngredientSelect(ingredient)}}>
+          <ListItem key={ingredient} alignItems="flex-start" onClick={() => {handleIngredientSelect(ingredient)}}
+            style={_.contains(searchIngredients, ingredient) ? {color: '#f50057'} : {color: 'grey'}}>
           <ListItemText
             primary={ingredient}
           />
