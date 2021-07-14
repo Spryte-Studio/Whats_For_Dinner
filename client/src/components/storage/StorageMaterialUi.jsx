@@ -26,36 +26,36 @@ const useStyles = makeStyles(() => ({
     height: '300px',
     textAlign: 'center'
   },
-  // header: {
-  //   border: '2px solid black',
-  //   height: '10vh',
-  //   backgroundColor: '#666782'
-  // },
   tab: {
     height: '50%'
   },
   inventoryContainer: {
-    borderBottom: '2px solid black',
-    borderRight: '2px solid black',
-    borderLeft: '2px solid black',
     justifyContent: 'space-evenly',
-    backgroundColor: '#191B43'
+    backgroundColor: '#666782',
+    padding: '30px',
   },
-  pantryAndFridgeContainer:{
-    border: '2px solid black',
+  pantryAndFridgeContainer: {
+    border: '2px solid #E6E6EA',
     height: '80vh',
-    backgroundColor: '#666782'
+    backgroundColor: '#B3B3EA'
   },
   fridgeHeader: {
-    height: '10%'
+    height: '10%',
+    borderBottom: '2px solid black'
   },
   items: {
     height: '80%',
-    backgroundColor: '#B3B3C0'
+    backgroundColor: '#B3B3C0',
+    overflow: 'overlay'
   },
   addItemButton: {
     height: '100%',
     width: '100%'
+  },
+  ingredient: {
+    border: '1px solid #E6E6EA',
+    backgroundColor: '#B3B3EA',
+    margin: '5px'
   }
 }));
 

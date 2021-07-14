@@ -14,6 +14,7 @@ var App = () => {
   const code = new URLSearchParams(window.location.search).get('code');
 
   const [authCode, setAuthCode] = useState('');
+  const [searchIngredients, setSearchIngredients] = useState([]);
 
   useEffect(() => {
     if (code !== null) {
@@ -21,14 +22,23 @@ var App = () => {
     }
   }, [code])
 
+  useEffect(() => {
+    if (code !== null) {
+      axios.post('/users/postUser', code)
+      .then((response) => {
+        console.log('response from posting user to db', response);
+      })
+    }
+  }, [])
+
   var handleLogout = () => {
     axios.get('/logout')
     .catch(err => console.log('handleLogout err: ',rr))
   }
-
   return (
     <ProductContext.Provider value={{
-      authCode: authCode
+      authCode: authCode,
+      searchIngredients, setSearchIngredients
     }}>
       <Router>
         <div>

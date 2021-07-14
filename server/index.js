@@ -20,6 +20,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
+app.use(passport.initialize());
+app.use(cookieSession({
+  name: 'Whats for dinner?',
+  keys: ['key1', 'key2']
+}));
+app.use(passport.session());
+
+const isLoggedIn = (req, res, next) => {
+  req.user ? next() : res.redirect('/');
+};
+
 app.get('/recipes', (req, res) => {
   res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
     if (err) {
@@ -28,17 +39,22 @@ app.get('/recipes', (req, res) => {
   });
 });
 
-app.use(passport.initialize());
-app.use(passport.session());
+app.get('/inventory', (req, res) => {
+  res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
+    if (err) {
+      res.status(400).send(err);
+    }
+  });
+});
 
-app.use(cookieSession({
-  name: 'Whats for dinner?',
-  keys: ['key1', 'key2']
-}));
+app.get('/dashboard', (req, res) => {
+  res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
+    if (err) {
+      res.status(400).send(err);
+    }
+  });
+});
 
-const isLoggedIn = (req, res, next) => {
-  req.user ? next() : res.statusCode(401);
-};
 
 // Route for logout of app (Future Feature)
 app.get('/logout', (req, res) => {
@@ -60,7 +76,7 @@ app.get('/auth/google',
 
 // app.use('/inventory', controllers.inventory);
 app.use('/ingredients', controllers.ingredients);
-// app.use('/users', controllers.users);
+app.use('/users', controllers.users);
 app.use('/spryte', controllers.recipes);
 
 app.listen(PORT, () => {

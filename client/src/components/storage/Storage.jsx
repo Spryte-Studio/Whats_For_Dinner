@@ -14,13 +14,12 @@ const Storage = () => {
   const globalClasses = globalUseStyles();
   const { authCode } = useContext(ProductContext);
 
-  //Fixed
   return (
     <Grid container id='Storage'>
-      <Grid container className={classes.mainGrid} id='Dashboard'>
+      <Grid container id='Dashboard'>
         <Grid item xs={12} s={12} md={2}>
           <Paper className={classes.logo} elevation={0} square>
-            <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%', justifyContent: 'center' }} />
+            <img src="Logos/WFD.png" style={{ height: '100%', justifyContent: 'center' }} />
           </Paper>
         </Grid>
         <Grid item xs={12} s={12} md={8}>
@@ -31,16 +30,16 @@ const Storage = () => {
           </Paper>
         </Grid>
         <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-          <Button className={classes.logoutButton}>
-            <Link to='/dashboard' >
+          <Link to='/dashboard'>
+            <Button className={classes.logoutButton}>
               Dashboard
-            </Link>
-          </Button>
-          <Button className={classes.logoutButton}>
-            <Link to='/recipes'>
+            </Button>
+          </Link>
+          <Link to='/recipes'>
+            <Button className={classes.logoutButton}>
               Recipes
-            </Link>
-          </Button>
+            </Button>
+          </Link>
           <Button className={classes.logoutButton}>
             LogOut
           </Button>
