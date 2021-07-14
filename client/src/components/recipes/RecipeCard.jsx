@@ -16,14 +16,13 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 export default function RecipeReviewCard({ recipe, label, image, ingredientLines, cuisineType }) {
   console.log(recipe)
-  // console.log('image',recipe)
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  // const mappedIngredients = ingredientLines.join("\n");
+   const mappedIngredients = ingredientLines.join("\n");
 
   return (
     <Card className={classes.cardBody} raised={true} >
@@ -43,7 +42,7 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
       />
       <CardContent>
         <Typography variant="body2" component="p">
-          Example text for a description of the recipe.
+
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -64,16 +63,7 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
         <CardContent>
           <Typography paragraph>Instructions:</Typography>
           <Typography paragraph>
-            {/* {mappedIngredients} */}
-          </Typography>
-          <Typography paragraph>
-            Example step two:
-          </Typography>
-          <Typography paragraph>
-            Example step three:
-          </Typography>
-          <Typography>
-            Example step four:
+            {mappedIngredients}
           </Typography>
         </CardContent>
       </Collapse>
