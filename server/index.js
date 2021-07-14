@@ -56,6 +56,8 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
+
+
 // app.use('/inventory', controllers.inventory);
 app.use('/ingredients', controllers.ingredients);
 // app.use('/users', controllers.users);

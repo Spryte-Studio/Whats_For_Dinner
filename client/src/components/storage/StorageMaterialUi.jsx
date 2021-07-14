@@ -11,13 +11,19 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     backgroundColor: '#666782'
   },
+  tabContainer: {
+    height: '200px',
+    width: '100%',
+    backgroundColor: '#666782',
+    textAlign: 'end'
+  },
   logoutButton: {
     border: '2px solid #E6E6EA',
     backgroundColor: '#B3B3EA',
     width: '150px',
+    margin: '5px'
   },
   header: {
-    border: '2px solid black',
     height: '300px',
     textAlign: 'center'
   },
