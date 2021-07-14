@@ -40,9 +40,7 @@ const Storage = () => {
               Recipes
             </Link>
           </Button>
-          <Button className={classes.logoutButton} onClick={() => {
-            handleLoginOpen();
-          }}>
+          <Button className={classes.logoutButton}>
             LogOut
           </Button>
         </Grid>
@@ -51,7 +49,7 @@ const Storage = () => {
         <Pantry />
         <Fridge />
       </Grid>
-    </Grid >
+    </Grid>
   );
 };
 

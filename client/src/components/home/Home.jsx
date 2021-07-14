@@ -27,7 +27,7 @@ const Home = () => {
           <Grid container className={classes.mainGrid} id='Home'>
             <Grid item xs={12} s={12} md={2}>
               <Paper className={classes.logo} elevation={0}>
-                <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%' }} />
+                <img src="Logos/WFD.png" style={{ height: '100%' }} />
               </Paper>
             </Grid>
             <Grid item xs={12} s={12} md={8}>
