@@ -36,8 +36,8 @@ const Storage = () => {
             </Link>
           </Button>
           <Button className={classes.logoutButton}>
-            <Link to='/inventory'>
-              Inventory
+            <Link to='/recipes'>
+              Recipes
             </Link>
           </Button>
           <Button className={classes.logoutButton} onClick={() => {
