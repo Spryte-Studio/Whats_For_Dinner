@@ -10,7 +10,7 @@ const pool = new Pool(dbConfig);
 
 pool.connect((err) => {
   if (err) {
-    console.log(err,'error connecting to database', err)
+    console.log('error connecting to database', err)
   } else {
     console.log('connected to postgres')
   }

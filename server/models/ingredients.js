@@ -1,7 +1,10 @@
 const db = require('../../database');
 
 const postIngredient = function(
-  ingredients, perishable, UID) {
+  ingredients, perishable, UID, callback) {
+
+  console.log('ingredients in model', ingredients);
+
   const insertIngredientToInventory =
     `INSERT INTO inventory (name, perishable) VALUES ($1, $2) RETURNING ID;`;
 
@@ -9,15 +12,14 @@ const postIngredient = function(
     `INSERT INTO users_inventory (user_id, inventory_id) VALUES ($1, $2);`;
 
   ingredients.map((ingredient) => (
-    psqlConnection.query(
+    db.query(
       insertIngredientToInventory,
         [ingredient, perishable],
         function(err, results) {
           if (err) {
             callback(err, null);
           } else {
-            callback(null, results);
-            psqlConnection.query(
+            db.query(
               insertIngredientForUser,
               [UID, results],
               function(err, resultsTwo) {

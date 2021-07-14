@@ -5,6 +5,7 @@ import Storage from './storage/Storage.jsx';
 import Dashboard from './dashboard/Dashboard.jsx';
 import Recipes from './recipes/Recipes.jsx';
 import { ProductContext } from '../context.js';
+import axios from 'axios';
 
 
 
@@ -17,6 +18,10 @@ var App = () => {
   useEffect(() => {
     if (code !== null) {
       setAuthCode(code);
+      axios.post('/users/postUser', {authCode})
+        .then((response) => {
+          console.log('response from posting user to db', response);
+        })
     }
   }, [code])
 

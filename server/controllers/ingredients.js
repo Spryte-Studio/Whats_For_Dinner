@@ -39,7 +39,7 @@ router.post('/:perishable', (req, res) => {
   console.log('perishable?', perishable);
   console.log('auth code?', req.body.authCode)
 
-  ingredientModel.postIngredient(req.body, perishable, function(err, results) {
+  ingredientModel.postIngredient(req.body.addMultIngs, perishable, req.body.authCode, function(err, results) {
     if (err) {
       res.status(400).send(err);
     } else {
