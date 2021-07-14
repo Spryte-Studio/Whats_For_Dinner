@@ -46,7 +46,10 @@ const Pantry = () => {
         <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
           {inventory.map((ingredient) => (
             <Paper elevation={1} className={classes.ingredient} square>
-              <ListItem key={ingredient} alignItems="flex-start" onClick={() => { handleIngredientSelect(ingredient) }}
+              <ListItem key={ingredient} alignItems="flex-start" onClick={() => {
+                handleIngredientSelect(ingredient)
+
+              }}
                 style={_.contains(searchIngredients, ingredient) ? { color: '#FFFFFF', backgroundColor: '#666782' } : { color: 'Black' }}>
                 <ListItemText
                   primary={ingredient}

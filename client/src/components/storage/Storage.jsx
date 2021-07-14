@@ -12,7 +12,8 @@ import { ProductContext } from '../../context';
 const Storage = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
-  const { authCode } = useContext(ProductContext);
+  const [ingredientSelected, setIngredientSelected] = useState(false);
+  const { authCode, searchIngredients, setSearchIngredients } = useContext(ProductContext);
 
   return (
     <Grid container id='Storage'>
@@ -35,6 +36,11 @@ const Storage = () => {
               Dashboard
             </Button>
           </Link>
+          {/* {ingredientSelected ? (<Link to='/recipes'>
+            <Button className={classes.logoutButton}>
+              Recipes
+            </Button>
+          </Link>) : (null)} */}
           <Link to='/recipes'>
             <Button className={classes.logoutButton}>
               Recipes
@@ -46,10 +52,10 @@ const Storage = () => {
         </Grid>
       </Grid>
       <Grid container className={classes.inventoryContainer}>
-        <Pantry />
-        <Fridge />
+        <Pantry setIngredientSelected={setIngredientSelected} />
+        <Fridge setIngredientSelected={setIngredientSelected} />
       </Grid>
-    </Grid>
+    </Grid >
   );
 };
 
