@@ -19,13 +19,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+
 app.get('/recipes', (req, res) => {
-  res.sendFile('index.html',{root: __dirname + '/../client/dist'},(err) => {
-    if(err) {
-      res.status(400).send(err)
+  res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
+    if (err) {
+      res.status(400).send(err);
     }
-  }
-  )});
+  });
+});
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -37,14 +38,14 @@ app.use(cookieSession({
 
 const isLoggedIn = (req, res, next) => {
   req.user ? next() : res.statusCode(401);
-}
+};
 
 // Route for logout of app (Future Feature)
 app.get('/logout', (req, res) => {
   req.session = null;
   req.logout();
   res.redirect('/');
-})
+});
 
 // GET /auth/google
 //   Use passport.authenticate() as route middleware to authenticate the
@@ -54,6 +55,8 @@ app.get('/logout', (req, res) => {
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
+
+
 
 // app.use('/inventory', controllers.inventory);
 app.use('/ingredients', controllers.ingredients);

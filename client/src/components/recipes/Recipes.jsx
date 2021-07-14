@@ -12,6 +12,7 @@ import globalUseStyles from '../../GlobalMaterialUi.jsx';
 var Recipes = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
+  // const [recipes, setRecipes] = useState([]);
   const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
   const [query, setQuery] = useState("zucchini", "broccoli", "carrots");
 
@@ -21,6 +22,7 @@ var Recipes = () => {
       try {
         const response = await axios.get('/spryte/allRecipes', { params: { q: query } })
         console.log(response.data.hits);
+        // setRecipes(response.data.hits)
         setRecipes(response.data.hits, () => {
           window.localStorage.setItem("recipes", JSON.stringify(recipes));
         });
@@ -46,51 +48,53 @@ var Recipes = () => {
 
   return (
     <Grid container id='Recipes'>
-      <Grid container className={classes.header}>
-        <Grid item xs={2} style={{ borderRight: '2px solid black' }}>
-          <Grid item xs={12} className={classes.tab} style={{ borderBottom: '2px solid black' }}>
-            <Link to='/dashboard'>
-              <Button className={globalClasses.tabButton} >
+      <Grid item xs={12}>
+        <Grid container className={classes.header} id='Recipe'>
+          <Grid item xs={12} s={12} md={2}>
+            <Paper className={classes.logo} elevation={0}>
+              <img src="Logos/WFD.png" style={{ height: '100%' }} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} s={12} md={8}>
+            <Paper className={classes.logo} elevation={0}>
+              <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
+                Your Cook Book Digitalized
+              </Typography>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={12} md={2} className={classes.logo} >
+            <Button className={classes.logoutButton}>
+              <Link to='/dashboard' >
                 Dashboard
-              </Button>
-            </Link>
-          </Grid>
-          <Grid item xs={12} className={classes.tab} >
-            <Link to='/inventory'>
-              <Button className={globalClasses.tabButton}>
+              </Link>
+            </Button>
+            <Button className={classes.logoutButton}>
+              <Link to='/inventory'>
                 Inventory
-              </Button>
-            </Link>
+              </Link>
+            </Button>
+            <Button className={classes.logoutButton} onClick={() => {
+              handleLoginOpen();
+            }}>
+              LogOut
+            </Button>
           </Grid>
-        </Grid>
-        <Grid item xs={10}>
-          Logo
         </Grid>
       </Grid>
       <Grid container className={classes.recipeContainer}>
-        <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-          {recipes.map(recipe => {
-            return (
-              <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-                <RecipeCard
-                  key={recipe.recipe.uri}
-                  label={recipe.recipe.label}
-                  image={recipe.recipe.image}
-                  cuisineType={recipe.recipe.cuisineType}
-                  ingredientLines={recipe.recipe.ingredientLines}
-                  recipe={recipe} />
-              </Grid>
-            )
-          })}
-          {/* <RecipeCard />
-        </Grid>
-        <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-
-          <RecipeCard />
-        </Grid>
-        <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-          <RecipeCard /> */}
-        </Grid>
+        {recipes.map(recipe => {
+          return (
+            <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+              <RecipeCard
+                key={recipe.recipe.uri}
+                label={recipe.recipe.label}
+                image={recipe.recipe.image}
+                cuisineType={recipe.recipe.cuisineType}
+                ingredientLines={recipe.recipe.ingredientLines}
+                recipe={recipe} />
+            </Grid>
+          )
+        })}
       </Grid>
     </Grid >
   );
