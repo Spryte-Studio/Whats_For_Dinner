@@ -21,30 +21,35 @@ const useStyles = makeStyles(() => ({
     textAlign: 'center'
   },
   pantry: {
-    backgroundColor: '#b3b3co',
+    backgroundColor: '#666782',
     height: '40vh',
     width: '70vh'
   },
   pantryContainer: {
+    backgroundColor: '#666782',
     marginTop: '5px',
     height: '400px'
   },
   pantryImg: {
+    backgroundColor: '#666782',
     height: '400px',
   },
   recipes: {
-    backgroundColor: '#b3b3co',
+    backgroundColor: '#666782',
     height: '40vh',
     width: '70vh'
   },
   recipeContainer: {
+    backgroundColor: '#666782',
     marginTop: '5px',
     height: '400px'
   },
   recipeImg: {
+    backgroundColor: '#666782',
     height: '400px',
   },
   Img: {
+    backgroundColor: '#666782',
     width: '100%',
     height: '100%',
     objectFit: 'contain'
