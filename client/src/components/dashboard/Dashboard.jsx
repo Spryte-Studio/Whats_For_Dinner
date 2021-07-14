@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-
 import useStyles from './DashboardMaterialUi.jsx';
 import globalUseStyles from '../../GlobalMaterialUi.jsx';
 
-const Dashboard = () => {
+const Dashboard = ({handleLogout}) => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
   return (
@@ -28,7 +28,7 @@ const Dashboard = () => {
             </Grid>
             <Grid item xs={12} sm={12} md={2} className={classes.logo} >
               <Button className={classes.logoutButton} onClick={() => {
-                handleLoginOpen();
+                handleLogout();
               }}>
                 LogOut
               </Button>

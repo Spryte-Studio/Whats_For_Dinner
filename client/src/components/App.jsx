@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
+import axios from 'axios';
 import Home from './home/Home.jsx';
 import Storage from './storage/Storage.jsx';
 import Dashboard from './dashboard/Dashboard.jsx';
@@ -19,6 +20,11 @@ var App = () => {
       setAuthCode(code);
     }
   }, [code])
+
+  var handleLogout = () => {
+    axios.get('/logout')
+    .catch(err => console.log('handleLogout err: ',rr))
+  }
 
   return (
     <ProductContext.Provider value={{
@@ -42,16 +48,16 @@ var App = () => {
         </ul> */}
           <Switch>
             <Route path='/' exact>
-              <Home />
+              <Home handleLogout={handleLogout}/>
             </Route>
             <Route path='/inventory' exact>
-              <Storage />
+              <Storage handleLogout={handleLogout}/>
             </Route>
             <Route path='/recipes' exact>
-              <Recipes />
+              <Recipes handleLogout={handleLogout}/>
             </Route>
             <Route path='/dashboard' exact>
-              <Dashboard />
+              <Dashboard handleLogout={handleLogout}/>
             </Route>
           </Switch>
         </div>
