@@ -8,31 +8,56 @@ const postIngredient = function(
   const insertIngredientToInventory =
     `INSERT INTO inventory (name, perishable) VALUES ($1, $2) RETURNING ID;`;
 
-  const insertIngredientForUser =
-    `INSERT INTO users_inventory (user_id, inventory_id) VALUES ($1, $2);`;
+  db.query('SELECT id FROM users WHERE auth_code = $1;', [UID])
+    .then((userID) => {
+      ingredients.map((ingredientName) => (
+        db.query(insertIngredientToInventory, [ingredientName, perishable])
+          .then((results) => {
+            const inventory_id = results.rows[0].id;
 
-  ingredients.map((ingredient) => (
-    db.query(
-      insertIngredientToInventory,
-        [ingredient, perishable],
-        function(err, results) {
-          if (err) {
+            const insertIngredientForUser =
+              `INSERT INTO users_inventory (user_id, inventory_id) VALUES ($1, $2);`;
+
+            db.query(insertIngredientForUser, [userID.rows[0].id, inventory_id])
+              .then(() => {
+                callback(null, 'successfully added ingredients! :)')
+              })
+              .catch((err) => {
+                callback(err, null);
+              });
+          })
+          .catch((err) => {
             callback(err, null);
-          } else {
-            db.query(
-              insertIngredientForUser,
-              [UID, results],
-              function(err, resultsTwo) {
-                if (err) {
-                  callback(err, null);
-                } else {
-                  callback(null, resultsTwo)
-                }
-              }
-            )
-          }
-        })
-  ))
+          })
+      ))
+    })
+    .catch((err) => {
+      callback(err, null);
+    })
 };
 
 module.exports = {postIngredient}
+
+// ingredients.map((ingredient) => (
+//   db.query(
+//     insertIngredientToInventory,
+//       [ingredient, perishable],
+//       function(err, results) {
+//         if (err) {
+//           callback(err, null);
+//         } else {
+//           console.log('results??? - id???', results.rows[0].id);
+//           db.query(
+//             insertIngredientForUser,
+//             [UID, results.rows[0].id],
+//             function(err, resultsTwo) {
+//               if (err) {
+//                 callback(err, null);
+//               } else {
+//                 callback(null, 'Successfully added ingredients! :)')
+//               }
+//             }
+//           )
+//         }
+//       })
+// ))

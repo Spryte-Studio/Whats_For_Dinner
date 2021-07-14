@@ -14,20 +14,27 @@ var App = () => {
   const code = new URLSearchParams(window.location.search).get('code');
 
   const [authCode, setAuthCode] = useState('');
+  const [searchIngredients, setSearchIngredients] = useState([]);
 
   useEffect(() => {
     if (code !== null) {
       setAuthCode(code);
+    }
+  }, [code])
+
+  useEffect(() => {
+    if (code !== null) {
       axios.post('/users/postUser', code)
         .then((response) => {
           console.log('response from posting user to db', response);
         })
     }
-  }, [code])
+  }, [])
 
   return (
     <ProductContext.Provider value={{
-      authCode: authCode
+      authCode: authCode,
+      searchIngredients, setSearchIngredients
     }}>
       <Router>
         <div>
