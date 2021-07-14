@@ -10,10 +10,17 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     backgroundColor: '#666782'
   },
+  logoutButtonContainer: {
+    height: '200px',
+    width: '100%',
+    backgroundColor: '#666782',
+    textAlign: 'end'
+  },
   logoutButton: {
     border: '2px solid #E6E6EA',
     backgroundColor: '#B3B3EA',
     width: '150px',
+    margin: '5px'
   },
   header: {
     border: '2px solid black',
@@ -32,7 +39,7 @@ const useStyles = makeStyles(() => ({
   },
   pantryImg: {
     backgroundColor: '#666782',
-    height: '300px',
+    height: '500px'
   },
   recipes: {
     backgroundColor: '#666782',
@@ -50,9 +57,7 @@ const useStyles = makeStyles(() => ({
   },
   Img: {
     backgroundColor: '#666782',
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain'
+    height: '100%'
   }
 }));
 
