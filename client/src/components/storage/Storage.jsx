@@ -14,7 +14,6 @@ const Storage = () => {
   const globalClasses = globalUseStyles();
   const { authCode } = useContext(ProductContext);
 
-  //Fixed
   return (
     <Grid container id='Storage'>
       <Grid container className={classes.mainGrid} id='Dashboard'>
