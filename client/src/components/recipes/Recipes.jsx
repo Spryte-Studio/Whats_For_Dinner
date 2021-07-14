@@ -13,14 +13,14 @@ import { ProductContext } from '../../context';
 var Recipes = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
-  // const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const { searchIngredients } = useContext(ProductContext);
-  const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
+  // const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
   console.log(query)
-  const ingredients = ["shrimp", "broccoli", "carrots"];
+  // const ingredients = ["shrimp", "broccoli", "carrots"];
   const mappedIngredients = searchIngredients
   .map((ingredient, idx) => {
-    if (idx < ingredients.length - 1) {
+    if (idx < searchIngredients.length - 1) {
       return ingredient + "+";
     } else {
       return ingredient;
@@ -35,10 +35,10 @@ var Recipes = () => {
       try {
         const response = await axios.get('/spryte/allRecipes', { params: { q: query } })
         console.log(response.data.hits);
-        // setRecipes(response.data.hits)
-        setRecipes(response.data.hits, () => {
-          window.localStorage.setItem("recipes", JSON.stringify(recipes));
-        });
+        setRecipes(response.data.hits);
+        // setRecipes(response.data.hits, () => {
+        //   window.localStorage.setItem("recipes", JSON.stringify(recipes));
+        // });
 
       } catch (e) {
         console.log(e);
@@ -82,11 +82,11 @@ var Recipes = () => {
                   Dashboard
                 </Button>
               </Link>
-              <Link to='/inventory'>
+              {/* <Link to='/inventory'>
                 <Button className={classes.logoutButton}>
                   Inventory
                 </Button>
-              </Link>
+              </Link> */}
               <Button className={classes.logoutButton}>
                 LogOut
               </Button>
@@ -95,17 +95,71 @@ var Recipes = () => {
           <Grid container className={classes.recipeContainer}>
             <Grid item xs={12} s={12} md={8}>
               <Paper className={classes.logo} elevation={0} square>
-                <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
-                  No ingredients selected to display recipes for.
+                <Typography align='center' variant='h4' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
+                  No ingredients selected to display recipes for - head back to pantry to select ingredients.
                 </Typography>
+                <Link to='/inventory'>
+                <Button className={classes.logoutButton}>
+                  Pantry
+                </Button>
+              </Link>
               </Paper>
             </Grid>
           </Grid>
         </Grid >
       </Grid>
     )
+  } else if (recipes.length === 0) {
+    return (
+      <Grid container id='Recipes'>
+      <Grid container id='Recipes'>
+        <Grid container id='Dashboard'>
+          <Grid item xs={12} s={12} md={2}>
+            <Paper className={classes.logo} elevation={0} square>
+              <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%', justifyContent: 'center' }} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} s={12} md={8}>
+            <Paper className={classes.logo} elevation={0} square>
+              <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
+                Your Cook Book Digitalized
+              </Typography>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
+            <Link to='/dashboard' >
+              <Button className={classes.logoutButton}>
+                Dashboard
+              </Button>
+            </Link>
+            {/* <Link to='/inventory'>
+              <Button className={classes.logoutButton}>
+                Pantry
+              </Button>
+            </Link> */}
+            <Button className={classes.logoutButton}>
+              LogOut
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid container className={classes.recipeContainer}>
+          <Grid item xs={12} s={12} md={8}>
+            <Paper className={classes.logo} elevation={0} square>
+              <Typography align='center' variant='h4' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
+                The ingredients selected didn't match any recipes. Please go back to your pantry and try selecting different recipes.
+              </Typography>
+              <Link to='/inventory'>
+                <Button className={classes.logoutButton}>
+                  Pantry
+                </Button>
+              </Link>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Grid >
+    </Grid>
+  )
   } else {
-
     return (
       <Grid container id='Recipes'>
         <Grid container id='Recipes'>

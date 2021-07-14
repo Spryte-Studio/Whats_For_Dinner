@@ -8,7 +8,8 @@ const useStyles = makeStyles(() => ({
   logo: {
     height: '200px',
     width: '100%',
-    backgroundColor: '#666782'
+    backgroundColor: '#666782',
+    textAlign: 'center'
   },
   tabContainer: {
     height: '200px',
@@ -55,7 +56,13 @@ const useStyles = makeStyles(() => ({
   ingredient: {
     border: '1px solid #E6E6EA',
     backgroundColor: '#B3B3EA',
-    margin: '5px'
+    margin: '5px',
+    '&:hover': {
+      cursor: 'pointer'
+    }
+  },
+  deleteButton: {
+    top: '2px'
   }
 }));
 

@@ -6,6 +6,8 @@ import useStyles from '../StorageMaterialUi.jsx';
 import AddFridgeForm from '../addIngredient/AddFridgeForm.jsx';
 import { ProductContext } from '../../../context';
 var _ = require('underscore');
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Fridge = () => {
   const classes = useStyles();
@@ -37,7 +39,7 @@ const Fridge = () => {
 
   return (
     <Grid item xs={12} md={4}>
-      <Paper className={classes.pantryAndFridgeContainer} elevation={2} square>
+      <Paper className={classes.pantryAndFridgeContainer} elevation={3} square>
         <Grid item xs={12} className={classes.fridgeHeader}>
           <Typography variant='h4' align='center' style={{ borderBottom: '2px solid black', height: '100%' }}>
             Fridge
@@ -45,12 +47,27 @@ const Fridge = () => {
         </Grid>
         <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
           {inventory.map((ingredient) => (
-            <ListItem key={ingredient} alignItems="flex-start" onClick={() => { handleIngredientSelect(ingredient) }}
-              style={_.contains(searchIngredients, ingredient) ? { color: '#f50057' } : { color: 'grey' }}>
-              <ListItemText
-                primary={ingredient}
-              />
-            </ListItem>
+            <Paper elevation={1} className={classes.ingredient} square>
+              <Grid container xs={12}>
+                <Grid item xs={12} md={10}>
+                  <ListItem key={ingredient} alignItems="flex-start" onClick={() => {
+                    handleIngredientSelect(ingredient)
+                  }}
+                    style={_.contains(searchIngredients, ingredient) ? { color: '#FFFFFF', backgroundColor: '#666782' } : { color: 'Black' }}>
+                    <ListItemText
+                      primary={ingredient}
+                    />
+                  </ListItem>
+                </Grid>
+                <Grid item xs={12} md={2} style={_.contains(searchIngredients, ingredient) ? { backgroundColor: '#666782' } : {}}>
+                  <IconButton aria-label="delete" className={classes.deleteButton}
+                    style={_.contains(searchIngredients, ingredient) ? { backgroundColor: '#B3B3EA' } : {}}
+                  >
+                    <DeleteIcon fontSize="small" />
+                  </IconButton>
+                </Grid>
+              </Grid>
+            </Paper>
           ))}
         </Grid>
         <Grid item xs={12} style={{ height: '10%' }}>

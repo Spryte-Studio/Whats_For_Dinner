@@ -6,6 +6,8 @@ import useStyles from '../StorageMaterialUi.jsx';
 import AddPantryForm from '../addIngredient/AddPantryForm.jsx';
 import { ProductContext } from '../../../context';
 var _ = require('underscore');
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Pantry = () => {
   const classes = useStyles();
@@ -46,15 +48,25 @@ const Pantry = () => {
         <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
           {inventory.map((ingredient) => (
             <Paper elevation={1} className={classes.ingredient} square>
-              <ListItem key={ingredient} alignItems="flex-start" onClick={() => {
-                handleIngredientSelect(ingredient)
-
-              }}
-                style={_.contains(searchIngredients, ingredient) ? { color: '#FFFFFF', backgroundColor: '#666782' } : { color: 'Black' }}>
-                <ListItemText
-                  primary={ingredient}
-                />
-              </ListItem>
+              <Grid container xs={12}>
+                <Grid item xs={12} md={10}>
+                  <ListItem key={ingredient} alignItems="flex-start" onClick={() => {
+                    handleIngredientSelect(ingredient)
+                  }}
+                    style={_.contains(searchIngredients, ingredient) ? { color: '#FFFFFF', backgroundColor: '#666782' } : { color: 'Black' }}>
+                    <ListItemText
+                      primary={ingredient}
+                    />
+                  </ListItem>
+                </Grid>
+                <Grid item xs={12} md={2} style={_.contains(searchIngredients, ingredient) ? { backgroundColor: '#666782' } : {}}>
+                  <IconButton aria-label="delete" className={classes.deleteButton}
+                    style={_.contains(searchIngredients, ingredient) ? { backgroundColor: '#B3B3EA' } : {}}
+                  >
+                    <DeleteIcon fontSize="small" />
+                  </IconButton>
+                </Grid>
+              </Grid>
             </Paper>
           ))}
         </Grid>
