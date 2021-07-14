@@ -13,14 +13,14 @@ import { ProductContext } from '../../context';
 var Recipes = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
-  // const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const { searchIngredients } = useContext(ProductContext);
-  const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
+  // const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
   console.log(query)
-  const ingredients = ["shrimp", "broccoli", "carrots"];
+  // const ingredients = ["shrimp", "broccoli", "carrots"];
   const mappedIngredients = searchIngredients
   .map((ingredient, idx) => {
-    if (idx < ingredients.length - 1) {
+    if (idx < searchIngredients.length - 1) {
       return ingredient + "+";
     } else {
       return ingredient;
@@ -35,10 +35,10 @@ var Recipes = () => {
       try {
         const response = await axios.get('/spryte/allRecipes', { params: { q: query } })
         console.log(response.data.hits);
-        // setRecipes(response.data.hits)
-        setRecipes(response.data.hits, () => {
-          window.localStorage.setItem("recipes", JSON.stringify(recipes));
-        });
+        setRecipes(response.data.hits);
+        // setRecipes(response.data.hits, () => {
+        //   window.localStorage.setItem("recipes", JSON.stringify(recipes));
+        // });
 
       } catch (e) {
         console.log(e);
