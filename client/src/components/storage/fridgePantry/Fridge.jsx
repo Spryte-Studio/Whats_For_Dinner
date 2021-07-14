@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
-  Button, Typography, Paper, Grid
+  Button, Typography, Paper, Grid, ListItem, ListItemText
 } from '@material-ui/core';
 import useStyles from '../StorageMaterialUi.jsx';
 import AddFridgeForm from '../addIngredient/AddFridgeForm.jsx';
+import { ProductContext } from '../../../context';
 
 const Fridge = () => {
   const classes = useStyles();
   const [openForm, setOpenForm] = useState(false);
+  const [inventory, setInventory] = useState(['milk', 'juice', 'chicken'])
+  const { authCode, searchIngredients, setSearchIngredients } = useContext(ProductContext);
 
   const handleFormOpen = () => {
     setOpenForm(true)
@@ -15,6 +18,14 @@ const Fridge = () => {
 
   const handleFormClose = () => {
     setOpenForm(false)
+  }
+
+  const handleIngredientSelect = (ingredientName) => {
+    event.preventDefault();
+    console.log('ingredient name', ingredientName);
+    const ingredientsAlready = searchIngredients.concat([ingredientName]);
+    console.log('copy of ingredients array?', ingredientsAlready);
+    setSearchIngredients(ingredientsAlready);
   }
 
   return (
@@ -25,7 +36,13 @@ const Fridge = () => {
         </Typography>
       </Grid>
       <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
-        Ingredients (Map here)
+        {inventory.map((ingredient) => (
+          <ListItem key={ingredient} alignItems="flex-start" onClick={() => {handleIngredientSelect(ingredient)}}>
+          <ListItemText
+            primary={ingredient}
+          />
+        </ListItem>
+        ))}
       </Grid>
       <Grid item xs={12} style={{ height: '10%' }}>
         <Button className={classes.addItemButton} onClick={() => {
