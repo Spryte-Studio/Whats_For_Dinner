@@ -36,9 +36,9 @@ const useStyles = makeStyles((theme) => ({
     height: '50%'
   },
   recipeContainer: {
-    border: '2px solid black',
     height: '100%',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+    backgroundColor: '#666782'
   },
   recipeCardContainer: {
     margin: '10px'
