@@ -6,7 +6,6 @@ require('dotenv').config();
 const { user, host, database, password, port } = process.env;
 const dbConfig = { user, host, database, password, port };
 
-console.log(dbConfig);
 
 const pool = new Pool(dbConfig);
 
