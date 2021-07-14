@@ -8,11 +8,27 @@ import globalUseStyles from '../../GlobalMaterialUi.jsx';
 import Fridge from './fridgePantry/Fridge.jsx';
 import Pantry from './fridgePantry/Pantry.jsx';
 import { ProductContext } from '../../context';
+import axios from 'axios';
+
+
 
 const Storage = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
   const { authCode } = useContext(ProductContext);
+
+  const [inventory, setInventory] = useState([]);
+  function fetchInventory() {
+    axios.get(`/inventory/${authCode}`)
+      .then((response) => {
+        console.log('Storage.jsx=========', response)
+        setInventory(response);
+      });
+  };
+
+  useEffect(() => {
+    fetchInventory()
+  }, []);
 
   return (
     <Grid container id='Storage'>
