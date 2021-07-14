@@ -29,7 +29,7 @@ const Storage = () => {
               <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
                 Your Cook Book Digitalized
               </Typography>
-              <Typography align='center' variant='h4' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
+              <Typography align='center' variant='h4' style={{ fontFamily: 'Oswald', color: '#e6e6ea' }}>
                 Now that you've selected some ingredients, head over to recipes to see what you could make!
               </Typography>
               <Link to='/recipes'>
