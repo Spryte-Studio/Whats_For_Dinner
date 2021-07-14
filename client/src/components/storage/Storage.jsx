@@ -29,14 +29,14 @@ const Storage = () => {
               <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
                 Your Cook Book Digitalized
               </Typography>
-              <Typography align='center' variant='h4' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
+              <Typography align='center' variant='h4' style={{ fontFamily: 'Oswald', color: '#e6e6ea' }}>
                 Now that you've selected some ingredients, head over to recipes to see what you could make!
               </Typography>
               <Link to='/recipes'>
-              <Button className={classes.logoutButton}>
-                See Recipes!
-              </Button>
-            </Link>
+                <Button className={classes.logoutButton}>
+                  See Recipes!
+                </Button>
+              </Link>
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
@@ -69,6 +69,12 @@ const Storage = () => {
             <Paper className={classes.logo} elevation={0} square>
               <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
                 Your Cook Book Digitalized
+              </Typography>
+              <Typography align='center' variant='h4' style={{ fontFamily: 'Oswald', color: '#e6e6ea' }}>
+                What ingredients do you want to use?
+              </Typography>
+              <Typography align='center' variant='h5' style={{ fontFamily: 'Oswald', color: '#e6e6ea' }}>
+                ( Click to Select )
               </Typography>
             </Paper>
           </Grid>
