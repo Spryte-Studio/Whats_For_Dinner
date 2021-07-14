@@ -26,7 +26,7 @@ const Pantry = () => {
     var ingredientsAlready;
 
     if (_.contains(searchIngredients, ingredientName)) {
-      ingredientsAlready = _.filter(searchIngredients, function(ingredient) {return ingredient !== ingredientName})
+      ingredientsAlready = _.filter(searchIngredients, function (ingredient) { return ingredient !== ingredientName })
     } else {
       ingredientsAlready = searchIngredients.concat([ingredientName]);
     }
@@ -36,33 +36,37 @@ const Pantry = () => {
   }
 
   return (
-    <Grid item xs={12} md={4} className={classes.pantryAndFridgeContainer}>
-      <Grid item xs={12} className={classes.fridgeHeader}>
-        <Typography variant='h4' align='center' style={{ borderBottom: '2px solid black', height: '100%' }}>
-          Pantry
-        </Typography>
-      </Grid>
-      <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
-      {inventory.map((ingredient) => (
-          <ListItem key={ingredient} alignItems="flex-start" onClick={() => {handleIngredientSelect(ingredient)}}
-            style={_.contains(searchIngredients, ingredient) ? {color: '#f50057'} : {color: 'grey'}}>
-          <ListItemText
-            primary={ingredient}
+    <Grid item xs={12} md={4} >
+      <Paper className={classes.pantryAndFridgeContainer} elevation={3} square>
+        <Grid item xs={12} className={classes.fridgeHeader}>
+          <Typography variant='h4' align='center' style={{ borderBottom: '2px solid black', height: '100%' }}>
+            Pantry
+          </Typography>
+        </Grid>
+        <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
+          {inventory.map((ingredient) => (
+            <Paper elevation={1} className={classes.ingredient} square>
+              <ListItem key={ingredient} alignItems="flex-start" onClick={() => { handleIngredientSelect(ingredient) }}
+                style={_.contains(searchIngredients, ingredient) ? { color: '#FFFFFF', backgroundColor: '#666782' } : { color: 'Black' }}>
+                <ListItemText
+                  primary={ingredient}
+                />
+              </ListItem>
+            </Paper>
+          ))}
+        </Grid>
+        <Grid item xs={12} style={{ height: '10%' }}>
+          <Button className={classes.addItemButton} onClick={() => {
+            handleFormOpen();
+          }}>
+            Add Item
+          </Button>
+          <AddPantryForm
+            openForm={openForm}
+            handleFormClose={handleFormClose}
           />
-        </ListItem>
-        ))}
-      </Grid>
-      <Grid item xs={12} style={{ height: '10%' }}>
-        <Button className={classes.addItemButton} onClick={() => {
-          handleFormOpen();
-        }}>
-          Add Item
-        </Button>
-        <AddPantryForm
-          openForm={openForm}
-          handleFormClose={handleFormClose}
-        />
-      </Grid>
+        </Grid>
+      </Paper>
     </Grid>
   );
 };

@@ -32,12 +32,12 @@ const useStyles = makeStyles(() => ({
   inventoryContainer: {
     justifyContent: 'space-evenly',
     backgroundColor: '#666782',
-    padding: '10px'
+    padding: '30px',
   },
-  pantryAndFridgeContainer:{
-    border: '2px solid black',
+  pantryAndFridgeContainer: {
+    border: '2px solid #E6E6EA',
     height: '80vh',
-    backgroundColor: '#666782'
+    backgroundColor: '#B3B3EA'
   },
   fridgeHeader: {
     height: '10%',
@@ -45,11 +45,17 @@ const useStyles = makeStyles(() => ({
   },
   items: {
     height: '80%',
-    backgroundColor: '#B3B3C0'
+    backgroundColor: '#B3B3C0',
+    overflow: 'overlay'
   },
   addItemButton: {
     height: '100%',
     width: '100%'
+  },
+  ingredient: {
+    border: '1px solid #E6E6EA',
+    backgroundColor: '#B3B3EA',
+    margin: '5px'
   }
 }));
 
