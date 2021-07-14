@@ -15,7 +15,8 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id SERIAL NOT NULL,
   auth_code VARCHAR NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE(auth_code)
 );
 
 -- ---
@@ -44,7 +45,8 @@ CREATE TABLE inventory (
   name VARCHAR NOT NULL,
   photo VARCHAR DEFAULT NULL,
   perishable boolean NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE(name)
 );
 
 -- ---
