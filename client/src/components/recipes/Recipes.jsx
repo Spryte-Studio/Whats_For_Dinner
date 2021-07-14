@@ -14,7 +14,18 @@ var Recipes = () => {
   const globalClasses = globalUseStyles();
   // const [recipes, setRecipes] = useState([]);
   const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
-  const [query, setQuery] = useState("zucchini", "broccoli", "carrots");
+  console.log(query)
+  const ingredients = ["shrimp", "broccoli", "carrots"];
+  const mappedIngredients = ingredients
+  .map((ingredient, idx) => {
+    if (idx < ingredients.length - 1) {
+      return ingredient + "+";
+    } else {
+      return ingredient;
+    }
+  })
+  .join("");
+  const [query, setQuery] = useState(mappedIngredients);
 
   useEffect(() => {
 
@@ -48,55 +59,53 @@ var Recipes = () => {
 
   return (
     <Grid container id='Recipes'>
-      <Grid item xs={12}>
-        <Grid container className={classes.header} id='Recipe'>
+      <Grid container id='Recipes'>
+        <Grid container id='Dashboard'>
           <Grid item xs={12} s={12} md={2}>
-            <Paper className={classes.logo} elevation={0}>
-              <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%' }} />
+            <Paper className={classes.logo} elevation={0} square>
+              <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%', justifyContent: 'center' }} />
             </Paper>
           </Grid>
           <Grid item xs={12} s={12} md={8}>
-            <Paper className={classes.logo} elevation={0}>
+            <Paper className={classes.logo} elevation={0} square>
               <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
                 Your Cook Book Digitalized
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={12} md={2} className={classes.logo} >
-            <Button className={classes.logoutButton}>
-              <Link to='/dashboard' >
+          <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
+            <Link to='/dashboard' >
+              <Button className={classes.logoutButton}>
                 Dashboard
-              </Link>
-            </Button>
+              </Button>
+            </Link>
+            <Link to='/inventory'>
+              <Button className={classes.logoutButton}>
+                Pantry
+              </Button>
+            </Link>
             <Button className={classes.logoutButton}>
-              <Link to='/inventory'>
-                Inventory
-              </Link>
-            </Button>
-            <Button className={classes.logoutButton} onClick={() => {
-              handleLoginOpen();
-            }}>
               LogOut
             </Button>
           </Grid>
         </Grid>
-      </Grid>
-      <Grid container className={classes.recipeContainer}>
-        {recipes.map(recipe => {
-          return (
-            <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-              <RecipeCard
-                key={recipe.recipe.uri}
-                label={recipe.recipe.label}
-                image={recipe.recipe.image}
-                cuisineType={recipe.recipe.cuisineType}
-                ingredientLines={recipe.recipe.ingredientLines}
-                recipe={recipe} />
-            </Grid>
-          )
-        })}
-      </Grid>
-    </Grid >
+        <Grid container className={classes.recipeContainer}>
+          {recipes.map(recipe => {
+            return (
+              <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+                <RecipeCard
+                  key={recipe.recipe.uri}
+                  label={recipe.recipe.label}
+                  image={recipe.recipe.image}
+                  cuisineType={recipe.recipe.cuisineType}
+                  ingredientLines={recipe.recipe.ingredientLines}
+                  recipe={recipe} />
+              </Grid>
+            )
+          })}
+        </Grid>
+      </Grid >
+    </Grid>
   );
 };
 
