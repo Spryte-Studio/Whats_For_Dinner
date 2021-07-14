@@ -18,7 +18,7 @@ var App = () => {
   useEffect(() => {
     if (code !== null) {
       setAuthCode(code);
-      axios.post('/users/postUser', {authCode})
+      axios.post('/users/postUser', code)
         .then((response) => {
           console.log('response from posting user to db', response);
         })
