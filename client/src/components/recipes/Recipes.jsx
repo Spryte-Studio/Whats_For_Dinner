@@ -14,7 +14,18 @@ var Recipes = () => {
   const globalClasses = globalUseStyles();
   // const [recipes, setRecipes] = useState([]);
   const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
-  const [query, setQuery] = useState("zucchini", "broccoli", "carrots");
+  console.log(query)
+  const ingredients = ["shrimp", "broccoli", "carrots"];
+  const mappedIngredients = ingredients
+  .map((ingredient, idx) => {
+    if (idx < ingredients.length - 1) {
+      return ingredient + "+";
+    } else {
+      return ingredient;
+    }
+  })
+  .join("");
+  const [query, setQuery] = useState(mappedIngredients);
 
   useEffect(() => {
 
