@@ -22,7 +22,7 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-   const mappedIngredients = ingredientLines.join("\n");
+  const mappedIngredients = ingredientLines.join("\n");
 
   return (
     <Card className={classes.cardBody} raised={true} >
@@ -38,15 +38,18 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
         image={image}
         title="Paella dish"
       />
-      <CardContent>
+      {/* <CardContent>
         <Typography variant="body2" component="p">
 
         </Typography>
-      </CardContent>
+      </CardContent> */}
       <CardActions disableSpacing>
-        <IconButton>
+        {/* <IconButton>
           <FavoriteIcon />
-        </IconButton>
+        </IconButton> */}
+        <Typography variant="body2" component="p">
+          Ingredients:
+        </Typography>
         <IconButton
           className={classes.expand, {
             [classes.expandOpen]: expanded,
@@ -59,10 +62,15 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Instructions:</Typography>
+          {/* <Typography paragraph>Instructions:</Typography>
           <Typography paragraph>
             {mappedIngredients}
-          </Typography>
+          </Typography> */}
+          <ul>
+            {ingredientLines.map((recipeLine) => (
+              <li> {recipeLine} </li>
+            ))}
+          </ul>
         </CardContent>
       </Collapse>
     </Card>
