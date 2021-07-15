@@ -22,6 +22,8 @@ const Home = () => {
     setOpenLogin(false);
   }
 
+  // FOR PUSH
+
   return (
     authCode ? (<Storage />) : (
       <>
@@ -34,8 +36,13 @@ const Home = () => {
             </Grid>
             <Grid item xs={12} s={12} md={8}>
               <Paper className={classes.logo} elevation={0}>
+<<<<<<< HEAD
                 <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald',   color: '#e6e6ea' , lineHeight: '3'  }}>
                   Your Cook Book Digitalized
+=======
+                <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald',   color: '#e6e6ea', lineHeight: '3' }}>
+                  Your Cookbook Digitalized
+>>>>>>> a25e501821a98c316b3738113a606370e678aec0
                 </Typography>
               </Paper>
             </Grid>

@@ -18,6 +18,7 @@ var App = () => {
   const [authCode, setAuthCode] = useState(email);
   const [searchIngredients, setSearchIngredients] = useState([]);
   const [inventory, setInventory] = useState([]);
+  const [reloadInventory, toggleReloadInventory] = useState(true);
 
   console.log(email)
   useEffect(() => {
@@ -45,6 +46,7 @@ var App = () => {
       authCode: authCode,
       searchIngredients, setSearchIngredients,
       inventory, setInventory,
+      reloadInventory, toggleReloadInventory,
     }}>
       <Router>
         <div>
