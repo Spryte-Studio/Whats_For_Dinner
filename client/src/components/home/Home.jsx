@@ -33,8 +33,8 @@ const Home = () => {
             </Grid>
             <Grid item xs={12} s={12} md={8}>
               <Paper className={classes.logo} elevation={0}>
-                <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald',   color: '#e6e6ea' }}>
-                  Your Cook Book Digitalized
+                <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald',   color: '#e6e6ea', lineHeight: '3' }}>
+                  Your Cookbook Digitalized
                 </Typography>
               </Paper>
             </Grid>

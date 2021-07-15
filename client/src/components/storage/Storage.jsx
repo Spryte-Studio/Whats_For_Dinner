@@ -95,7 +95,7 @@ const Storage = () => {
         </Grid>
         <Grid container className={classes.inventoryContainer}>
           <Pantry deleteIngredient={deleteIngredient} />
-          <Fridge deleteIngredient={deleteIngredient} />
+          {/* <Fridge deleteIngredient={deleteIngredient} /> */}
         </Grid>
       </Grid>
     );
@@ -134,7 +134,7 @@ const Storage = () => {
         </Grid>
         <Grid container className={classes.inventoryContainer}>
           <Pantry deleteIngredient={deleteIngredient} />
-          <Fridge deleteIngredient={deleteIngredient} />
+          {/* <Fridge deleteIngredient={deleteIngredient} /> */}
         </Grid>
       </Grid>
     );
