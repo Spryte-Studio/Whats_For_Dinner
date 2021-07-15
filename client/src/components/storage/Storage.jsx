@@ -41,11 +41,6 @@ const Storage = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-            <Link to='/dashboard'>
-              <Button className={classes.logoutButton}>
-                Dashboard
-              </Button>
-            </Link>
             <Button className={classes.logoutButton} onClick={endSession}>
               LogOut
             </Button>
@@ -80,11 +75,6 @@ const Storage = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-            <Link to='/dashboard'>
-              <Button className={classes.logoutButton}>
-                Dashboard
-              </Button>
-            </Link>
             <Link to='/recipes'>
               <Button className={classes.logoutButton}>
                 Recipes

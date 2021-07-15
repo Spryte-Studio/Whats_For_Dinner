@@ -78,9 +78,9 @@ var Recipes = () => {
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-              <Link to='/dashboard' >
+              <Link to='/inventory'>
                 <Button className={classes.logoutButton}>
-                  Dashboard
+                  Inventory
                 </Button>
               </Link>
               <Button className={classes.logoutButton} onClick={endSession}>
@@ -94,11 +94,6 @@ var Recipes = () => {
                 <Typography align='center' variant='h4' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
                   No ingredients selected to display recipes for - head back to pantry to select ingredients.
                 </Typography>
-                <Link to='/inventory'>
-                  <Button className={classes.logoutButton}>
-                    Inventory
-                  </Button>
-                </Link>
               </Paper>
             </Grid>
           </Grid>
@@ -123,11 +118,6 @@ var Recipes = () => {
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-              <Link to='/dashboard' >
-                <Button className={classes.logoutButton}>
-                  Dashboard
-                </Button>
-              </Link>
               <Button className={classes.logoutButton} onClick={endSession}>
                 LogOut
               </Button>
@@ -168,11 +158,6 @@ var Recipes = () => {
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-              <Link to='/dashboard' >
-                <Button className={classes.logoutButton}>
-                  Dashboard
-                </Button>
-              </Link>
               <Link to='/inventory'>
                 <Button className={classes.logoutButton}>
                   Pantry
