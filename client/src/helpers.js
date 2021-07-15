@@ -7,3 +7,11 @@ export const endSession = () => {
       window.location.reload();
     })
 }
+
+export const getAuth = () => {
+  console.log('HIT IN GETAUTH HELPER')
+  Axios.get('/auth/google', { crossdomain: true })
+    .then((response) => {
+      console.log(response)
+    })
+}

@@ -33,6 +33,15 @@ const Storage = () => {
     fetchInventory(authCode);
   }, []);
 
+  const deleteIngredient = (ingredientName) => {
+    axios.delete(`/ingredients/${ingredientName}`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   if (searchIngredients.length !== 0) {
     return (
@@ -59,19 +68,14 @@ const Storage = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-            <Link to='/dashboard'>
-              <Button className={classes.logoutButton}>
-                Dashboard
-              </Button>
-            </Link>
             <Button className={classes.logoutButton} onClick={endSession}>
               LogOut
             </Button>
           </Grid>
         </Grid>
         <Grid container className={classes.inventoryContainer}>
-          <Pantry />
-          <Fridge />
+          <Pantry deleteIngredient={deleteIngredient} />
+          <Fridge deleteIngredient={deleteIngredient} />
         </Grid>
       </Grid>
     );
@@ -98,11 +102,6 @@ const Storage = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-            <Link to='/dashboard'>
-              <Button className={classes.logoutButton}>
-                Dashboard
-              </Button>
-            </Link>
             <Link to='/recipes'>
               <Button className={classes.logoutButton}>
                 Recipes
@@ -114,8 +113,8 @@ const Storage = () => {
           </Grid>
         </Grid>
         <Grid container className={classes.inventoryContainer}>
-          <Pantry />
-          <Fridge />
+          <Pantry deleteIngredient={deleteIngredient} />
+          <Fridge deleteIngredient={deleteIngredient} />
         </Grid>
       </Grid>
     );

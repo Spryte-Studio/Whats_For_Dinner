@@ -9,6 +9,7 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (user, done) {
+  // console.log(user);
   done(null, user);
 });
 
@@ -19,7 +20,7 @@ passport.deserializeUser(function (user, done) {
 passport.use(new GoogleStrategy({
   clientID: '212805700707-muf5v7daa20sumpsafnojrlanps22eh4.apps.googleusercontent.com',
   clientSecret: client_secret,
-  callbackURL: "http://localhost:3000",
+  callbackURL: "http://localhost:3000/auth/google/callback",
 },
   function (accessToken, refreshToken, profile, done) {
     return done(null, profile);

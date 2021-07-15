@@ -10,7 +10,7 @@ const autoCompleteURL = 'https://api.edamam.com/auto-complete';
 
 require('dotenv').config();
 
-const {edamam_ingredientSearch_app_id, edamam_ingredientSearch_app_key} = process.env;
+const { edamam_ingredientSearch_app_id, edamam_ingredientSearch_app_key } = process.env;
 
 
 router.get('/:ingredientName', (req, res) => {
@@ -33,7 +33,7 @@ router.get('/:ingredientName', (req, res) => {
 router.post('/:perishable', (req, res) => {
   let perishable = req.params.perishable;
 
-  ingredientModel.postIngredient(req.body.addMultIngs, perishable, req.body.authCode, function(err, response) {
+  ingredientModel.postIngredient(req.body.addMultIngs, perishable, req.body.authCode, function (err, response) {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -43,5 +43,16 @@ router.post('/:perishable', (req, res) => {
 
 });
 
+router.delete('/:ingredientName', (req, res) => {
+  ingredientModel.deleteIngredient(req.params.ingredientName, userId, (err, response) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(err);
+    } else {
+      console.log(response);
+      res.status(200).send(req.params.ingredientName + ' deleted successfully')
+    }
+  });
+});
 
 module.exports = router;
