@@ -12,8 +12,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 const Fridge = () => {
   const classes = useStyles();
   const [openForm, setOpenForm] = useState(false);
-  const [inventory, setInventory] = useState(['milk', 'juice', 'chicken'])
-  const { authCode, searchIngredients, setSearchIngredients } = useContext(ProductContext);
+  const { authCode, searchIngredients, setSearchIngredients, inventory, setInventory } = useContext(ProductContext);
 
   const handleFormOpen = () => {
     setOpenForm(true)
@@ -46,34 +45,34 @@ const Fridge = () => {
           </Typography>
         </Grid>
         <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
-          {inventory.map((ingredient) => (
-            <Paper elevation={1} className={classes.ingredient} square>
-              <Grid container xs={12}>
-                <Grid item xs={12} md={10}>
-                  <ListItem key={ingredient} alignItems="flex-start" onClick={() => {
-                    handleIngredientSelect(ingredient)
-                  }}
-                    style={_.contains(searchIngredients, ingredient) ? {
-                      color: '#FFFFFF',
-                      backgroundColor: '#666782'
-                    } : {
-                      color: 'Black'
-                    }}>
-                    <ListItemText
-                      primary={ingredient}
-                    />
-                  </ListItem>
-                </Grid>
-                <Grid item xs={12} md={2} style={_.contains(searchIngredients, ingredient) ? { backgroundColor: '#666782' } : {}}>
-                  <IconButton aria-label="delete" className={classes.deleteButton}
-                    style={_.contains(searchIngredients, ingredient) ? { backgroundColor: '#B3B3EA' } : {}}
-                  >
-                    <DeleteIcon fontSize="small" />
-                  </IconButton>
-                </Grid>
-              </Grid>
-            </Paper>
-          ))}
+          {inventory.map((ingredient) => {
+            if (ingredient.perishable) {
+              return (
+                <Paper elevation={1} className={classes.ingredient} square>
+                  <Grid container xs={12}>
+                    <Grid item xs={12} md={10}>
+                      <ListItem key={ingredient.name} alignItems="flex-start" onClick={() => {
+                        handleIngredientSelect(ingredient.name)
+                      }}
+                        style={_.contains(searchIngredients, ingredient.name) ? { color: '#FFFFFF', backgroundColor: '#666782' } : { color: 'Black' }}>
+                        <ListItemText
+                          primary={ingredient.name}
+                        />
+                      </ListItem>
+                    </Grid>
+                    <Grid item xs={12} md={2} style={_.contains(searchIngredients, ingredient.name) ? { backgroundColor: '#666782' } : {}}>
+                      <IconButton aria-label="delete" className={classes.deleteButton}
+                        style={_.contains(searchIngredients, ingredient.name) ? { backgroundColor: '#B3B3EA' } : {}}
+                      >
+                        <DeleteIcon fontSize="small" />
+                      </IconButton>
+                    </Grid>
+                  </Grid>
+                </Paper>
+              )
+            }
+
+          })}
         </Grid>
         <Grid item xs={12} style={{ height: '10%' }}>
           <Button className={classes.addItemButton} onClick={() => {
