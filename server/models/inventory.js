@@ -11,6 +11,7 @@ const getInventory = (authCode, callback) => {
 	pg.query(idQString)
 		.then((results) => {
 			const userID = results.rows[0].id;
+			console.log('inside query==========', userID)
 			const qString =
 				`SELECT inventory.name, inventory.photo, inventory.perishable
 				FROM inventory, users_inventory, users

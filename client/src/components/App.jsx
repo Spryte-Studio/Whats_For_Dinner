@@ -13,28 +13,31 @@ import axios from 'axios';
 var App = () => {
   const code = new URLSearchParams(window.location.search).get('code');
 
-  const [authCode, setAuthCode] = useState('');
+  const tempAuth = '4/0AX4XfWgwAol5HXGPHF3HfE7dXkAojKTeMEbDy0cBvqXyyAowq1nRQ45mVJsdmT_ebcB5UQ';
+
+  const [authCode, setAuthCode] = useState(tempAuth);
   const [searchIngredients, setSearchIngredients] = useState([]);
+  const [inventory, setInventory] = useState([]);
+  // useEffect(() => {
+  //   if (code !== null) {
+  //     setAuthCode(code);
+  //   }
+  // }, [code])
 
-  useEffect(() => {
-    if (code !== null) {
-      setAuthCode(code);
-    }
-  }, [code])
-
-  useEffect(() => {
-    if (code !== null) {
-      axios.post('/users/postUser', code)
-        .then((response) => {
-          console.log('response from posting user to db', response);
-        })
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (code !== null) {
+  //     axios.post('/users/postUser', code)
+  //       .then((response) => {
+  //         console.log('response from posting user to db', response);
+  //       })
+  //   }
+  // }, [])
 
   return (
     <ProductContext.Provider value={{
       authCode: authCode,
-      searchIngredients, setSearchIngredients
+      searchIngredients, setSearchIngredients,
+      inventory, setInventory,
     }}>
       <Router>
         <div>

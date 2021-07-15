@@ -9,12 +9,12 @@ import Fridge from './fridgePantry/Fridge.jsx';
 import Pantry from './fridgePantry/Pantry.jsx';
 import { ProductContext } from '../../context';
 import { endSession } from '../../helpers';
+import axios from 'axios';
 
 const Storage = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
-  const { authCode } = useContext(ProductContext);
-  const [inventory, setInventory] = useState([]);
+  const { authCode, searchIngredients, inventory, setInventory } = useContext(ProductContext);
 
   function fetchInventory(code) {
 
@@ -22,19 +22,15 @@ const Storage = () => {
     console.log('AUTH CODE======', { code })
     axios.get(`/storage/inventory`, {
       params: { authCode: code }
-    });
-
-    // axios.get(`/storage/inventory`, {authCode})
-
-    //   .then((response) => {
-    //     console.log('inside .then====', response)
-    //     setInventory(response);
-    //   });
+    })
+      .then((response) => {
+        console.log('inside .then====', response)
+        setInventory(response.data);
+      });
   };
 
   useEffect(() => {
     fetchInventory(authCode);
-    // authCode ? fetchInventory() : console.log('booo', authCode)
   }, []);
 
 
