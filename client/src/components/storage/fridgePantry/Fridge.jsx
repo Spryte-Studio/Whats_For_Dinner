@@ -32,7 +32,6 @@ const Fridge = ({ deleteIngredient }) => {
       ingredientsAlready = searchIngredients.concat([ingredientName]);
     }
 
-    console.log('copy of ingredients array======', ingredientsAlready);
     setSearchIngredients(ingredientsAlready);
   }
 
@@ -48,7 +47,7 @@ const Fridge = ({ deleteIngredient }) => {
           {inventory.map((ingredient) => {
             if (ingredient.perishable) {
               return (
-                <Paper elevation={1} className={classes.ingredient} square>
+                <Paper key={ingredient.name} elevation={1} className={classes.ingredient} square>
                   <Grid container xs={12}>
                     <Grid item xs={12} md={10}>
                       <ListItem key={ingredient.name} alignItems="flex-start" onClick={() => {

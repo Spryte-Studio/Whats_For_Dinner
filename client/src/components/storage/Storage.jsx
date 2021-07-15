@@ -14,29 +14,32 @@ import axios from 'axios';
 const Storage = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
-  const { authCode, searchIngredients, inventory, setInventory } = useContext(ProductContext);
+  const { authCode, searchIngredients, inventory, setInventory, reloadInventory, toggleReloadInventory } = useContext(ProductContext);
 
   function fetchInventory(code) {
-
-
     console.log('AUTH CODE======', { code })
     axios.get(`/storage/inventory`, {
       params: { authCode: code }
     })
       .then((response) => {
-        console.log('inside .then====', response)
         setInventory(response.data);
       });
   };
 
   useEffect(() => {
     fetchInventory(authCode);
-  }, []);
+  }, [reloadInventory]);
 
   const deleteIngredient = (ingredientName) => {
-    axios.delete(`/ingredients/${ingredientName}`)
+    axios.delete(`/ingredients/${ingredientName}`, {
+      params: {
+        email: authCode
+      }
+    })
       .then((response) => {
-        console.log(response);
+        console.log('success response from deleting ingredient', response);
+        // toggle the 'reload inventory' switch so the inventory list can have an automatic reload
+        toggleReloadInventory(!reloadInventory);
       })
       .catch((err) => {
         console.log(err);

@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ListItemText from '@material-ui/core/ListItemText';
 
 export default function RecipeReviewCard({ recipe, label, image, ingredientLines, cuisineType }) {
   console.log(recipe)
@@ -25,6 +26,7 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
    const mappedIngredients = ingredientLines.join("\n");
 
   return (
+    console.log(ingredientLines),
     <Card className={classes.cardBody} raised={true} >
       <CardHeader
         avatar={
@@ -38,15 +40,15 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
         image={image}
         title="Paella dish"
       />
-      <CardContent>
-        <Typography variant="body2" component="p">
-
-        </Typography>
-      </CardContent>
+      {/* <CardContent>
+      </CardContent> */}
       <CardActions disableSpacing>
-        <IconButton>
+        {/* <IconButton>
           <FavoriteIcon />
-        </IconButton>
+        </IconButton> */}
+        <Typography variant="body2" component="p">
+          Ingredients:
+        </Typography>
         <IconButton
           className={classes.expand, {
             [classes.expandOpen]: expanded,
@@ -59,10 +61,15 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Instructions:</Typography>
-          <Typography paragraph>
+          {/* <Typography paragraph>Instructions:</Typography> */}
+          <ul>
+              {ingredientLines.map((recipeLine) => (
+                <li> {recipeLine} </li>
+              ))}
+          </ul>
+          {/* <Typography paragraph>
             {mappedIngredients}
-          </Typography>
+          </Typography> */}
         </CardContent>
       </Collapse>
     </Card>

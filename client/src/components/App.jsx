@@ -18,6 +18,8 @@ const App = () => {
   const [authCode, setAuthCode] = useState(tempAuth);
   const [searchIngredients, setSearchIngredients] = useState([]);
   const [inventory, setInventory] = useState([]);
+  const [reloadInventory, toggleReloadInventory] = useState(true);
+
   // useEffect(() => {
   //   if (code !== null) {
   //     setAuthCode(code);
@@ -43,6 +45,7 @@ const App = () => {
       authCode: authCode,
       searchIngredients, setSearchIngredients,
       inventory, setInventory,
+      reloadInventory, toggleReloadInventory
     }}>
       <Router>
         <div>

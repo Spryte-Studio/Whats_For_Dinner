@@ -208,11 +208,8 @@ const Recipes = () => {
                 >
                   The ingredients selected didn't match any recipes. Please go back to your pantry and try selecting different recipes.
                 </Typography>
-                <Link to="/inventory">
-                  <Button className={classes.logoutButton}>
-                    Pantry
-                  </Button>
-                  </Link>
+                <br/>
+                <br/>
                   <Link to='/inventory'>
                     <Button className={classes.logoutButton}>
                       Inventory
