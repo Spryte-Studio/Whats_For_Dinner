@@ -105,7 +105,7 @@ const Recipes = () => {
               </Link>
               {/* <Link to='/inventory'>
                 <Button className={classes.logoutButton}>
-                  Pantry
+                  Inventory
                 </Button>
               </Link> */}
               <Button className={classes.logoutButton}>

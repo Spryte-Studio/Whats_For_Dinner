@@ -56,7 +56,13 @@ const useStyles = makeStyles(() => ({
   ingredient: {
     border: '1px solid #E6E6EA',
     backgroundColor: '#B3B3EA',
-    margin: '5px'
+    margin: '5px',
+    '&:hover': {
+      cursor: 'pointer'
+    }
+  },
+  deleteButton: {
+    top: '2px'
   }
 }));
 
