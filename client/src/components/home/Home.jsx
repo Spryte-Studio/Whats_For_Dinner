@@ -21,6 +21,8 @@ const Home = () => {
     setOpenLogin(false);
   }
 
+  // FOR PUSH
+
   return (
     authCode ? (<Storage />) : (
       <>
