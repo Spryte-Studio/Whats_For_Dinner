@@ -7,6 +7,7 @@ import useStyles from './HomeMaterialUi.jsx';
 import Storage from '../storage/Storage.jsx';
 import { ProductContext } from '../../context';
 import { getAuth } from '../../helpers';
+import Intro from './Intro.jsx';
 
 const Home = () => {
   const classes = useStyles();
@@ -33,7 +34,7 @@ const Home = () => {
             </Grid>
             <Grid item xs={12} s={12} md={8}>
               <Paper className={classes.logo} elevation={0}>
-                <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald',   color: '#e6e6ea' }}>
+                <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald',   color: '#e6e6ea' , lineHeight: '3'  }}>
                   Your Cook Book Digitalized
                 </Typography>
               </Paper>
@@ -46,9 +47,7 @@ const Home = () => {
               </Button>
             </Grid>
           </Grid>
-          <Typography align='center'>
-            TEST
-          </Typography>
+          <Intro />
         </Paper >
         <Dialog open={openLogin} onClose={handleLoginClose}>
           <DialogTitle id="form-dialog-title">Login With Google</DialogTitle>

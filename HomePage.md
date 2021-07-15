@@ -6,4 +6,4 @@
   If this applies to you, ANY day of the week - this app is the solution to your decision making problems for dinner!
 
   Planning dinner has never been easier!
-  Just l
+  Just add your ingredients to your virtual Pantry and Fridge ahead of time. Then, once work ends and you're ready to decide what's for dinner, select your desired ingredients
