@@ -15,7 +15,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 export default function RecipeReviewCard({ recipe, label, image, ingredientLines, cuisineType }) {
-  console.log(recipe)
+  console.log('=============> ', recipe)
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 

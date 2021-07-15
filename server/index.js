@@ -88,6 +88,8 @@ app.use('/storage', controllers.inventory);
 app.use('/ingredients', controllers.ingredients);
 app.use('/users', controllers.users);
 app.use('/spryte', controllers.recipes);
+app.use('/favorites', controllers.favorites);
+
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
