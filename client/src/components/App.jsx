@@ -1,16 +1,16 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router, Route, Link, Switch, withRouter
+} from 'react-router-dom';
+import axios from 'axios';
 import Home from './home/Home.jsx';
 import Storage from './storage/Storage.jsx';
 import Dashboard from './dashboard/Dashboard.jsx';
 import Recipes from './recipes/Recipes.jsx';
 import { ProductContext } from '../context.js';
-import axios from 'axios';
 
-
-
-
-var App = () => {
+const App = () => {
   const code = new URLSearchParams(window.location.search).get('code');
 
   const tempAuth = '4/0AX4XfWgwAol5HXGPHF3HfE7dXkAojKTeMEbDy0cBvqXyyAowq1nRQ45mVJsdmT_ebcB5UQ';
@@ -33,6 +33,10 @@ var App = () => {
   //   }
   // }, [])
 
+  const handleLogout = () => {
+    axios.get('/logout')
+      .catch((err) => console.log('handleLogout err: ', rr));
+  };
   return (
     <ProductContext.Provider value={{
       authCode: authCode,
@@ -56,23 +60,23 @@ var App = () => {
           </li>
         </ul> */}
           <Switch>
-            <Route path='/' exact>
-              <Home />
+            <Route path="/" exact>
+              <Home handleLogout={handleLogout} />
             </Route>
-            <Route path='/inventory' exact>
-              <Storage />
+            <Route path="/inventory" exact>
+              <Storage handleLogout={handleLogout} />
             </Route>
-            <Route path='/recipes' exact>
-              <Recipes />
+            <Route path="/recipes" exact>
+              <Recipes handleLogout={handleLogout} />
             </Route>
-            <Route path='/dashboard' exact>
-              <Dashboard />
+            <Route path="/dashboard" exact>
+              <Dashboard handleLogout={handleLogout} />
             </Route>
           </Switch>
         </div>
       </Router>
     </ProductContext.Provider>
-  )
+  );
 };
 
 export default App;

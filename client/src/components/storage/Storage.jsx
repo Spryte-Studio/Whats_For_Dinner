@@ -40,7 +40,7 @@ const Storage = () => {
         <Grid container id='Dashboard'>
           <Grid item xs={12} s={12} md={2}>
             <Paper className={classes.logo} elevation={0} square>
-              <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%', justifyContent: 'center' }} />
+              <img src="Logos/WFD.png" style={{ height: '100%', justifyContent: 'center' }} />
             </Paper>
           </Grid>
           <Grid item xs={12} s={12} md={8}>
@@ -81,7 +81,7 @@ const Storage = () => {
         <Grid container id='Dashboard'>
           <Grid item xs={12} s={12} md={2}>
             <Paper className={classes.logo} elevation={0} square>
-              <img src="Logos/WFDRecipeLogo-WB-08.png" style={{ height: '100%', justifyContent: 'center' }} />
+              <img src="Logos/WFD.png" style={{ height: '100%', justifyContent: 'center' }} />
             </Paper>
           </Grid>
           <Grid item xs={12} s={12} md={8}>
