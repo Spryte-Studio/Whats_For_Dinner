@@ -228,11 +228,6 @@ const Recipes = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer}>
-            <Link to="/dashboard">
-              <Button className={classes.logoutButton}>
-                Dashboard
-              </Button>
-            </Link>
             <Link to="/inventory">
               <Button className={classes.logoutButton}>
                 Pantry

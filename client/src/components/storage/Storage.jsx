@@ -14,7 +14,7 @@ import axios from 'axios';
 const Storage = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
-  const { authCode, searchIngredients, inventory, setInventory } = useContext(ProductContext);
+  const { authCode, searchIngredients, inventory, setInventory, reloadInventory, toggleReloadInventory } = useContext(ProductContext);
 
   function fetchInventory(code) {
 
@@ -29,14 +29,34 @@ const Storage = () => {
       });
   };
 
+  // useEffect(() => {
+  //   fetchInventory(authCode);
+  // }, []);
+
   useEffect(() => {
     fetchInventory(authCode);
-  }, []);
+  }, [reloadInventory]);
+
+  // const deleteIngredient = (ingredientName) => {
+  //   axios.delete(`/ingredients/${ingredientName}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const deleteIngredient = (ingredientName) => {
-    axios.delete(`/ingredients/${ingredientName}`)
+    axios.delete(`/ingredients/${ingredientName}`, {
+      params: {
+        email: authCode
+      }
+    })
       .then((response) => {
-        console.log(response);
+        // console.log('success response from deleting ingredient', response);
+        // toggle the 'reload inventory' switch so the inventory list can have an automatic reload
+        toggleReloadInventory(!reloadInventory);
       })
       .catch((err) => {
         console.log(err);
@@ -75,7 +95,7 @@ const Storage = () => {
         </Grid>
         <Grid container className={classes.inventoryContainer}>
           <Pantry deleteIngredient={deleteIngredient} />
-          <Fridge deleteIngredient={deleteIngredient} />
+          {/* <Fridge deleteIngredient={deleteIngredient} /> */}
         </Grid>
       </Grid>
     );
@@ -114,7 +134,7 @@ const Storage = () => {
         </Grid>
         <Grid container className={classes.inventoryContainer}>
           <Pantry deleteIngredient={deleteIngredient} />
-          <Fridge deleteIngredient={deleteIngredient} />
+          {/* <Fridge deleteIngredient={deleteIngredient} /> */}
         </Grid>
       </Grid>
     );

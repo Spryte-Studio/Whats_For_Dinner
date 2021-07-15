@@ -38,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
   recipeContainer: {
     height: '100%',
     justifyContent: 'space-evenly',
-    backgroundColor: '#666782'
+    backgroundColor: '#666782',
+    textAlign: 'start'
   },
   filter: {
     height: '100%',
