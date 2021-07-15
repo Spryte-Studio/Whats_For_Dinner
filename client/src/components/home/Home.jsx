@@ -4,7 +4,7 @@ import {
   Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle
 } from '@material-ui/core';
 import useStyles from './HomeMaterialUi.jsx';
-import Dashboard from '../dashboard/Dashboard.jsx';
+import Storage from '../storage/Storage.jsx';
 import { ProductContext } from '../../context';
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
   }
 
   return (
-    authCode ? (<Dashboard />) : (
+    authCode ? (<Storage />) : (
       <>
         <Paper className={classes.background}>
           <Grid container className={classes.mainGrid} id='Home'>
