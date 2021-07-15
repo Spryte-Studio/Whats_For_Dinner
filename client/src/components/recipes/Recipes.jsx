@@ -238,7 +238,7 @@ const Recipes = () => {
                 Pantry
               </Button>
             </Link>
-            <Button className={classes.logoutButton}>
+            <Button className={classes.logoutButton} onClick={endSession}>
               LogOut
             </Button>
           </Grid>
