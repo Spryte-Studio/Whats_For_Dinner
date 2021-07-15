@@ -35,8 +35,9 @@ const App = () => {
 
   const handleLogout = () => {
     axios.get('/logout')
-      .catch((err) => console.log('handleLogout err: ', rr));
+      .catch((err) => console.log('handleLogout err: ', err));
   };
+
   return (
     <ProductContext.Provider value={{
       authCode: authCode,
@@ -64,7 +65,7 @@ const App = () => {
               <Home handleLogout={handleLogout} />
             </Route>
             <Route path="/inventory" exact>
-              <Storage handleLogout={handleLogout} />
+              <Storage handleLogout={handleLogout}/>
             </Route>
             <Route path="/recipes" exact>
               <Recipes handleLogout={handleLogout} />

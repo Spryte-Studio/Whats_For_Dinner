@@ -33,6 +33,15 @@ const Storage = () => {
     fetchInventory(authCode);
   }, []);
 
+  const deleteIngredient = (ingredientName) => {
+    axios.delete(`/ingredients/${ingredientName}`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   if (searchIngredients.length !== 0) {
     return (
@@ -70,8 +79,8 @@ const Storage = () => {
           </Grid>
         </Grid>
         <Grid container className={classes.inventoryContainer}>
-          <Pantry />
-          <Fridge />
+          <Pantry deleteIngredient={deleteIngredient} />
+          <Fridge deleteIngredient={deleteIngredient} />
         </Grid>
       </Grid>
     );
@@ -114,8 +123,8 @@ const Storage = () => {
           </Grid>
         </Grid>
         <Grid container className={classes.inventoryContainer}>
-          <Pantry />
-          <Fridge />
+          <Pantry deleteIngredient={deleteIngredient} />
+          <Fridge deleteIngredient={deleteIngredient} />
         </Grid>
       </Grid>
     );
