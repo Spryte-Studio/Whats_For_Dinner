@@ -116,10 +116,10 @@ const Recipes = () => {
                   align="center"
                   variant="h2"
                   style={{
-                    top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%'
+                    top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%', lineHeight: '3'
                   }}
                 >
-                  Your Cook Book Digitalized
+                  Your Cookbook Digitalized
                 </Typography>
               </Paper>
             </Grid>
@@ -168,10 +168,10 @@ const Recipes = () => {
                   align="center"
                   variant="h2"
                   style={{
-                    top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%'
+                    top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%', lineHeight: '3'
                   }}
                 >
-                  Your Cook Book Digitalized
+                  Your Cookbook Digitalized
                 </Typography>
               </Paper>
             </Grid>
@@ -220,17 +220,17 @@ const Recipes = () => {
                 align="center"
                 variant="h2"
                 style={{
-                  top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%'
+                  top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%', lineHeight: '3'
                 }}
               >
-                Your Cook Book Digitalized
+                Your Cookbook Digitalized
               </Typography>
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer}>
             <Link to="/inventory">
               <Button className={classes.logoutButton}>
-                Pantry
+                Inventory
               </Button>
             </Link>
             <Button className={classes.logoutButton} onClick={endSession}>
@@ -250,7 +250,7 @@ const Recipes = () => {
                 image={recipe.recipe.image}
                 cuisineType={recipe.recipe.cuisineType}
                 ingredientLines={recipe.recipe.ingredientLines}
-                recipe={recipe}
+                recipe={recipe.recipe}
               />
             </Grid>
           ))}
