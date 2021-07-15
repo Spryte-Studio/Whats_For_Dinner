@@ -10,8 +10,8 @@ import Select from '@material-ui/core/Select';
 export default function RecipeReviewCard({ cuisineTypes, filterBy }) {
   const classes = useStyles();
   return (
-    <div>
-      <FormControl className={classes.formControl}>
+    <div style={{ marginLeft: '30px'}}>
+      <FormControl className={classes.formControl} style={{width: '100%'}}>
         <InputLabel id="demo-simple-select-helper-label">Cuisine Type</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -23,7 +23,7 @@ export default function RecipeReviewCard({ cuisineTypes, filterBy }) {
             return <MenuItem value={type} onClick={() => { }}>{type}</MenuItem>;
           })}
         </Select>
-        <FormHelperText>Filter by Cuisine Type</FormHelperText>
+        <FormHelperText>Filter by Cuisine</FormHelperText>
       </FormControl>
     </div>
   );

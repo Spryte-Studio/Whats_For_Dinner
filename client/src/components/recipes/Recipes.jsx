@@ -263,8 +263,10 @@ const Recipes = () => {
                 </Button>
               </Grid>
             </Grid>
-            <Grid container className={classes.recipeContainer}>
+            <Grid xs={2} sm={2} md={2} className={classes.recipeContainer}>
               <Filter cuisineTypes={cuisineTypes} filterBy={filterBy} />
+            </Grid>
+            <Grid container  xs={10} sm={10} md={10} className={classes.recipeContainer}>
               {recipes.map((recipe) => (
                 <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
                   <RecipeCard

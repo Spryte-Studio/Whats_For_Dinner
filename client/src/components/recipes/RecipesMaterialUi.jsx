@@ -40,6 +40,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-evenly',
     backgroundColor: '#666782'
   },
+  filter: {
+    height: '100%',
+    justifyContent: 'left',
+    backgroundColor: '#666782',
+    width: '100%'
+  },
   recipeCardContainer: {
     margin: '10px'
   },
