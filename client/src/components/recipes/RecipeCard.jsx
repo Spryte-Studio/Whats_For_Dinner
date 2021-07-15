@@ -16,14 +16,14 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ListItemText from '@material-ui/core/ListItemText';
 
 export default function RecipeReviewCard({ recipe, label, image, ingredientLines, cuisineType }) {
-  console.log(recipe)
+  console.log('=============> ', recipe)
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-   const mappedIngredients = ingredientLines.join("\n");
+  const mappedIngredients = ingredientLines.join("\n");
 
   return (
     console.log(ingredientLines),
@@ -41,6 +41,9 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
         title="Paella dish"
       />
       {/* <CardContent>
+        <Typography variant="body2" component="p">
+
+        </Typography>
       </CardContent> */}
       <CardActions disableSpacing>
         {/* <IconButton>
@@ -61,15 +64,15 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          {/* <Typography paragraph>Instructions:</Typography> */}
-          <ul>
-              {ingredientLines.map((recipeLine) => (
-                <li> {recipeLine} </li>
-              ))}
-          </ul>
-          {/* <Typography paragraph>
+          {/* <Typography paragraph>Instructions:</Typography>
+          <Typography paragraph>
             {mappedIngredients}
           </Typography> */}
+          <ul>
+            {ingredientLines.map((recipeLine) => (
+              <li> {recipeLine} </li>
+            ))}
+          </ul>
         </CardContent>
       </Collapse>
     </Card>

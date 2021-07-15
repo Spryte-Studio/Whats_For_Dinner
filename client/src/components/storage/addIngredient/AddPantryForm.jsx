@@ -34,6 +34,7 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
     handleFormClose();
     axios.post(`/ingredients/false`, {addMultIngs, authCode})
       .then((response) => {
+        // console.log('response from post pantry ingredients', response);
         // toggle the 'reload inventory' switch so the inventory list can have an automatic reload
         toggleReloadInventory(!reloadInventory);
       })

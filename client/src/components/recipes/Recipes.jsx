@@ -123,10 +123,10 @@ const Recipes = () => {
                 </Typography>
               </Paper>
             </Grid>
-            <Grid item xs={12} sm={12} md={2} className={classes.tabContainer}>
-              <Link to="/dashboard">
+            <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
+              <Link to='/inventory'>
                 <Button className={classes.logoutButton}>
-                  Dashboard
+                  Inventory
                 </Button>
               </Link>
               <Button className={classes.logoutButton} onClick={endSession}>
@@ -146,11 +146,6 @@ const Recipes = () => {
                 >
                   No ingredients selected to display recipes for - head back to pantry to select ingredients.
                 </Typography>
-                <Link to="/inventory">
-                  <Button className={classes.logoutButton}>
-                    Pantry
-                  </Button>
-                </Link>
               </Paper>
             </Grid>
           </Grid>
@@ -180,18 +175,13 @@ const Recipes = () => {
                 </Typography>
               </Paper>
             </Grid>
-            <Grid item xs={12} sm={12} md={2} className={classes.tabContainer}>
-              <Link to="/dashboard">
+            <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
+              <Link to='/inventory'>
                 <Button className={classes.logoutButton}>
-                  Dashboard
+                  Inventory
                 </Button>
               </Link>
-              {/* <Link to='/inventory'>
-              <Button className={classes.logoutButton}>
-                Pantry
-              </Button>
-            </Link> */}
-              <Button className={classes.logoutButton}>
+              <Button className={classes.logoutButton} onClick={endSession}>
                 LogOut
               </Button>
             </Grid>
@@ -217,69 +207,64 @@ const Recipes = () => {
                   </Link>
               </Paper>
             </Grid>
-            </Grid>
           </Grid>
         </Grid>
-        );
+      </Grid>
+    );
   }
-        return (
-        <Grid container id="Recipes">
-          <Grid container id="Recipes">
-            <Grid container id="Dashboard">
-              <Grid item xs={12} s={12} md={2}>
-                <Paper className={classes.logo} elevation={0} square>
-                  <img src="Logos/WFD.png" style={{ height: '100%', justifyContent: 'center' }} />
-                </Paper>
-              </Grid>
-              <Grid item xs={12} s={12} md={8}>
-                <Paper className={classes.logo} elevation={0} square>
-                  <Typography
-                    align="center"
-                    variant="h2"
-                    style={{
-                      top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%'
-                    }}
-                  >
-                    Your Cook Book Digitalized
-                  </Typography>
-                </Paper>
-              </Grid>
-              <Grid item xs={12} sm={12} md={2} className={classes.tabContainer}>
-                <Link to="/dashboard">
-                  <Button className={classes.logoutButton}>
-                    Dashboard
-                  </Button>
-                </Link>
-                <Link to="/inventory">
-                  <Button className={classes.logoutButton}>
-                    Pantry
-                  </Button>
-                </Link>
-                <Button className={classes.logoutButton}>
-                  LogOut
-                </Button>
-              </Grid>
-            </Grid>
-            <Grid xs={2} sm={2} md={2} className={classes.recipeContainer}>
-              <Filter cuisineTypes={cuisineTypes} filterBy={filterBy} />
-            </Grid>
-            <Grid container  xs={10} sm={10} md={10} className={classes.recipeContainer}>
-              {recipes.map((recipe) => (
-                <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
-                  <RecipeCard
-                    key={recipe.recipe.uri}
-                    label={recipe.recipe.label}
-                    image={recipe.recipe.image}
-                    cuisineType={recipe.recipe.cuisineType}
-                    ingredientLines={recipe.recipe.ingredientLines}
-                    recipe={recipe}
-                  />
-                </Grid>
-              ))}
-            </Grid>
+  return (
+    <Grid container id="Recipes">
+      <Grid container id="Recipes">
+        <Grid container id="Dashboard">
+          <Grid item xs={12} s={12} md={2}>
+            <Paper className={classes.logo} elevation={0} square>
+              <img src="Logos/WFD.png" style={{ height: '100%', justifyContent: 'center' }} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} s={12} md={8}>
+            <Paper className={classes.logo} elevation={0} square>
+              <Typography
+                align="center"
+                variant="h2"
+                style={{
+                  top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%'
+                }}
+              >
+                Your Cook Book Digitalized
+              </Typography>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={12} md={2} className={classes.tabContainer}>
+            <Link to="/inventory">
+              <Button className={classes.logoutButton}>
+                Pantry
+              </Button>
+            </Link>
+            <Button className={classes.logoutButton} onClick={endSession}>
+              LogOut
+            </Button>
           </Grid>
         </Grid>
-        );
+        <Grid xs={2} sm={2} md={2} className={classes.recipeContainer}>
+          <Filter cuisineTypes={cuisineTypes} filterBy={filterBy} />
+        </Grid>
+        <Grid container xs={10} sm={10} md={10} className={classes.recipeContainer}>
+          {recipes.map((recipe) => (
+            <Grid item xs={12} md={3} className={classes.recipeCardContainer}>
+              <RecipeCard
+                key={recipe.recipe.uri}
+                label={recipe.recipe.label}
+                image={recipe.recipe.image}
+                cuisineType={recipe.recipe.cuisineType}
+                ingredientLines={recipe.recipe.ingredientLines}
+                recipe={recipe}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
+    </Grid>
+  );
 };
 
-        export default Recipes;
+export default Recipes;

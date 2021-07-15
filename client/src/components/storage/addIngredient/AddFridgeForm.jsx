@@ -14,7 +14,7 @@ const AddFridgeForm = ({ openForm, handleFormClose }) => {
   const [addMultIngs, updateMultIngs] = useState([]);
   const [addIngredientName, updateAddIngredientName] = useState('');
   const [ingredientAutoComplete, updateAutoCompleteList] = useState([]);
-  const { authCode, reloadInventory, toggleReloadInventory } = useContext(ProductContext);
+  const { authCode, reloadInventory, toggleReloadInventory} = useContext(ProductContext);
 
   function handleChange(event, values) {
     updateAddIngredientName(event.target.value);
@@ -33,6 +33,7 @@ const AddFridgeForm = ({ openForm, handleFormClose }) => {
     handleFormClose();
     axios.post(`/ingredients/true`, { addMultIngs, authCode })
       .then((response) => {
+        // console.log('response from post fridge ingredients', response);
         // toggle the 'reload inventory' switch so the inventory list can have an automatic reload
         toggleReloadInventory(!reloadInventory);
       })

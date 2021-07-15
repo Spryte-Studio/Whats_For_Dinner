@@ -10,30 +10,31 @@ import Dashboard from './dashboard/Dashboard.jsx';
 import Recipes from './recipes/Recipes.jsx';
 import { ProductContext } from '../context.js';
 
-const App = () => {
-  const code = new URLSearchParams(window.location.search).get('code');
+var App = () => {
+  const email = new URLSearchParams(window.location.search).get('email');
 
   const tempAuth = '4/0AX4XfWgwAol5HXGPHF3HfE7dXkAojKTeMEbDy0cBvqXyyAowq1nRQ45mVJsdmT_ebcB5UQ';
 
-  const [authCode, setAuthCode] = useState(tempAuth);
+  const [authCode, setAuthCode] = useState(email);
   const [searchIngredients, setSearchIngredients] = useState([]);
   const [inventory, setInventory] = useState([]);
   const [reloadInventory, toggleReloadInventory] = useState(true);
 
-  // useEffect(() => {
-  //   if (code !== null) {
-  //     setAuthCode(code);
-  //   }
-  // }, [code])
+  console.log(email)
+  useEffect(() => {
+    if (email !== null) {
+      setAuthCode(email);
+    }
+  }, [email])
 
-  // useEffect(() => {
-  //   if (code !== null) {
-  //     axios.post('/users/postUser', code)
-  //       .then((response) => {
-  //         console.log('response from posting user to db', response);
-  //       })
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (email !== null) {
+      axios.post('/users/postUser', email)
+        .then((response) => {
+          console.log('response from posting user to db', response);
+        })
+    }
+  }, [])
 
   const handleLogout = () => {
     axios.get('/logout')
@@ -45,7 +46,7 @@ const App = () => {
       authCode: authCode,
       searchIngredients, setSearchIngredients,
       inventory, setInventory,
-      reloadInventory, toggleReloadInventory
+      reloadInventory, toggleReloadInventory,
     }}>
       <Router>
         <div>

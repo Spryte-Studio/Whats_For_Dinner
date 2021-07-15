@@ -37,16 +37,16 @@ const Pantry = ({ deleteIngredient }) => {
   }
 
   return (
-    <Grid item xs={12} md={4} >
+    <Grid item xs={12} md={6} >
       <Paper className={classes.pantryAndFridgeContainer} elevation={3} square>
         <Grid item xs={12} className={classes.fridgeHeader}>
           <Typography variant='h4' align='center' style={{ borderBottom: '2px solid black', height: '100%' }}>
-            Pantry
+            Inventory
           </Typography>
         </Grid>
         <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
           {inventory.map((ingredient) => {
-            if (!ingredient.perishable) {
+            // if (!ingredient.perishable) {
               return (
                 <Paper key={ingredient.name} elevation={1} className={classes.ingredient} square>
                   <Grid container xs={12}>
@@ -71,7 +71,7 @@ const Pantry = ({ deleteIngredient }) => {
                   </Grid>
                 </Paper>
               )
-            }
+            // }
 
           })}
         </Grid>

@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     justifyContent: 'space-evenly',
     backgroundColor: '#666782',
-    textAlign: 'center'
+    textAlign: 'start'
   },
   filter: {
     height: '100%',
