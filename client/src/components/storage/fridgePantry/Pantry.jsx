@@ -60,8 +60,8 @@ const Pantry = () => {
                   </ListItem>
                 </Grid>
                 <Grid item xs={12} md={2} style={_.contains(searchIngredients, ingredient) ? { backgroundColor: '#666782' } : {}}>
-                  <IconButton aria-label="delete" className={classes.deleteButton}
-                    style={_.contains(searchIngredients, ingredient) ? { backgroundColor: '#B3B3EA' } : {}}
+                  <IconButton aria-label="delete"
+                    style={_.contains(searchIngredients, ingredient) ? { backgroundColor: '#B3B3EA', top: '2px' } : {}}
                   >
                     <DeleteIcon fontSize="small" />
                   </IconButton>

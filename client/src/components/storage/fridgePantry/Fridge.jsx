@@ -53,7 +53,12 @@ const Fridge = () => {
                   <ListItem key={ingredient} alignItems="flex-start" onClick={() => {
                     handleIngredientSelect(ingredient)
                   }}
-                    style={_.contains(searchIngredients, ingredient) ? { color: '#FFFFFF', backgroundColor: '#666782' } : { color: 'Black' }}>
+                    style={_.contains(searchIngredients, ingredient) ? {
+                      color: '#FFFFFF',
+                      backgroundColor: '#666782'
+                    } : {
+                      color: 'Black'
+                    }}>
                     <ListItemText
                       primary={ingredient}
                     />
