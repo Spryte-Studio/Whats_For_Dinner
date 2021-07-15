@@ -8,8 +8,6 @@ import { ProductContext } from '../context.js';
 import axios from 'axios';
 
 
-
-
 var App = () => {
   const code = new URLSearchParams(window.location.search).get('code');
 
