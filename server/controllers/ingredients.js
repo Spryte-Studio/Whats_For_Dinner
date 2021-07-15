@@ -12,10 +12,8 @@ require('dotenv').config();
 
 const {edamam_ingredientSearch_app_id, edamam_ingredientSearch_app_key} = process.env;
 
-// router.get('/', (req, res) => {})
 
 router.get('/:ingredientName', (req, res) => {
-  // console.log('req at ingredients api', req.params);
   axios.get(`${autoCompleteURL}`, {
     params: {
       'app_id': edamam_ingredientSearch_app_id,
@@ -24,7 +22,6 @@ router.get('/:ingredientName', (req, res) => {
     }
   })
     .then((response) => {
-      // console.log('this is response inside get request',response.data);
       res.status(200).send(response.data);
     })
     .catch((err) => {
@@ -35,15 +32,12 @@ router.get('/:ingredientName', (req, res) => {
 
 router.post('/:perishable', (req, res) => {
   let perishable = req.params.perishable;
-  console.log('req body inside post route', req.body.addMultIngs);
-  console.log('perishable?', perishable);
-  console.log('auth code?', req.body.authCode)
 
-  ingredientModel.postIngredient(req.body, perishable, function(err, results) {
+  ingredientModel.postIngredient(req.body.addMultIngs, perishable, req.body.authCode, function(err, response) {
     if (err) {
       res.status(400).send(err);
     } else {
-      res.status(200).send({product_id: productID, results: results.rows});
+      res.status(200).send(response.data);
     }
   })
 

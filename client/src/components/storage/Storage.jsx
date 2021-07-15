@@ -16,18 +16,27 @@ const Storage = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
   const { authCode } = useContext(ProductContext);
-
   const [inventory, setInventory] = useState([]);
-  function fetchInventory() {
-    axios.get(`/inventory/${authCode}`)
-      .then((response) => {
-        console.log('Storage.jsx=========', response)
-        setInventory(response);
-      });
+
+  function fetchInventory(code) {
+
+
+    console.log('AUTH CODE======', { code })
+    axios.get(`/storage/inventory`, {
+      params: { authCode: code }
+    });
+
+    // axios.get(`/storage/inventory`, {authCode})
+
+    //   .then((response) => {
+    //     console.log('inside .then====', response)
+    //     setInventory(response);
+    //   });
   };
 
   useEffect(() => {
-    fetchInventory()
+    fetchInventory(authCode);
+    // authCode ? fetchInventory() : console.log('booo', authCode)
   }, []);
 
   return (
