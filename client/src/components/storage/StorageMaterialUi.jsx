@@ -8,7 +8,8 @@ const useStyles = makeStyles(() => ({
   logo: {
     height: '200px',
     width: '100%',
-    backgroundColor: '#666782'
+    backgroundColor: '#666782',
+    textAlign: 'center'
   },
   tabContainer: {
     height: '200px',

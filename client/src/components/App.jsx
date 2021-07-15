@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router, Route, Link, Switch, withRouter
+} from 'react-router-dom';
 import axios from 'axios';
 import Home from './home/Home.jsx';
 import Storage from './storage/Storage.jsx';
@@ -7,10 +10,7 @@ import Dashboard from './dashboard/Dashboard.jsx';
 import Recipes from './recipes/Recipes.jsx';
 import { ProductContext } from '../context.js';
 
-
-
-
-var App = () => {
+const App = () => {
   const code = new URLSearchParams(window.location.search).get('code');
 
   const [authCode, setAuthCode] = useState('');
@@ -20,26 +20,28 @@ var App = () => {
     if (code !== null) {
       setAuthCode(code);
     }
-  }, [code])
+  }, [code]);
 
   useEffect(() => {
     if (code !== null) {
       axios.post('/users/postUser', code)
-      .then((response) => {
-        console.log('response from posting user to db', response);
-      })
+        .then((response) => {
+          console.log('response from posting user to db', response);
+        });
     }
-  }, [])
+  }, []);
 
-  var handleLogout = () => {
+  const handleLogout = () => {
     axios.get('/logout')
-    .catch(err => console.log('handleLogout err: ',rr))
-  }
+      .catch((err) => console.log('handleLogout err: ', rr));
+  };
   return (
     <ProductContext.Provider value={{
-      authCode: authCode,
-      searchIngredients, setSearchIngredients
-    }}>
+      authCode,
+      searchIngredients,
+      setSearchIngredients
+    }}
+    >
       <Router>
         <div>
           {/* <ul>
@@ -57,23 +59,23 @@ var App = () => {
           </li>
         </ul> */}
           <Switch>
-            <Route path='/' exact>
-              <Home handleLogout={handleLogout}/>
+            <Route path="/" exact>
+              <Home handleLogout={handleLogout} />
             </Route>
-            <Route path='/inventory' exact>
-              <Storage handleLogout={handleLogout}/>
+            <Route path="/inventory" exact>
+              <Storage handleLogout={handleLogout} />
             </Route>
-            <Route path='/recipes' exact>
-              <Recipes handleLogout={handleLogout}/>
+            <Route path="/recipes" exact>
+              <Recipes handleLogout={handleLogout} />
             </Route>
-            <Route path='/dashboard' exact>
-              <Dashboard handleLogout={handleLogout}/>
+            <Route path="/dashboard" exact>
+              <Dashboard handleLogout={handleLogout} />
             </Route>
           </Switch>
         </div>
       </Router>
     </ProductContext.Provider>
-  )
+  );
 };
 
 export default App;
