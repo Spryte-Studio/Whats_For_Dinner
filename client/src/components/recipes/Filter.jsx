@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import useStyles from './RecipesMaterialUi.jsx';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -16,13 +16,14 @@ export default function RecipeReviewCard({ cuisineTypes, filterBy }) {
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
+          onChange={(event) => { filterBy(event.target.value); }}
         >
+          <MenuItem value='all'>all</MenuItem>
           {cuisineTypes.map((type) => {
-            console.log(type);
-            return <MenuItem value={type} onClick={() => { filterBy(type) }}>{type}</MenuItem>;
+            return <MenuItem value={type} onClick={() => { }}>{type}</MenuItem>;
           })}
         </Select>
-        <FormHelperText>Some important helper text</FormHelperText>
+        <FormHelperText>Filter by Cuisine Type</FormHelperText>
       </FormControl>
     </div>
   );

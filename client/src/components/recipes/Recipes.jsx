@@ -12,16 +12,19 @@ import useStyles from './RecipesMaterialUi.jsx';
 import globalUseStyles from '../../GlobalMaterialUi.jsx';
 import { ProductContext } from '../../context';
 import Filter from './Filter.jsx';
+import { useRefresh } from 'react-tidy'
 
-const filterBy = (type) => {
-  console.log(type);
-};
+
+
 
 const Recipes = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
   const [recipes, setRecipes] = useState([]);
+  const [OGrecipes, setOGRecipes] = useState([]);
   const [cuisineTypes, setCuisineTypes] = useState([]);
+  const [isFiltered, setIsFiltered] = useState(false);
+  const [filter, setFilter] = useState();
   const { searchIngredients } = useContext(ProductContext);
   // const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
   // const ingredients = ["shrimp", "broccoli", "carrots"];
@@ -36,29 +39,31 @@ const Recipes = () => {
   const [query, setQuery] = useState(mappedIngredients);
   console.log(query);
 
-  useEffect(() => {
-    const getRecipes = async () => {
-      try {
-        const response = await axios.get('/spryte/allRecipes', { params: { q: query } });
-        console.log(response.data.hits);
-        setRecipes(response.data.hits);
-        // setRecipes(response.data.hits, () => {
-        //   window.localStorage.setItem("recipes", JSON.stringify(recipes));
-        // });
-        var cuisines = [];
-        response.data.hits.forEach((recipe) => {
-          if (recipe.recipe.cuisineType && recipe.recipe.cuisineType.length > 0) {
-            if (!cuisines.includes(recipe.recipe.cuisineType[0])) {
-              console.log(recipe.recipe.cuisineType[0]);
-              cuisines.push(recipe.recipe.cuisineType[0]);
-            }
+
+  const getRecipes = async () => {
+    try {
+      const response = await axios.get('/spryte/allRecipes', { params: { q: query } });
+      console.log(response.data.hits);
+      setRecipes(response.data.hits);
+      setOGRecipes(response.data.hits);
+      // setRecipes(response.data.hits, () => {
+      //   window.localStorage.setItem("recipes", JSON.stringify(recipes));
+      // });
+      var cuisines = [];
+      response.data.hits.forEach((recipe) => {
+        if (recipe.recipe.cuisineType && recipe.recipe.cuisineType.length > 0) {
+          if (!cuisines.includes(recipe.recipe.cuisineType[0])) {
+            cuisines.push(recipe.recipe.cuisineType[0]);
           }
-        });
-        setCuisineTypes(cuisines);
-      } catch (e) {
-        console.log(e);
-      }
-    };
+        }
+      });
+      setCuisineTypes(cuisines);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
     getRecipes();
   }, [query]);
   console.log(recipes);
@@ -73,6 +78,25 @@ const Recipes = () => {
 
   //   getRecipes();
   // }, [query])
+
+
+
+  const filterBy = (type) => {
+    if (type === 'all') {
+      setRecipes(OGrecipes);
+    } else {
+      console.log(type);
+      var filteredRecipes = [];
+      OGrecipes.forEach((recipe) => {
+        if (recipe.recipe.cuisineType && recipe.recipe.cuisineType.length > 0) {
+          if (recipe.recipe.cuisineType[0] === type) {
+            filteredRecipes.push(recipe);
+          }
+        }
+      });
+      setRecipes(filteredRecipes); //rendering async, lagging results
+    }
+  };
 
   if (mappedIngredients.length === 0) {
     return (
