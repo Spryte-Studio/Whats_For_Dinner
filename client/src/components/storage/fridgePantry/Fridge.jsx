@@ -9,7 +9,7 @@ var _ = require('underscore');
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const Fridge = () => {
+const Fridge = ({ deleteIngredient }) => {
   const classes = useStyles();
   const [openForm, setOpenForm] = useState(false);
   const { authCode, searchIngredients, setSearchIngredients, inventory, setInventory } = useContext(ProductContext);
@@ -63,6 +63,7 @@ const Fridge = () => {
                     <Grid item xs={12} md={2} style={_.contains(searchIngredients, ingredient.name) ? { backgroundColor: '#666782' } : {}}>
                       <IconButton aria-label="delete" className={classes.deleteButton}
                         style={_.contains(searchIngredients, ingredient.name) ? { backgroundColor: '#B3B3EA' } : {}}
+                        onClick={() => { deleteIngredient(ingredient.name); }}
                       >
                         <DeleteIcon fontSize="small" />
                       </IconButton>
