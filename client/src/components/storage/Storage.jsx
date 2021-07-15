@@ -8,6 +8,7 @@ import globalUseStyles from '../../GlobalMaterialUi.jsx';
 import Fridge from './fridgePantry/Fridge.jsx';
 import Pantry from './fridgePantry/Pantry.jsx';
 import { ProductContext } from '../../context';
+import { endSession } from '../../helpers';
 
 const Storage = () => {
   const classes = useStyles();
@@ -45,7 +46,7 @@ const Storage = () => {
                 Dashboard
               </Button>
             </Link>
-            <Button className={classes.logoutButton}>
+            <Button className={classes.logoutButton} onClick={endSession}>
               LogOut
             </Button>
           </Grid>
@@ -89,7 +90,7 @@ const Storage = () => {
                 Recipes
               </Button>
             </Link>
-            <Button className={classes.logoutButton}>
+            <Button className={classes.logoutButton} onClick={endSession}>
               LogOut
             </Button>
           </Grid>

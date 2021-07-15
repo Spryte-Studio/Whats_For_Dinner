@@ -59,7 +59,7 @@ app.get('/dashboard', (req, res) => {
 // Route for logout of app (Future Feature)
 app.get('/logout', (req, res) => {
   req.session = null;
-  req.logout();
+  // req.logout();
   res.redirect('/');
 });
 
