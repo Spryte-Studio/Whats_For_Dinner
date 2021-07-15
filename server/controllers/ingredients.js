@@ -44,7 +44,7 @@ router.post('/:perishable', (req, res) => {
 });
 
 router.delete('/:ingredientName', (req, res) => {
-  ingredientModel.deleteIngredient(req.params.ingredientName, (err, response) => {
+  ingredientModel.deleteIngredient(req.params.ingredientName, userId, (err, response) => {
     if (err) {
       console.log(err);
       res.status(500).send(err);
