@@ -33,10 +33,24 @@ const Storage = () => {
     fetchInventory(authCode);
   }, []);
 
+  // const deleteIngredient = (ingredientName) => {
+  //   axios.delete(`/ingredients/${ingredientName}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
   const deleteIngredient = (ingredientName) => {
-    axios.delete(`/ingredients/${ingredientName}`)
+    axios.delete(`/ingredients/${ingredientName}`, {
+      params: {
+        email: authCode
+      }
+    })
       .then((response) => {
-        console.log(response);
+        console.log('success response from deleting ingredient', response);
       })
       .catch((err) => {
         console.log(err);

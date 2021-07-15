@@ -36,18 +36,42 @@ const postIngredient = function (
     })
 };
 
+// const deleteIngredient = (ingredientName, userID, callback) => {
+//   db.query('SELECT id FROM inventory WHERE name=$1', [ingredientName])
+//     .then((results) => {
+//       const queryStr = 'DELETE FROM users_inventory WHERE user_id=$1 AND inventory_id=$2';
+//       const queryParam = [userId, results.rows[0].id];
+//       db.query(queryStr, queryParam)
+//         .then((response) => {
+//           callback(null, response);
+//         })
+//         .catch((err) => {
+//           callback(err, null);
+//         });
+//     });
+// };
+
+let userIDGlobalStorage = null;
+
 const deleteIngredient = (ingredientName, userID, callback) => {
-  db.query('SELECT id FROM inventory WHERE name=$1', [ingredientName])
-    .then((results) => {
-      const queryStr = 'DELETE FROM users_inventory WHERE user_id=$1 AND inventory_id=$2';
-      const queryParam = [userId, results.rows[0].id];
-      db.query(queryStr, queryParam)
-        .then((response) => {
-          callback(null, response);
-        })
-        .catch((err) => {
-          callback(err, null);
+  db.query('SELECT id FROM users WHERE auth_code = $1;', [userID])
+    .then((userId) => {
+      userIDGlobalStorage = userId.rows[0].id;
+      db.query('SELECT id FROM inventory WHERE name=$1', [ingredientName])
+        .then((results) => {
+          const queryStr = 'DELETE FROM users_inventory WHERE user_id=$1 AND inventory_id=$2';
+          const queryParam = [userIDGlobalStorage, results.rows[0].id];
+          db.query(queryStr, queryParam)
+            .then((response) => {
+              callback(null, response);
+            })
+            .catch((err) => {
+              callback(err, null);
+            });
         });
+    })
+    .catch((err) => {
+      callback(err, null);
     });
 };
 
