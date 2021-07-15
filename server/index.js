@@ -4,6 +4,8 @@ const axios = require('axios');
 const cors = require('cors');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+const db = require('../database');
+const { postUser } = require('./models/users');
 
 require('./passport-setup');
 require('dotenv').config();
@@ -20,11 +22,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
-app.use(passport.initialize());
 app.use(cookieSession({
   name: 'Whats for dinner?',
   keys: ['key1', 'key2']
 }));
+app.use(passport.initialize());
 app.use(passport.session());
 
 const isLoggedIn = (req, res, next) => {
@@ -39,13 +41,13 @@ app.get('/recipes', (req, res) => {
   });
 });
 
-// app.get('/inventory', (req, res) => {
-//   res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
-//     if (err) {
-//       res.status(400).send(err);
-//     }
-//   });
-// });
+app.get('/inventory', (req, res) => {
+  res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
+    if (err) {
+      res.status(400).send(err);
+    }
+  });
+});
 
 app.get('/dashboard', (req, res) => {
   res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
@@ -72,6 +74,14 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    const email = req.user._json.email;
+    // postUser(email);
+    res.redirect('/inventory?email=' + email);
+  });
 
 
 app.use('/storage', controllers.inventory);
