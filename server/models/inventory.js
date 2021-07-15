@@ -1,51 +1,43 @@
+const { result } = require('underscore');
 const pg = require('../../database');
 
 
-// Get items
-const getFridgeInventory = (requestParams, callback) => {
-	const qString =
-		`SELECT....
-		(fridge items query)`;
-	pg.query(qString, [user_id], (err, results) => {
-		callback(err, results.rows);
-	});
+// Get all items
+const getInventory = (authCode, callback) => {
+	console.log('top of getInventory model', authCode)
+	const idQString =
+		`SELECT id FROM users WHERE auth_code = '${authCode}';`;
+
+	pg.query(idQString)
+		.then((results) => {
+			const userID = results.rows[0].id;
+			console.log('inside query==========', userID)
+			const qString =
+				`SELECT inventory.name, inventory.photo, inventory.perishable
+				FROM inventory, users_inventory, users
+				WHERE users.id = users_inventory.user_id
+				AND inventory.id = users_inventory.inventory_id
+				AND users.id=${userID};`;
+			pg.query(qString)
+				.then((inventory) => {
+					callback(null, inventory.rows);
+					console.log(inventory.rows)
+				})
+				.catch((err) => {callback(err, null)});
+		})
 };
 
-const getPantryInventory = (requestParams, callback) => {
-	const qString =
-		`SELECT....
-		(pantry items query)`;
-	pg.query(qString, [user_id], (err, results) => {
-		callback(err, results.rows);
-	});
-};
-
-
-// Post items
-const addFridgeInventory = (requestParams, callback) => {
-	const qString =
-		`INSERT....
-		(add items
-		to fridge query)`;
-	pg.query(qString, [user_id], (err, results) => {
-		callback(err, results.rows);
-	});
-};
-
-const addPantryInventory = (requestParams, callback) => {
-	const qString =
-		`INSERT....
-	  (add items
-		to pantry query)`;
-
-	pg.query(qString, [user_id], (err, results) => {
-		callback(err, results.rows);
-	});
-};
+// Delete items
+// const deleteInventory = (requestParams, callback) => {
+// 	const qString =
+//     `DELETE FROM inventory
+// 		WHERE id=${requestParams.id}`;
+// 	pg.query(qString, (err, results) => {
+// 		callback(err, results.rows);
+// 	})
+// };
 
 module.exports = {
-	getFridgeInventory,
-	getPantryInventory,
-	addFridgeInventory,
-	addPantryInventory
+	getInventory,
+	// deleteInventory
 };

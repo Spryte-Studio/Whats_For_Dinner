@@ -39,13 +39,13 @@ app.get('/recipes', (req, res) => {
   });
 });
 
-app.get('/inventory', (req, res) => {
-  res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
-    if (err) {
-      res.status(400).send(err);
-    }
-  });
-});
+// app.get('/inventory', (req, res) => {
+//   res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
+//     if (err) {
+//       res.status(400).send(err);
+//     }
+//   });
+// });
 
 app.get('/dashboard', (req, res) => {
   res.sendFile('index.html', { root: __dirname + '/../client/dist' }, (err) => {
@@ -74,7 +74,7 @@ app.get('/auth/google',
 
 
 
-// app.use('/inventory', controllers.inventory);
+app.use('/storage', controllers.inventory);
 app.use('/ingredients', controllers.ingredients);
 app.use('/users', controllers.users);
 app.use('/spryte', controllers.recipes);
