@@ -8,11 +8,30 @@ import globalUseStyles from '../../GlobalMaterialUi.jsx';
 import Fridge from './fridgePantry/Fridge.jsx';
 import Pantry from './fridgePantry/Pantry.jsx';
 import { ProductContext } from '../../context';
+import { endSession } from '../../helpers';
+import axios from 'axios';
 
 const Storage = () => {
   const classes = useStyles();
   const globalClasses = globalUseStyles();
-  const { authCode, searchIngredients } = useContext(ProductContext);
+  const { authCode, searchIngredients, inventory, setInventory } = useContext(ProductContext);
+
+  function fetchInventory(code) {
+
+
+    console.log('AUTH CODE======', { code })
+    axios.get(`/storage/inventory`, {
+      params: { authCode: code }
+    })
+      .then((response) => {
+        console.log('inside .then====', response)
+        setInventory(response.data);
+      });
+  };
+
+  useEffect(() => {
+    fetchInventory(authCode);
+  }, []);
 
 
   if (searchIngredients.length !== 0) {
@@ -45,7 +64,7 @@ const Storage = () => {
                 Dashboard
               </Button>
             </Link>
-            <Button className={classes.logoutButton}>
+            <Button className={classes.logoutButton} onClick={endSession}>
               LogOut
             </Button>
           </Grid>
@@ -89,7 +108,7 @@ const Storage = () => {
                 Recipes
               </Button>
             </Link>
-            <Button className={classes.logoutButton}>
+            <Button className={classes.logoutButton} onClick={endSession}>
               LogOut
             </Button>
           </Grid>
