@@ -5,8 +5,7 @@ import {
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 import useStyles from './StorageMaterialUi.jsx';
 import globalUseStyles from '../../GlobalMaterialUi.jsx';
-import Fridge from './fridgePantry/Fridge.jsx';
-import Pantry from './fridgePantry/Pantry.jsx';
+import Inventory from './Inventory.jsx';
 import { ProductContext } from '../../context';
 import { endSession } from '../../helpers';
 import axios from 'axios';
@@ -17,7 +16,6 @@ const Storage = () => {
   const { authCode, searchIngredients, inventory, setInventory, reloadInventory, toggleReloadInventory } = useContext(ProductContext);
 
   function fetchInventory(code) {
-    console.log('AUTH CODE======', { code })
     axios.get(`/storage/inventory`, {
       params: { authCode: code }
     })
@@ -26,23 +24,9 @@ const Storage = () => {
       });
   };
 
-  // useEffect(() => {
-  //   fetchInventory(authCode);
-  // }, []);
-
   useEffect(() => {
     fetchInventory(authCode);
   }, [reloadInventory]);
-
-  // const deleteIngredient = (ingredientName) => {
-  //   axios.delete(`/ingredients/${ingredientName}`)
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   const deleteIngredient = (ingredientName) => {
     axios.delete(`/ingredients/${ingredientName}`, {
@@ -51,8 +35,6 @@ const Storage = () => {
       }
     })
       .then((response) => {
-        // console.log('success response from deleting ingredient', response);
-        // toggle the 'reload inventory' switch so the inventory list can have an automatic reload
         toggleReloadInventory(!reloadInventory);
       })
       .catch((err) => {
@@ -77,7 +59,7 @@ const Storage = () => {
               <Typography align='center' variant='h4' style={{ fontFamily: 'Oswald', color: '#e6e6ea' }}>
                 Now that you've selected some ingredients, head over to recipes to see what you could make!
               </Typography>
-              <Link to='/recipes'>
+              <Link to={`/recipes?email=${authCode}`}>
                 <Button className={classes.logoutButton}>
                   See Recipes!
                 </Button>
@@ -91,8 +73,7 @@ const Storage = () => {
           </Grid>
         </Grid>
         <Grid container className={classes.inventoryContainer}>
-          <Pantry deleteIngredient={deleteIngredient} />
-          {/* <Fridge deleteIngredient={deleteIngredient} /> */}
+          <Inventory deleteIngredient={deleteIngredient} />
         </Grid>
       </Grid>
     );
@@ -119,7 +100,7 @@ const Storage = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-            <Link to='/recipes'>
+            <Link to={`/recipes?email=${authCode}`}>
               <Button className={classes.logoutButton}>
                 Recipes
               </Button>
@@ -130,8 +111,7 @@ const Storage = () => {
           </Grid>
         </Grid>
         <Grid container className={classes.inventoryContainer}>
-          <Pantry deleteIngredient={deleteIngredient} />
-          {/* <Fridge deleteIngredient={deleteIngredient} /> */}
+          <Inventory deleteIngredient={deleteIngredient} />
         </Grid>
       </Grid>
     );

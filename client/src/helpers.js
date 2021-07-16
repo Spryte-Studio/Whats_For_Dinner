@@ -9,9 +9,8 @@ export const endSession = () => {
 }
 
 export const getAuth = () => {
-  console.log('HIT IN GETAUTH HELPER')
   Axios.get('/auth/google', { crossdomain: true })
     .then((response) => {
-      console.log(response)
+      // console.log(response)
     })
 }

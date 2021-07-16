@@ -10,7 +10,7 @@ const Home = () => (
           is removing the tough decision making from your <i>plate</i> of to-do's, to make the plating of tasty & nutritious food easy & possible!
         </span>
       </div>
-      <img src='./ImgSrc/RecipesClosed.png' className='innerR img' />
+      <img src='./ImgSrc/RecipeSnapShot-01.png' className='innerR img' />
     </div>
     <div className='grid' style={{  justifyContent: 'center', gridTemplateColumns: '1fr 1fr 1fr', paddingTop: '40px' }}>
       <div className='highlight jR' style={{ backgroundColor: '#666782' }}>
@@ -26,17 +26,20 @@ const Home = () => (
     <div className='grid' style={{ gridTemplateColumns: '1fr 1fr', border: '3px solid #666782' }}>
       <span className="F700 highlight WFD" style={{ paddingTop: '25px', paddingBottom: '0px', marginBottom: '0px', fontSize: '30px !important' }}>
         <strong style={{fontSize: '27px'}}>Planning Dinner Has Never Been Easier!</strong>
-        <img src='./ImgSrc/InvSelected.png' className='img' />
+        <img src='./ImgSrc/Inventory.png' className='img' />
       </span>
       <ol className="F300" style={{ paddingTop: '25px', paddingBottom: '0px', marginBottom: '0px', paddingRight: '10px' }}>
         <li>
-          Just add your ingredients to your virtual <strong>Pantry</strong> and <strong>Fridge</strong> ahead of time.
+          Just add the ingredients from your real pantry and fridge to your virtual <strong>Inventory</strong> ahead of time.
         </li>
         <li>
-          Then, once work ends and you're ready to decide what's for dinner, select your desired ingredients, and <i>voila</i> a recipe feed is filled!
+          Then, once work ends and you're ready to decide what's for dinner, select your desired ingredients to fill your recipe feed!
         </li>
         <li>
-          View ingredients in the drop down, and click a recipe card to go to that recipe page.
+          View ingredients in the drop down, selecting those you want to use to search for recipes.
+        </li>
+        <li>
+          Then, click a recipe card to navigate to that recipe page on a new tab.
         </li>
       </ol>
     </div>

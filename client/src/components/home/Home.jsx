@@ -58,14 +58,8 @@ const Home = () => {
               Cancel
             </Button>
             <Button onClick={() => {
-              // handleLoginClose();
-              // getAuth();
             }} color="primary">
               <a href="/auth/google">Sign In with Google</a>
-              {/* <a href="https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fgoogle%2Fcallback&scope=profile%20email&client_id=212805700707-muf5v7daa20sumpsafnojrlanps22eh4.apps.googleusercontent.com&flowName=GeneralOAuthFlow">
-                Sign In with Google
-              </a> */}
-              {/* Sign in With Google */}
             </Button>
           </DialogActions>
         </Dialog>

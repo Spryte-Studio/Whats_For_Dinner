@@ -10,11 +10,6 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     backgroundColor: '#666782',
   },
-  // logoutButton: {
-  //   border: '2px solid #E6E6EA',
-  //   backgroundColor: '#B3B3EA',
-  //   width: '150px',
-  // },
   tabContainer: {
     height: '200px',
     width: '100%',

@@ -6,11 +6,11 @@ import {
 import axios from 'axios';
 import Home from './home/Home.jsx';
 import Storage from './storage/Storage.jsx';
-import Dashboard from './dashboard/Dashboard.jsx';
 import Recipes from './recipes/Recipes.jsx';
 import { ProductContext } from '../context.js';
 
 var App = () => {
+  console.log('What\'s For Dinner? \n First Deployed: Jul 15, 2021 \n Created By: David Harbin (@davidkharbin), James Moore (@ThinkCreatively), Meagan Provencher (@mrprov12), Phong Trinh (@ThanhPhongUSC), Mikka Tully (@mtully808)')
   const email = new URLSearchParams(window.location.search).get('email');
 
   const tempAuth = '4/0AX4XfWgwAol5HXGPHF3HfE7dXkAojKTeMEbDy0cBvqXyyAowq1nRQ45mVJsdmT_ebcB5UQ';
@@ -20,18 +20,17 @@ var App = () => {
   const [inventory, setInventory] = useState([]);
   const [reloadInventory, toggleReloadInventory] = useState(true);
 
-  console.log(email)
   useEffect(() => {
     if (email !== null) {
       setAuthCode(email);
     }
-  }, [email])
+  }, [])
 
   useEffect(() => {
     if (email !== null) {
       axios.post('/users/postUser', email)
         .then((response) => {
-          console.log('response from posting user to db', response);
+          // console.log('response from posting user to db', response);
         })
     }
   }, [])
@@ -50,20 +49,6 @@ var App = () => {
     }}>
       <Router>
         <div>
-          {/* <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/inventory'>Inventory</Link>
-          </li>
-          <li>
-            <Link to='/recipes'>Recipes</Link>
-          </li>
-          <li>
-            <Link to='/dashboard'>Dashboard</Link>
-          </li>
-        </ul> */}
           <Switch>
             <Route path="/" exact>
               <Home handleLogout={handleLogout} />
@@ -73,9 +58,6 @@ var App = () => {
             </Route>
             <Route path="/recipes" exact>
               <Recipes handleLogout={handleLogout} />
-            </Route>
-            <Route path="/dashboard" exact>
-              <Dashboard handleLogout={handleLogout} />
             </Route>
           </Switch>
         </div>

@@ -8,7 +8,6 @@ const models = require('../models/inventory');
 
 
 router.get('/inventory', (req, res) => {
-	console.log('INVENTORY=======', req.query)
 	models.getInventory(req.query.authCode, function (err, results) {
 		if (err) {
 			res.status(400).send(err);
