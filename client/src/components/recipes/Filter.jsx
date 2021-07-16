@@ -6,12 +6,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+// import { InputLabel, MenuItem, FormHelperText, FormControl, Select } from '@material-ui/core';
 
 export default function RecipeReviewCard({ cuisineTypes, filterBy }) {
   const classes = useStyles();
   return (
-    <div style={{ marginLeft: '30px'}}>
-      <FormControl className={classes.formControl} style={{width: '100%'}}>
+    <div style={{ marginLeft: '30px' }}>
+      <FormControl className={classes.formControl} style={{ width: '100%' }}>
         <InputLabel id="demo-simple-select-helper-label">Cuisine Type</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
