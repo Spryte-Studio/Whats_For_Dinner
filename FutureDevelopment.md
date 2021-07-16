@@ -37,6 +37,7 @@ STORAGE
 
 
 -- INVENTORY LIST WIDGET
+  -- Expanding to size of page to display more details
   -- When ingredients have been selected but api response not received yet, display spinner
   -- When ingredients selected but no results, show current page
   -- Button to randomly pair ingredients (possibly based on certain filter, like meal type, or expiration date) and search for recipes
