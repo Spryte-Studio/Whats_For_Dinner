@@ -11,6 +11,7 @@ import Recipes from './recipes/Recipes.jsx';
 import { ProductContext } from '../context.js';
 
 var App = () => {
+  console.log('What\'s For Dinner? \n First Deployed: Jul 15, 2021 \n Created By: David Harbin (@davidkharbin), James Moore (@ThinkCreatively), Meagan Provencher (@mrprov12), Phong Trinh (@ThanhPhongUSC), Mikka Tully (@mtully808)')
   const email = new URLSearchParams(window.location.search).get('email');
 
   const tempAuth = '4/0AX4XfWgwAol5HXGPHF3HfE7dXkAojKTeMEbDy0cBvqXyyAowq1nRQ45mVJsdmT_ebcB5UQ';
@@ -32,7 +33,6 @@ var App = () => {
       axios.post('/users/postUser', email)
         .then((response) => {
           console.log('response from posting user to db', response);
-          console.log('What\'s For Dinner? \n First Deployed: Jul 15, 2021 \n Created By: David Harbin (@davidkharbin), James Moore (@ThinkCreatively), Meagan Provencher (@mrprov12), Phong Trinh (@ThanhPhongUSC), Mikka Tully (@mtully808)')
         })
     }
   }, [])
