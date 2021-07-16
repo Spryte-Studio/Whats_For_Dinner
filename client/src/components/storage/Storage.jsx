@@ -73,14 +73,14 @@ const Storage = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} s={12} md={8}>
-            <Paper className={classes.logo} elevation={0} square>
-              <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
-                Your Cook Book Digitalized
+            <Paper className={classes.logo} elevation={0} square style={{paddingBottom: '90px'}}>
+              <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%', lineHeight: '3'}}>
+                Your Cookbook Digitalized
               </Typography>
               <Typography align='center' variant='h4' style={{ fontFamily: 'Oswald', color: '#e6e6ea' }}>
                 Now that you've selected some ingredients, head over to recipes to see what you could make!
               </Typography>
-              <Link to='/recipes'>
+              <Link to={`/recipes?email=${authCode}`}>
                 <Button className={classes.logoutButton}>
                   See Recipes!
                 </Button>
@@ -109,9 +109,9 @@ const Storage = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} s={12} md={8}>
-            <Paper className={classes.logo} elevation={0} square>
-              <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%' }}>
-                Your Cook Book Digitalized
+            <Paper className={classes.logo} elevation={0} square style={{paddingBottom: '50px'}}>
+              <Typography align='center' variant='h2' style={{ top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%', lineHeight: '3'}}>
+                Your Cookbook Digitalized
               </Typography>
               <Typography align='center' variant='h4' style={{ fontFamily: 'Oswald', color: '#e6e6ea' }}>
                 What ingredients do you want to use?
@@ -122,7 +122,7 @@ const Storage = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-            <Link to='/recipes'>
+            <Link to={`/recipes?email=${authCode}`}>
               <Button className={classes.logoutButton}>
                 Recipes
               </Button>

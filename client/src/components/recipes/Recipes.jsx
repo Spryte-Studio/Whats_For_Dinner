@@ -26,7 +26,7 @@ const Recipes = () => {
   const [cuisineTypes, setCuisineTypes] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const [filter, setFilter] = useState();
-  const { searchIngredients } = useContext(ProductContext);
+  const { searchIngredients, authCode } = useContext(ProductContext);
   // const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
   // const ingredients = ["shrimp", "broccoli", "carrots"];
   const mappedIngredients = searchIngredients
@@ -116,15 +116,15 @@ const Recipes = () => {
                   align="center"
                   variant="h2"
                   style={{
-                    top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%'
+                    top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%', lineHeight: '3'
                   }}
                 >
-                  Your Cook Book Digitalized
+                  Your Cookbook Digitalized
                 </Typography>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-              <Link to='/inventory'>
+              <Link to={`/inventory?email=${authCode}`}>
                 <Button className={classes.logoutButton}>
                   Inventory
                 </Button>
@@ -168,15 +168,15 @@ const Recipes = () => {
                   align="center"
                   variant="h2"
                   style={{
-                    top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%'
+                    top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%', lineHeight: '3'
                   }}
                 >
-                  Your Cook Book Digitalized
+                  Your Cookbook Digitalized
                 </Typography>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-              <Link to='/inventory'>
+              <Link to={`/inventory?email=${authCode}`}>
                 <Button className={classes.logoutButton}>
                   Inventory
                 </Button>
@@ -220,17 +220,17 @@ const Recipes = () => {
                 align="center"
                 variant="h2"
                 style={{
-                  top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%'
+                  top: '500px', fontFamily: 'Oswald', color: '#e6e6ea', width: '100%', lineHeight: '3'
                 }}
               >
-                Your Cook Book Digitalized
+                Your Cookbook Digitalized
               </Typography>
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer}>
-            <Link to="/inventory">
+            <Link to={`/inventory?email=${authCode}`}>
               <Button className={classes.logoutButton}>
-                Pantry
+                Inventory
               </Button>
             </Link>
             <Button className={classes.logoutButton} onClick={endSession}>
@@ -250,7 +250,7 @@ const Recipes = () => {
                 image={recipe.recipe.image}
                 cuisineType={recipe.recipe.cuisineType}
                 ingredientLines={recipe.recipe.ingredientLines}
-                recipe={recipe}
+                recipe={recipe.recipe}
               />
             </Grid>
           ))}

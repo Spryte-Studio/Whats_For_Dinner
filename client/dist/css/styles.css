@@ -3,7 +3,7 @@ body {
   font-weight: 500;
   color: #e6e6ea;
   height: 100%;
-;
+  background-color: #666782 !important;
 }
 
 .F200 {
@@ -108,5 +108,5 @@ body {
 
  .makeStyles-background-1 {
   height: 100% !important;
-  background-color: #666782;
+  background-color: #bbbcd3;
  }
