@@ -119,27 +119,3 @@ const deleteIngredient = (ingredientName, userID, callback) => {
 };
 
 module.exports = { postIngredient, deleteIngredient };
-
-// ingredients.map((ingredient) => (
-//   db.query(
-//     insertIngredientToInventory,
-//       [ingredient, perishable],
-//       function(err, results) {
-//         if (err) {
-//           callback(err, null);
-//         } else {
-//           console.log('results??? - id???', results.rows[0].id);
-//           db.query(
-//             insertIngredientForUser,
-//             [UID, results.rows[0].id],
-//             function(err, resultsTwo) {
-//               if (err) {
-//                 callback(err, null);
-//               } else {
-//                 callback(null, 'Successfully added ingredients! :)')
-//               }
-//             }
-//           )
-//         }
-//       })
-// ))

@@ -51,20 +51,6 @@ var App = () => {
     }}>
       <Router>
         <div>
-          {/* <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/inventory'>Inventory</Link>
-          </li>
-          <li>
-            <Link to='/recipes'>Recipes</Link>
-          </li>
-          <li>
-            <Link to='/dashboard'>Dashboard</Link>
-          </li>
-        </ul> */}
           <Switch>
             <Route path="/" exact>
               <Home handleLogout={handleLogout} />
