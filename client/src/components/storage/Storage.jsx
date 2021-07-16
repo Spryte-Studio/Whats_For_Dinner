@@ -80,7 +80,7 @@ const Storage = () => {
               <Typography align='center' variant='h4' style={{ fontFamily: 'Oswald', color: '#e6e6ea' }}>
                 Now that you've selected some ingredients, head over to recipes to see what you could make!
               </Typography>
-              <Link to='/recipes'>
+              <Link to={`/recipes?email=${authCode}`}>
                 <Button className={classes.logoutButton}>
                   See Recipes!
                 </Button>
@@ -122,7 +122,7 @@ const Storage = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-            <Link to='/recipes'>
+            <Link to={`/recipes?email=${authCode}`}>
               <Button className={classes.logoutButton}>
                 Recipes
               </Button>

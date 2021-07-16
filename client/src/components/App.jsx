@@ -25,7 +25,7 @@ var App = () => {
     if (email !== null) {
       setAuthCode(email);
     }
-  }, [email])
+  }, [])
 
   useEffect(() => {
     if (email !== null) {
