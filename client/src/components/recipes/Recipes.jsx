@@ -26,7 +26,7 @@ const Recipes = () => {
   const [cuisineTypes, setCuisineTypes] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const [filter, setFilter] = useState();
-  const { searchIngredients } = useContext(ProductContext);
+  const { searchIngredients, authCode } = useContext(ProductContext);
   // const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
   // const ingredients = ["shrimp", "broccoli", "carrots"];
   const mappedIngredients = searchIngredients
@@ -124,7 +124,7 @@ const Recipes = () => {
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-              <Link to='/inventory'>
+              <Link to={`/inventory?email=${authCode}`}>
                 <Button className={classes.logoutButton}>
                   Inventory
                 </Button>
@@ -176,7 +176,7 @@ const Recipes = () => {
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={2} className={classes.tabContainer} >
-              <Link to='/inventory'>
+              <Link to={`/inventory?email=${authCode}`}>
                 <Button className={classes.logoutButton}>
                   Inventory
                 </Button>
@@ -228,7 +228,7 @@ const Recipes = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={2} className={classes.tabContainer}>
-            <Link to="/inventory">
+            <Link to={`/inventory?email=${authCode}`}>
               <Button className={classes.logoutButton}>
                 Inventory
               </Button>
