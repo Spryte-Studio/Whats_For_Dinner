@@ -8,6 +8,8 @@ import { ProductContext } from '../../context.js';
 var _ = require('underscore');
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 
 const Pantry = ({ deleteIngredient }) => {
   const classes = useStyles();
@@ -48,11 +50,14 @@ const Pantry = ({ deleteIngredient }) => {
               return (
                 <Paper key={ingredient.name} elevation={1} className={classes.ingredient} square>
                   <Grid container xs={12}>
-                    <Grid item xs={12} md={10}>
-                      <ListItem key={ingredient.name} alignItems="flex-start" onClick={() => {
+                    <Grid item xs={12} md={10} >
+                      <ListItem key={ingredient.name} onClick={() => {
                         handleIngredientSelect(ingredient.name)
                       }}
                         style={_.contains(searchIngredients, ingredient.name) ? { color: '#FFFFFF', backgroundColor: '#666782' } : { color: 'Black' }}>
+                        {/* <ListItemAvatar>
+                          <Avatar src={ingredient.photo} />
+                        </ListItemAvatar> */}
                         <ListItemText
                           primary={ingredient.name}
                         />
