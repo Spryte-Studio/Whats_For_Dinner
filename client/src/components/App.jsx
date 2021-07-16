@@ -32,6 +32,7 @@ var App = () => {
       axios.post('/users/postUser', email)
         .then((response) => {
           console.log('response from posting user to db', response);
+          console.log('What\'s For Dinner? \n First Deployed: Jul 15, 2021 \n Created By: David Harbin (@davidkharbin), James Moore (@ThinkCreatively), Meagan Provencher (@mrprov12), Phong Trinh (@ThanhPhongUSC), Mikka Tully (@mtully808)')
         })
     }
   }, [])
