@@ -17,8 +17,6 @@ const Storage = () => {
 
   function fetchInventory(code) {
 
-
-    console.log('AUTH CODE======', { code })
     axios.get(`/storage/inventory`, {
       params: { authCode: code }
     })

@@ -6,7 +6,6 @@ import {
 import axios from 'axios';
 import Home from './home/Home.jsx';
 import Storage from './storage/Storage.jsx';
-import Dashboard from './dashboard/Dashboard.jsx';
 import Recipes from './recipes/Recipes.jsx';
 import { ProductContext } from '../context.js';
 
@@ -21,7 +20,6 @@ var App = () => {
   const [inventory, setInventory] = useState([]);
   const [reloadInventory, toggleReloadInventory] = useState(true);
 
-  console.log(email)
   useEffect(() => {
     if (email !== null) {
       setAuthCode(email);
@@ -32,7 +30,7 @@ var App = () => {
     if (email !== null) {
       axios.post('/users/postUser', email)
         .then((response) => {
-          console.log('response from posting user to db', response);
+          // console.log('response from posting user to db', response);
         })
     }
   }, [])
@@ -60,9 +58,6 @@ var App = () => {
             </Route>
             <Route path="/recipes" exact>
               <Recipes handleLogout={handleLogout} />
-            </Route>
-            <Route path="/dashboard" exact>
-              <Dashboard handleLogout={handleLogout} />
             </Route>
           </Switch>
         </div>

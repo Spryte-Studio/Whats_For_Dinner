@@ -4,7 +4,6 @@ const express = require('express');
 const axios = require('axios');
 
 const router = express.Router();
-const models = require('../models');
 
 require('dotenv').config();
 const {edamam_recipeSearch_app_id, edamam_recipeSearch_app_key} = process.env;

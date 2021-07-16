@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
       console.log('fav post err: ', err);
       res.status(500).send(err);
     } else {
-      console.log('fav post results: ', results);
       res.status(200).send(results);
     }
   });
@@ -28,7 +27,6 @@ router.post('/', (req, res) => {
       console.log('fav post err: ', err);
       res.status(500).send(err);
     } else {
-      console.log('fav post results: ', results);
       res.status(201).send(results);
     }
   });
@@ -40,7 +38,6 @@ router.delete('/', (req, res) => {
       console.log('fav post err: ', err);
       res.status(500).send(err);
     } else {
-      console.log('fav post results: ', results);
       res.status(200).send(results);
     }
   });

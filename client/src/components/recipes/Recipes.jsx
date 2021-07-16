@@ -37,7 +37,6 @@ const Recipes = () => {
     })
     .join("");
   const [query, setQuery] = useState(mappedIngredients);
-  console.log(query);
 
 
   const getRecipes = async () => {
@@ -63,12 +62,10 @@ const Recipes = () => {
   useEffect(() => {
     getRecipes();
   }, [query]);
-  console.log(recipes);
   const filterBy = (type) => {
     if (type === 'all') {
       setRecipes(OGrecipes);
     } else {
-      console.log(type);
       var filteredRecipes = [];
       OGrecipes.forEach((recipe) => {
         if (recipe.recipe.cuisineType && recipe.recipe.cuisineType.length > 0) {

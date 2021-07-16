@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import {
   Button, Typography, Paper, Grid, ListItem, ListItemText
 } from '@material-ui/core';
-import useStyles from '../StorageMaterialUi.jsx';
-import AddIngredient from '../addIngredient/AddIngredient.jsx';
-import { ProductContext } from '../../../context';
+import useStyles from './StorageMaterialUi.jsx';
+import AddIngredient from './addIngredient/AddIngredient.jsx';
+import { ProductContext } from '../../context.js';
 var _ = require('underscore');
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -32,7 +32,6 @@ const Pantry = ({ deleteIngredient }) => {
       ingredientsAlready = searchIngredients.concat([ingredientName]);
     }
 
-    console.log('copy of ingredients array======', ingredientsAlready);
     setSearchIngredients(ingredientsAlready);
   }
 

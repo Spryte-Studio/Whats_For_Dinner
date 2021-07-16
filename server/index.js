@@ -79,8 +79,6 @@ app.get('/auth/google/callback',
   function (req, res) {
     // Successful authentication, redirect home.
     const email = req.user._json.email;
-    console.log(req.cookie)
-    // postUser(email);
     res.redirect('/inventory?email=' + email);
   });
 

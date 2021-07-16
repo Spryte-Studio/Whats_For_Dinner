@@ -24,7 +24,6 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
     if (addIngredientName.length !== 0) {
       axios.get(`/ingredients/${addIngredientName}`)
         .then((response) => {
-          // console.log('response from autocomplete results', response.data);
           updateAutoCompleteList(response.data);
         });
     }
