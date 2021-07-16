@@ -32,7 +32,7 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
 
   function handleSubmit(event) {
     handleFormClose();
-    axios.post(`/ingredients/false`, {addMultIngs, authCode})
+    axios.post(`/ingredients/false`, { addMultIngs, authCode })
       .then((response) => {
         // console.log('response from post pantry ingredients', response);
         // toggle the 'reload inventory' switch so the inventory list can have an automatic reload
@@ -60,6 +60,7 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
             // style={{ width: 600 }}
             fullWidth
             onChange={handleChooseIngredients}
+            onKeyPress={(event)=> { if (event.key==='Enter') {event.preventDefault(); handleSubmit(event)}}}
             renderInput={(params) =>
               <TextField
                 {...params}
@@ -79,7 +80,7 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
             Cancel
           </Button>
           <Button onClick={handleSubmit} type="submit" >
-            Sumbit Ingredient
+            Submit Ingredient
           </Button>
         </DialogActions>
       </Paper>
