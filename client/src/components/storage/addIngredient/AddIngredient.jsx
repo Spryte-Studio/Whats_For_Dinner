@@ -24,7 +24,6 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
     if (addIngredientName.length !== 0) {
       axios.get(`/ingredients/${addIngredientName}`)
         .then((response) => {
-          // console.log('response from autocomplete results', response.data);
           updateAutoCompleteList(response.data);
         });
     }
@@ -34,8 +33,6 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
     handleFormClose();
     axios.post(`/ingredients/false`, { addMultIngs, authCode })
       .then((response) => {
-        // console.log('response from post pantry ingredients', response);
-        // toggle the 'reload inventory' switch so the inventory list can have an automatic reload
         toggleReloadInventory(!reloadInventory);
       })
   }
@@ -57,7 +54,6 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
             id="Add ingredients to your pantry! :)"
             options={ingredientAutoComplete}
             getOptionLabel={(option) => option}
-            // style={{ width: 600 }}
             fullWidth
             onChange={handleChooseIngredients}
             onKeyPress={(event)=> { if (event.key==='Enter') {event.preventDefault(); handleSubmit(event)}}}
@@ -65,7 +61,6 @@ const AddPantryForm = ({ openForm, handleFormClose }) => {
               <TextField
                 {...params}
                 id="name"
-                // select
                 label="Add multiple pantry items"
                 variant="outlined"
                 fullWidth

@@ -4,7 +4,6 @@ const express = require('express');
 const axios = require('axios');
 
 const router = express.Router();
-const models = require('../models');
 
 require('dotenv').config();
 const {edamam_recipeSearch_app_id, edamam_recipeSearch_app_key} = process.env;
@@ -33,16 +32,3 @@ router.get('/allRecipes', async (req, res) => {
 
 })
 module.exports = router;
-
-// await console.log(req.params);
-
-    // const ingredients = [...ingredients];
-    // const mappedIngredients = ingredients
-    // .map((ingredient, idx) => {
-    //   if (idx < ingredients.length - 1) {
-    //     return ingredient + "+";
-    //   } else {
-    //     return ingredient;
-    //   }
-    // })
-    // .join("");

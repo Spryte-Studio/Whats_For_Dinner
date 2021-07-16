@@ -27,8 +27,6 @@ const Recipes = () => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [filter, setFilter] = useState();
   const { searchIngredients, authCode } = useContext(ProductContext);
-  // const [recipes, setRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes") || '[]'));
-  // const ingredients = ["shrimp", "broccoli", "carrots"];
   const mappedIngredients = searchIngredients
     .map((ingredient, idx) => {
       if (idx < searchIngredients.length - 1) {
@@ -39,7 +37,6 @@ const Recipes = () => {
     })
     .join("");
   const [query, setQuery] = useState(mappedIngredients);
-  console.log(query);
 
 
   const getRecipes = async () => {
@@ -48,9 +45,6 @@ const Recipes = () => {
       console.log(response.data.hits);
       setRecipes(response.data.hits);
       setOGRecipes(response.data.hits);
-      // setRecipes(response.data.hits, () => {
-      //   window.localStorage.setItem("recipes", JSON.stringify(recipes));
-      // });
       var cuisines = [];
       response.data.hits.forEach((recipe) => {
         if (recipe.recipe.cuisineType && recipe.recipe.cuisineType.length > 0) {
@@ -68,26 +62,10 @@ const Recipes = () => {
   useEffect(() => {
     getRecipes();
   }, [query]);
-  console.log(recipes);
-  // useEffect(() => {
-
-  //   const getRecipes = async () => {
-
-  //       const response = await axios.get('/spryte/allRecipes', {params: {q: query}})
-  //       console.log(response.data.hits);
-  //       setRecipes(response.data.hits);
-  //       console.log(recipes)
-
-  //   getRecipes();
-  // }, [query])
-
-
-
   const filterBy = (type) => {
     if (type === 'all') {
       setRecipes(OGrecipes);
     } else {
-      console.log(type);
       var filteredRecipes = [];
       OGrecipes.forEach((recipe) => {
         if (recipe.recipe.cuisineType && recipe.recipe.cuisineType.length > 0) {
@@ -96,7 +74,7 @@ const Recipes = () => {
           }
         }
       });
-      setRecipes(filteredRecipes); //rendering async, lagging results
+      setRecipes(filteredRecipes);
     }
   };
 

@@ -40,11 +40,6 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
           title={label}
         />
       </a>
-      {/* <CardContent>
-        <Typography variant="body2" component="p">
-
-        </Typography>
-      </CardContent> */}
       <CardActions disableSpacing>
         {/* <IconButton>
           <FavoriteIcon />
@@ -64,10 +59,6 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          {/* <Typography paragraph>Instructions:</Typography>
-          <Typography paragraph>
-            {mappedIngredients}
-          </Typography> */}
           <ul>
             {ingredientLines.map((recipeLine) => (
               <li> {recipeLine} </li>

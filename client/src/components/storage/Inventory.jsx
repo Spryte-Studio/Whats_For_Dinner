@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import {
   Button, Typography, Paper, Grid, ListItem, ListItemText
 } from '@material-ui/core';
-import useStyles from '../StorageMaterialUi.jsx';
-import AddPantryForm from '../addIngredient/AddPantryForm.jsx';
-import { ProductContext } from '../../../context';
+import useStyles from './StorageMaterialUi.jsx';
+import AddIngredient from './addIngredient/AddIngredient.jsx';
+import { ProductContext } from '../../context.js';
 var _ = require('underscore');
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -32,7 +32,6 @@ const Pantry = ({ deleteIngredient }) => {
       ingredientsAlready = searchIngredients.concat([ingredientName]);
     }
 
-    console.log('copy of ingredients array======', ingredientsAlready);
     setSearchIngredients(ingredientsAlready);
   }
 
@@ -46,7 +45,6 @@ const Pantry = ({ deleteIngredient }) => {
         </Grid>
         <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
           {inventory.map((ingredient) => {
-            // if (!ingredient.perishable) {
               return (
                 <Paper elevation={1} className={classes.ingredient} square>
                   <Grid container xs={12}>
@@ -71,8 +69,6 @@ const Pantry = ({ deleteIngredient }) => {
                   </Grid>
                 </Paper>
               )
-            // }
-
           })}
         </Grid>
         <Grid item xs={12} style={{ height: '10%' }}>
@@ -81,7 +77,7 @@ const Pantry = ({ deleteIngredient }) => {
           }}>
             Add Item
           </Button>
-          <AddPantryForm
+          <AddIngredient
             openForm={openForm}
             handleFormClose={handleFormClose}
           />
