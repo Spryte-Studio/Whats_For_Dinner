@@ -80,7 +80,7 @@ const AddFridgeForm = ({ openForm, handleFormClose }) => {
             Cancel
           </Button>
           <Button onClick={handleSubmit} color="primary" type="submit">
-            Sumbit Ingredient
+            Submit Ingredient
           </Button>
         </DialogActions>
       </Paper>
