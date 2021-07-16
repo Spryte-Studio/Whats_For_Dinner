@@ -35,11 +35,13 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
         title={label}
         subheader={cuisineType}
       />
-      <CardMedia
-        className={classes.cardMedia}
-        image={image}
-        title="Paella dish"
-      />
+      <a href={recipe.url} target="_blank">
+        <CardMedia
+          className={classes.cardMedia}
+          image={image}
+          title={label}
+        />
+      </a>
       {/* <CardContent>
         <Typography variant="body2" component="p">
 
