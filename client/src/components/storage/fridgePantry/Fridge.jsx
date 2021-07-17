@@ -2,16 +2,14 @@ import React, { useState, useContext } from 'react';
 import {
   Button, Typography, Paper, Grid, ListItem, ListItemText
 } from '@material-ui/core';
-import useStyles from './StorageMaterialUi.jsx';
-import AddIngredient from './addIngredient/AddIngredient.jsx';
-import { ProductContext } from '../../context.js';
+import useStyles from '../StorageMaterialUi.jsx';
+import AddFridgeForm from '../addIngredient/AddFridgeForm.jsx';
+import { ProductContext } from '../../../context';
 var _ = require('underscore');
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 
-const Pantry = ({ deleteIngredient }) => {
+const Fridge = ({ deleteIngredient }) => {
   const classes = useStyles();
   const [openForm, setOpenForm] = useState(false);
   const { authCode, searchIngredients, setSearchIngredients, inventory, setInventory } = useContext(ProductContext);
@@ -38,26 +36,24 @@ const Pantry = ({ deleteIngredient }) => {
   }
 
   return (
-    <Grid item xs={12} md={6} >
+    <Grid item xs={12} md={4}>
       <Paper className={classes.pantryAndFridgeContainer} elevation={3} square>
         <Grid item xs={12} className={classes.fridgeHeader}>
           <Typography variant='h4' align='center' style={{ borderBottom: '2px solid black', height: '100%' }}>
-            Inventory
+            Fridge
           </Typography>
         </Grid>
         <Grid item xs={12} className={classes.items} style={{ borderBottom: '2px solid black' }}>
           {inventory.map((ingredient) => {
+            if (ingredient.perishable) {
               return (
                 <Paper key={ingredient.name} elevation={1} className={classes.ingredient} square>
                   <Grid container xs={12}>
-                    <Grid item xs={12} md={10} >
-                      <ListItem key={ingredient.name} onClick={() => {
+                    <Grid item xs={12} md={10}>
+                      <ListItem key={ingredient.name} alignItems="flex-start" onClick={() => {
                         handleIngredientSelect(ingredient.name)
                       }}
                         style={_.contains(searchIngredients, ingredient.name) ? { color: '#FFFFFF', backgroundColor: '#666782' } : { color: 'Black' }}>
-                        {/* <ListItemAvatar>
-                          <Avatar src={ingredient.photo} />
-                        </ListItemAvatar> */}
                         <ListItemText
                           primary={ingredient.name}
                         />
@@ -74,6 +70,8 @@ const Pantry = ({ deleteIngredient }) => {
                   </Grid>
                 </Paper>
               )
+            }
+
           })}
         </Grid>
         <Grid item xs={12} style={{ height: '10%' }}>
@@ -82,7 +80,7 @@ const Pantry = ({ deleteIngredient }) => {
           }}>
             Add Item
           </Button>
-          <AddIngredient
+          <AddFridgeForm
             openForm={openForm}
             handleFormClose={handleFormClose}
           />
@@ -92,4 +90,4 @@ const Pantry = ({ deleteIngredient }) => {
   );
 };
 
-export default Pantry;
+export default Fridge;

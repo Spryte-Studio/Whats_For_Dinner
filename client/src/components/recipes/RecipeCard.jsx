@@ -19,6 +19,7 @@ export default function RecipeReviewCard({ recipe, label, image, ingredientLines
   const mappedIngredients = ingredientLines.join("\n");
 
   return (
+    console.log(ingredientLines),
     <Card className={classes.cardBody} raised={true} >
       <CardHeader
         avatar={

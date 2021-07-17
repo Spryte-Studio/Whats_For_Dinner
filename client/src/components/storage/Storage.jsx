@@ -16,12 +16,10 @@ const Storage = () => {
   const { authCode, searchIngredients, inventory, setInventory, reloadInventory, toggleReloadInventory } = useContext(ProductContext);
 
   function fetchInventory(code) {
-
     axios.get(`/storage/inventory`, {
       params: { authCode: code }
     })
       .then((response) => {
-        console.log('inside .then====', response)
         setInventory(response.data);
       });
   };

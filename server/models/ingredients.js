@@ -2,13 +2,14 @@ const db = require('../../database');
 
 
 const postIngredient = function(
-  ingredients, perishable, UID, callback) {
-  console.log('ingredients in model', ingredients);
+  ingredientName, perishable, UID, photo, callback) {
+  console.log('ingredients in model', ingredientName);
+  console.log('photo inside ingredient add model', photo);
   const insertIngredientToInventory =
-    `INSERT INTO inventory (name, perishable) VALUES ($1, $2) RETURNING ID;`;
+    `INSERT INTO inventory (name, perishable, photo) VALUES ($1, $2, $3) RETURNING ID;`;
   db.query('SELECT id FROM users WHERE auth_code = $1;', [UID])
     .then((userID) => {
-      ingredients.map((ingredientName) => (
+      // ingredients.map((ingredientName) => (
         db.query('SELECT id FROM inventory WHERE name=$1', [ingredientName])
         .then((results) => {
           const inventory_id = results.rows[0].id;
@@ -23,7 +24,8 @@ const postIngredient = function(
             });
         })
         .catch((err) => {
-          db.query(insertIngredientToInventory, [ingredientName, perishable])
+          console.log('query to add ingredient====', ingredientName, perishable, photo);
+          db.query(insertIngredientToInventory, [ingredientName, perishable, photo])
             .then((results) => {
               const inventory_id = results.rows[0].id;
               const insertIngredientForUser =
@@ -37,7 +39,7 @@ const postIngredient = function(
                 });
             })
         })
-      ))
+      // ))
     })
     .catch((err) => {
       callback(err, null);
