@@ -20,6 +20,7 @@ passport.use(new GoogleStrategy({
   clientID: '212805700707-muf5v7daa20sumpsafnojrlanps22eh4.apps.googleusercontent.com',
   clientSecret: client_secret,
   callbackURL: "http://localhost:3000/auth/google/callback",
+  // callbackURL for the AWS instance: http://whats4dinnerapp.com/auth/google/callback
 },
   function (accessToken, refreshToken, profile, done) {
     return done(null, profile);
