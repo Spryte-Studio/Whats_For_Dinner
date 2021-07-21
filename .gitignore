@@ -1,11 +1,5 @@
-database/config.js
 node_modules
-main.js
 .env
-config
 Wireframe.ai
-
-imgs
-server/controllers/config.js
-client/dist/main
+client/dist/main.js
 package-lock.json
